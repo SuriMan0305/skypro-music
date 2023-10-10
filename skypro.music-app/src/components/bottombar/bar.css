@@ -298,3 +298,48 @@
 .volume__progress-line {
   width: 109px;
 }
+
+@keyframes loadingPlayer {
+  0% { transform: translatex(0); 
+  opacity: 0;}
+  50% { transform: translatex(200%); 
+    opacity: 1;}
+  100% { transform: translatex(400%); 
+  opacity: 0;}
+}
+
+@keyframes loadingAlbum {
+  0% { 
+    transform: translatex(-100%); 
+    opacity: 0;
+  }
+  50% { 
+    transform: translatex(0%); 
+    opacity: 1;
+  }
+  100% { 
+    transform: translatex(100%); 
+    opacity: 0;
+  }
+}
+
+.track-play__loading {
+  display: inherit;
+  width: 49px;
+  height: 15px;
+  background-color: #313131;
+}
+
+.loading_bar__album {
+  width: 20px;
+  height: 51px;
+  background: linear-gradient(90deg, rgba(49,49,49,1) 0%, rgba(255,255,255,0.44021358543417366) 49%, rgba(49,49,49,1) 100%);
+  animation: loadingAlbum 1.5s linear infinite;
+}
+
+.loading_bar__player {
+  width: 10px;
+  height: 15px;
+  background: linear-gradient(90deg, rgba(49,49,49,1) 0%, rgba(255,255,255,0.44021358543417366) 49%, rgba(49,49,49,1) 100%);
+  animation: loadingPlayer 1.5s linear infinite;
+}

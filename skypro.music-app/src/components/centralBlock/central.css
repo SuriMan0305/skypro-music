@@ -313,3 +313,53 @@
   color: #696969;
 }
 
+@keyframes loadingTrack {
+  0% { 
+    opacity: 0.3;
+  }
+  50% { 
+    opacity: 1;
+  }
+  100% { 
+    opacity: 0.3;
+  }
+}
+
+.loading__track-image {
+  width: 51px;
+  height: 51px;
+  margin-right: 17px;
+  background-color: #5b5a5a;
+  animation: loadingTrack 2s linear infinite;
+}
+
+.track__title-loading {
+  width: 356px;
+  height: 19px;
+  background-color: #5b5a5a;
+  animation: loadingTrack 2.2s linear infinite;
+}
+
+.track__author-loading {
+  width: 305px;
+  height: 19px;
+  background-color: #5b5a5a;
+  animation: loadingTrack 2.4s linear infinite;
+}
+
+.track__album-loading {
+  width: 220px;
+  height: 19px;
+  background-color: #5b5a5a;
+  margin-right: 31px;
+  margin-left: 20px;
+  animation: loadingTrack 2.6s linear infinite;
+}
+
+.track__time-loading {
+  width: 55px;
+  height: 19px;
+  background-color: #5b5a5a;
+  animation: loadingTrack 2.8s linear infinite;
+}
+
