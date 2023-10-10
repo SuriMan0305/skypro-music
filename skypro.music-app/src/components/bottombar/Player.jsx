@@ -1,5 +1,5 @@
-import '../css/bar.css'
-import PlayingInfoSong from './SongInfo';
+import "./bar.css";
+import { PlayingInfoSong } from "./SongInfo";
 
 const PlayerPanel = () => {
   return (
@@ -35,7 +35,7 @@ const PlayerPanel = () => {
                 </svg>
               </div>
             </div>
-          <PlayingInfoSong song='Ты та...' artist='Баста' />
+            <PlayingInfoSong song="Ты та..." artist="Баста" />
           </div>
           <div className="bar__volume-block volume">
             <div className="volume__content">
@@ -59,4 +59,4 @@ const PlayerPanel = () => {
   );
 };
 
-export default PlayerPanel;
+export { PlayerPanel };

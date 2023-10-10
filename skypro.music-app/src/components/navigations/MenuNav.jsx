@@ -6,4 +6,4 @@ function NavMenu(props) {
 </li>
 }
 
-export default NavMenu;
+export { NavMenu };

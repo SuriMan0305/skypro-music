@@ -1,5 +1,5 @@
-import '../css/central.css'
-import TrackInfo from './Tracks';
+import './central.css'
+import {TrackInfo} from './Tracks';
 
 const MainContent = () => {
   return         <div className="centerblock__content">
@@ -28,4 +28,4 @@ const MainContent = () => {
 </div>
 }
 
-export default MainContent;
+export {MainContent};

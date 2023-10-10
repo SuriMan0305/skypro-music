@@ -1,5 +1,5 @@
-import "../css/nav.css";
-import NavMenu from "./MenuNav";
+import "./nav.css";
+import { NavMenu } from "./MenuNav";
 
 const NavPanel = () => {
   return (
@@ -23,4 +23,4 @@ const NavPanel = () => {
   );
 };
 
-export default NavPanel;
+export { NavPanel };

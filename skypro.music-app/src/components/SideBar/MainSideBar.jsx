@@ -1,4 +1,4 @@
-import "../css/sidebar.css";
+import "./sidebar.css";
 
 const SidePanel = () => {
   return (
@@ -46,4 +46,4 @@ const SidePanel = () => {
   );
 };
 
-export default SidePanel;
+export { SidePanel };

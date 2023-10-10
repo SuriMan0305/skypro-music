@@ -1,4 +1,4 @@
-import "../css/bar.css";
+import "./bar.css";
 
 const PlayingInfoSong = (props) => {
   return (
@@ -36,4 +36,4 @@ const PlayingInfoSong = (props) => {
   );
 };
 
-export default PlayingInfoSong;
+export {PlayingInfoSong};

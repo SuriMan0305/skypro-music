@@ -1,4 +1,4 @@
-import "../css/central.css";
+import "./central.css";
 
 const SearchBar = () => {
   return (
@@ -27,4 +27,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export {SearchBar};
