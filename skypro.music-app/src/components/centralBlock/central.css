@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "StratosSkyeng";
+  src: local("StratosSkyeng"), local("StratosSkyeng"),
+    url("../../../public/fonts/StratosSkyeng.woff2") format("woff2"),
+    url("../../../public/fonts/StratosSkyeng.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
 .centerblock__search {
   width: 100%;
   border-bottom: 1px solid #4e4e4e;
@@ -93,6 +102,7 @@
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 51px;
+  position: relative;
 }
 
 .centerblock__content {
@@ -361,5 +371,101 @@
   height: 19px;
   background-color: #5b5a5a;
   animation: loadingTrack 2.8s linear infinite;
+}
+
+.search__author {
+  box-sizing: border-box;
+  padding: 32px;
+  width: 248px;
+  height: 305px;
+  border-radius: 12px;
+  background-color: #313131;
+  position: absolute;
+  top: 49px;
+  left: 90px;
+}
+
+.list__authors {
+  width: 180px;
+  height: 237px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  overflow-y: scroll;
+}
+
+#scroll::-webkit-scrollbar {
+  width: 6px;
+  background-color: #4b4949;
+  border-radius: 6px;
+}
+#scroll::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.list__text {
+  font-family: "StratosSkyeng", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.list__text:hover {
+  text-decoration: underline;
+  color: #B672ff;
+  cursor: pointer;
+}
+
+.list__text:active {
+  color: #AD61FF;
+}
+
+/* по году выпуска */
+
+.search__year {
+  box-sizing: border-box;
+  padding: 34px;
+  border-radius: 12px;
+  background-color: #313131;
+  position: absolute;
+  top: 49px;
+  left: 240px;
+}
+
+.list__year {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* по жанру */
+.search__type {
+  box-sizing: border-box;
+  padding: 34px;
+  border-radius: 12px;
+  background-color: #313131;
+  position: absolute;
+  top: 49px;
+  left: 390px;
+}
+
+.list__type {
+  width: 180px;
+  height: 237px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  overflow-y: scroll;
+}
+
+#scroll__type::-webkit-scrollbar {
+  width: 6px;
+  background-color: #4b4949;
+  border-radius: 6px;
+}
+#scroll__type::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #fff;
 }
 
