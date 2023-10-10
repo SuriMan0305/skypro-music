@@ -1,4 +1,4 @@
-import '../css/central.css'
+import './central.css'
 
 const TrackInfo = (props) => {
   return <div className="playlist__item">
@@ -35,4 +35,4 @@ const TrackInfo = (props) => {
 </div>
 }
 
-export default TrackInfo;
+export {TrackInfo};

@@ -1,10 +1,11 @@
 import "./App.css";
 
-import SidePanel from "./components/SideBar/MainSideBar";
-import PlayerPanel from "./components/bottombar/Player";
-import MainContent from "./components/centralBlock/Content";
-import SearchBar from "./components/centralBlock/Search";
-import NavPanel from "./components/navigations/MainNavPanel";
+import { SidePanel } from "./components/SideBar/MainSideBar";
+import {PlayerPanel} from "./components/bottombar/Player";
+import{ MainContent} from "./components/centralBlock/Content";
+import {SearchBar} from "./components/centralBlock/Search";
+import { NavPanel } from "./components/navigations/MainNavPanel";
+
 
 function App() {
   return (
