@@ -1,6 +1,5 @@
 import "../central.css";
-
-import { SearchAuthor, SearchType, SearchYear } from "../filters/SearchFilters";
+import { SearchFilters } from "../filters/SearchFilters";
 
 export const SearchBar = () => {
   return (
@@ -19,9 +18,7 @@ export const SearchBar = () => {
       <h2 className="centerblock__h2">Треки</h2>
       <div className="centerblock__filter filter">
         <div className="filter__title">Искать по:</div>
-        <SearchAuthor></SearchAuthor>
-        <SearchYear></SearchYear>
-        <SearchType></SearchType>
+        <SearchFilters></SearchFilters>
       </div>
     </>
   );
