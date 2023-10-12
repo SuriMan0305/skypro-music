@@ -83,3 +83,35 @@
   width: 100%;
   height: auto;
 }
+
+@keyframes loadingSide {
+  0% { 
+    transform: translatex(-50%); 
+    opacity: 0;
+  }
+  50% { 
+    transform: translatex(200%); 
+    opacity: 1;
+  }
+  100% { 
+    transform: translatex(450%); 
+    opacity: 0;
+  }
+}
+
+.sidebar__item_loading {
+  width: 250px;
+  height: 150px;
+  background-color: #313131;
+}
+
+.sidebar__item_loading:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.sidebar__preload {
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(49,49,49,1) 0%, rgba(157, 157, 157, 0.44) 49%, rgba(49,49,49,1) 100%);
+  animation: loadingSide 1.5s linear infinite;
+}
