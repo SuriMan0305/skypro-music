@@ -1,19 +1,39 @@
 import React from "react";
-import "./central.css";
+import "../central.css";
 
 const { useState } = React;
 
-const SearchAuthor = () => {
+export const SearchFilters = () => {
   const [visible, setVisible] = useState(false);
+
+  const [visible2, setVisible2] = useState(false);
+
+  const [visible3, setVisible3] = useState(false);
 
   const handleClick = () => {
     setVisible(!visible);
+    setVisible2(false);
+    setVisible3(false);
+  };
+
+  const handleClick2 = () => {
+    setVisible2(!visible2);
+    setVisible(false);
+    setVisible3(false);
+
+  };
+
+  const handleClick3 = () => {
+    setVisible3(!visible3);
+    setVisible(false);
+    setVisible2(false);
+
   };
 
   return (
     <>
       <div
-        className="filter__button button-author _btn-text"
+        className={`filter__button button-author _btn-text ${visible ? 'active__filter' : ''}`}
         onClick={handleClick}>
         исполнителю
       </div>
@@ -33,25 +53,13 @@ const SearchAuthor = () => {
           </div>
         </div>
       )}
-    </>
-  );
-};
 
-const SearchYear = () => {
-  const [visible, setVisible] = useState(false);
-
-  const handleClick = () => {
-    setVisible(!visible);
-  };
-
-  return (
-    <>
       <div
-        className="filter__button button-year _btn-text"
-        onClick={handleClick}>
+        className={`filter__button button-year _btn-text ${visible2 ? 'active__filter' : ''}`}
+        onClick={handleClick2}>
         году выпуска
       </div>
-      {visible && (
+      {visible2 && (
         <div className="search__year">
           <div className="list__year" id="scroll">
             <p className="list__text">По умолчанию</p>
@@ -60,21 +68,13 @@ const SearchYear = () => {
           </div>
         </div>
       )}
-    </>
-  );
-};
 
-const SearchType = () => {
-  const [visible, setVisible] = useState(false);
-
-  const handleClick = () => {
-    setVisible(!visible);
-  };
-
-  return (
-    <>
-      <div className="filter__button button-genre _btn-text" onClick={handleClick}>жанру</div>
-      {visible && (
+      <div
+        className={`filter__button button-genre _btn-text ${visible3 ? 'active__filter' : ''}`}
+        onClick={handleClick3}>
+        жанру
+      </div>
+      {visible3 && (
         <div className="search__type">
           <div className="list__type" id="scroll__type">
             <p className="list__text">Pop</p>
@@ -89,5 +89,3 @@ const SearchType = () => {
     </>
   );
 };
-
-export { SearchAuthor, SearchYear, SearchType };

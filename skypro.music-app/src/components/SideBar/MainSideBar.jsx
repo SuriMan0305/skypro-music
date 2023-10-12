@@ -3,7 +3,7 @@ import "./sidebar.css";
 
 const { useEffect, useState } = React;
 
-const SidePanel = () => {
+export const SidePanel = () => {
   const [seconds, setSeconds] = useState(0);
 
   const increase = () => {
@@ -93,5 +93,3 @@ const SidePanel = () => {
     );
   }
 };
-
-export { SidePanel };

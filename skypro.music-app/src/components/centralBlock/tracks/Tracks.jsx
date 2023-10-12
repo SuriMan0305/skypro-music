@@ -1,9 +1,9 @@
 import React from "react";
-import "./central.css";
+import "../central.css";
 
 const { useEffect, useState } = React;
 
-const TrackInfo = (props) => {
+export const TrackInfo = (props) => {
   const [seconds, setSeconds] = useState(0);
 
   const increase = () => {
@@ -78,5 +78,3 @@ const TrackInfo = (props) => {
     );
   }
 };
-
-export { TrackInfo };

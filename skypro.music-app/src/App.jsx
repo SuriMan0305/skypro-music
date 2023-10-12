@@ -1,11 +1,10 @@
 import "./App.css";
 
 import { SidePanel } from "./components/SideBar/MainSideBar";
-import {PlayerPanel} from "./components/bottombar/Player";
-import{ MainContent} from "./components/centralBlock/Content";
-import {SearchBar} from "./components/centralBlock/Search";
-import { NavPanel } from "./components/navigations/MainNavPanel";
-
+import { PlayerPanel } from "./components/bottombar/player/Player";
+import { MainContent } from "./components/centralBlock/content/Content";
+import { SearchBar } from "./components/centralBlock/search/Search";
+import { NavPanel } from "./components/navigations/panel/MainNavPanel";
 
 function App() {
   return (
@@ -19,7 +18,7 @@ function App() {
           </div>
           <SidePanel />
         </main>
-        <PlayerPanel />
+        <PlayerPanel></PlayerPanel>
         <footer className="footer" />
       </div>
     </div>

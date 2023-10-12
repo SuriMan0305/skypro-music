@@ -1,9 +1,9 @@
 import React from "react";
-import "./bar.css";
+import "../bar.css";
 
 const { useEffect, useState } = React;
 
-const PlayingInfoSong = (props) => {
+export const PlayingInfoSong = (props) => {
   const [seconds, setSeconds] = useState(0);
 
   const increase = () => {
@@ -85,5 +85,3 @@ const PlayingInfoSong = (props) => {
     );
   }
 };
-
-export { PlayingInfoSong };

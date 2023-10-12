@@ -1,8 +1,7 @@
-import "./central.css";
+import "../central.css";
+import { SearchFilters } from "../filters/SearchFilters";
 
-import { SearchAuthor, SearchType, SearchYear } from "./SearchFilters";
-
-const SearchBar = () => {
+export const SearchBar = () => {
   return (
     <>
       <div className="centerblock__search search">
@@ -19,12 +18,8 @@ const SearchBar = () => {
       <h2 className="centerblock__h2">Треки</h2>
       <div className="centerblock__filter filter">
         <div className="filter__title">Искать по:</div>
-        <SearchAuthor></SearchAuthor>
-        <SearchYear></SearchYear>
-        <SearchType></SearchType>
+        <SearchFilters></SearchFilters>
       </div>
     </>
   );
 };
-
-export {SearchBar};
