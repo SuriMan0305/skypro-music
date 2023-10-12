@@ -1,10 +1,10 @@
-import "./nav.css";
-import { NavMenu } from "./MenuNav";
+import "../nav.css";
+import { NavMenu } from "../menu/MenuNav";
 import React from "react";
 
 const { useState } = React;
 
-const NavPanel = () => {
+export const NavPanel = () => {
   const [visible, setVisible] = useState(true);
 
   const toggleVisibility = () => setVisible(!visible);
@@ -31,5 +31,3 @@ const NavPanel = () => {
     </nav>
   );
 };
-
-export { NavPanel };

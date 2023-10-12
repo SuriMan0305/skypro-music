@@ -1,8 +1,8 @@
-import "./central.css";
+import "../central.css";
 
-import { SearchAuthor, SearchType, SearchYear } from "./SearchFilters";
+import { SearchAuthor, SearchType, SearchYear } from "../filters/SearchFilters";
 
-const SearchBar = () => {
+export const SearchBar = () => {
   return (
     <>
       <div className="centerblock__search search">
@@ -26,5 +26,3 @@ const SearchBar = () => {
     </>
   );
 };
-
-export {SearchBar};

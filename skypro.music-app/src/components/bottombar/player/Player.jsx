@@ -1,7 +1,7 @@
-import "./bar.css";
-import { PlayingInfoSong } from "./SongInfo";
+import "../bar.css";
+import { PlayingInfoSong } from "../info/SongInfo";
 
-const PlayerPanel = () => {
+export const PlayerPanel = () => {
   return (
     <div className="bar">
       <div className="bar__content">
@@ -58,5 +58,3 @@ const PlayerPanel = () => {
     </div>
   );
 };
-
-export { PlayerPanel };

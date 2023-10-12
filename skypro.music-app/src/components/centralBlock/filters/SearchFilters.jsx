@@ -1,5 +1,5 @@
 import React from "react";
-import "./central.css";
+import "../central.css";
 
 const { useState } = React;
 
