@@ -1,13 +1,6 @@
-import "../nav.css";
-import { NavMenu } from "../menu/MenuNav";
+import { MenuItemComponent} from "../menu/MenuNav";
 import React from "react";
-import styled from 'styled-components'
-
-const StyledMainNav = styled.nav`
-  width: 244px;
-  background-color: #181818;
-  padding: 20px 0 20px 36px;
-`
+import * as S from '../MenuStyles.js'
 
 const { useState } = React;
 
@@ -17,24 +10,24 @@ export const NavPanel = () => {
   const toggleVisibility = () => setVisible(!visible);
 
   return (
-    <StyledMainNav className="main__nav nav">
-      <div className="nav__logo logo">
-        <img className="logo__image" src="img/logo.png" alt="logo" />
-      </div>
-      <div className="nav__burger burger" onClick={toggleVisibility}>
-        <span className="burger__line" />
-        <span className="burger__line" />
-        <span className="burger__line" />
-      </div>
-      <div className="nav__menu menu">
+    <S.MainNav>
+      <S.NavLogo>
+        <S.LogoImage src="img/logo.png" alt="logo" />
+      </S.NavLogo>
+      <S.NavBurger onClick={toggleVisibility}>
+        <S.BurgerLine />
+        <S.BurgerLine />
+        <S.BurgerLine />
+      </S.NavBurger>
+      <S.NavMenu>
         {visible && (
-          <ul className="menu__list">
-            <NavMenu title="Главное" />
-            <NavMenu title="Мой плейлист" />
-            <NavMenu title="Войти" adress="../signin.html" />
-          </ul>
+          <S.MenuList>
+            <MenuItemComponent title="Главное" />
+            <MenuItemComponent title="Мой плейлист" />
+            <MenuItemComponent title="Войти" adress="../signin.html" />
+          </S.MenuList>
         )}
-      </div>
-    </StyledMainNav>
+      </S.NavMenu>
+    </S.MainNav>
   );
 };

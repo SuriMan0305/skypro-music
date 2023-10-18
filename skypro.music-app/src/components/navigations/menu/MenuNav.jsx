@@ -1,7 +1,9 @@
-export function NavMenu(props) {
-  return <li className="menu__item">
-  <a href={props.adress} className="menu__link">
+import * as S from '../MenuStyles.js'
+
+export function MenuItemComponent(props) {
+  return <S.MenuItem>
+  <S.MenuLink href={props.adress}>
     {props.title}
-  </a>
-</li>
+  </S.MenuLink>
+</S.MenuItem>
 }
