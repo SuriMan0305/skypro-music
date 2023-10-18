@@ -1,12 +1,13 @@
-.bar {
+import styled, {keyframes} from 'styled-components'
+
+export const Bar = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   background: rgba(28, 28, 28, 0.5);
-}
-
-.bar__content {
+`
+export const Content = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,15 +15,15 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-}
+`
 
-.bar__player-progress {
+export const PlayerProgress = styled.div`
   width: 100%;
   height: 5px;
   background: #2e2e2e;
-}
+`
 
-.bar__player-block {
+export const PlayerBlock = styled.div`
   height: 73px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -34,9 +35,8 @@
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-}
-
-.bar__player {
+`
+export const BarPlayer = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -50,9 +50,9 @@
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-}
+`
 
-.bar__volume-block {
+export const BarVolumeBlock = styled.div`
   width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,9 +61,8 @@
   -ms-flex-align: center;
   align-items: center;
   padding: 0 92px 0 0;
-}
-
-.player__controls {
+`
+export const PlayerControls = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,13 +71,8 @@
   -ms-flex-direction: row;
   flex-direction: row;
   padding: 0 27px 0 31px;
-}
-
-.player__btn-prev,
-.player__btn-play,
-.player__btn-next,
-.player__btn-repeat,
-.player__btn-shuffle {
+`
+export const ButtonsStyles = styled.div`
   padding: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -86,67 +80,80 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.player__btn-prev {
+  cursor: pointer;
+`
+export const PrevButton = styled(ButtonsStyles)`
   margin-right: 23px;
-}
-
-.player__btn-prev-svg {
+`
+export const PrevButtonSvg = styled.svg`
   width: 15px;
   height: 14px;
-}
-
-.player__btn-play {
-  margin-right: 23px;
-}
-
-.player__btn-play-svg {
+  fill: inherit;
+  stroke: #d9d9d9;;
+`
+export const PlayButton = styled(ButtonsStyles)`
+    margin-right: 23px;
+`
+export const PlayButtonSvg = styled.svg`
   width: 22px;
   height: 20px;
   fill: #d9d9d9;
-}
-
-.player__btn-next {
+`
+export const NextButton = styled(ButtonsStyles)`
   margin-right: 28px;
   fill: #a53939;
-}
-
-.player__btn-next-svg {
+`
+export const NextButtonSvg = styled.svg`
   width: 15px;
   height: 14px;
   fill: inherit;
   stroke: #d9d9d9;
-}
-
-.player__btn-repeat {
+`
+export const RepeatButton = styled(ButtonsStyles)`
   margin-right: 24px;
-}
-
-.player__btn-repeat-svg {
+`
+export const RepeatButtonSvg = styled.svg`
   width: 18px;
   height: 12px;
   fill: transparent;
   stroke: #696969;
-}
-
-.player__btn-shuffle {
+  &:hover {
+    fill: transparent;
+    stroke: #acacac;
+  };
+  &:active {
+    fill: transparent;
+    stroke: #ffffff;
+  }
+`
+export const ShuffleButton = styled(ButtonsStyles)`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.player__btn-shuffle-svg {
+`
+export const ShuffleButtonSvg = styled.svg`
   width: 19px;
   height: 12px;
   fill: transparent;
   stroke: #696969;
-}
-
-.player__track-play {
+  &:hover {
+    fill: transparent;
+    stroke: #acacac;
+  };
+  &:active {
+    fill: transparent;
+    stroke: #ffffff;
+  }
+`
+export const VolumeImage = styled.div`
+  width: 13px;
+  height: 18px;
+  margin-right: 17px;
+`
+export const VolumeContent = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -154,9 +161,36 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-}
-
-.track-play__contain {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: end;
+`
+export const VolumeSvg = styled.svg`
+  width: 13px;
+  height: 18px;
+  fill: transparent;
+`
+export const VolumeProgress = styled.div`
+  width: 109px;
+  cursor: pointer;
+`
+export const VolumeProgressLine = styled.input`
+  width: 109px;
+  cursor: pointer;
+`
+export const TrackPlay = styled.div`
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+`
+export const TrackPlayContain = styled.div`
   width: auto;
   display: -ms-grid;
   display: grid;
@@ -166,9 +200,8 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.track-play__image {
+`
+export const TrackPlayImage = styled.div`
   width: 51px;
   height: 51px;
   background-color: #313131;
@@ -186,129 +219,49 @@
   -ms-grid-row-span: 2;
   -ms-grid-column-align: 1;
   grid-area: image;
-}
-
-.track-play__svg {
+`
+export const TrackPlaySvg = styled.svg`
   width: 18px;
   height: 17px;
   fill: transparent;
   stroke: #4e4e4e;
-}
-
-.track-play__author {
+`
+export const InfoPlayAuthor = styled.div`
   -ms-grid-row-span: 1;
   -ms-grid-column-span: 2;
   grid-area: author;
   min-width: 49px;
-}
-
-.track-play__author-link {
+`
+export const InfoPlayAuthorLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
   white-space: nowrap;
-}
-
-.track-play__album {
+`
+export const InfoPlayAlbum = styled.div`
   -ms-grid-row-span: 2;
   -ms-grid-column-span: 2;
   grid-area: album;
   min-width: 49px;
-}
-
-.track-play__album-link {
+`
+export const InfoPlayAlbumLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
   color: #ffffff;
-}
-
-.track-play__like-dis {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-left: 26%;
-}
-
-.track-play__like,
-.track-play__dislike {
-  padding: 5px;
-}
-
-.track-play__like-svg {
-  width: 14px;
-  height: 12px;
-  fill: transparent;
-  stroke: #696969;
-}
-
-.track-play__dislike {
-  margin-left: 28.5px;
-}
-
-.track-play__dislike-svg {
-  width: 14.34px;
-  height: 13px;
-  fill: transparent;
-  stroke: #696969;
-}
-
-.volume__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: end;
-}
-
-.volume__image {
-  width: 13px;
-  height: 18px;
-  margin-right: 17px;
-}
-
-.volume__svg {
-  width: 13px;
-  height: 18px;
-  fill: transparent;
-}
-
-.volume__progress {
-  width: 109px;
-}
-
-.volume__progress-line {
-  width: 109px;
-}
-
-@keyframes loadingPlayer {
+`
+export const PlayerLoad = keyframes`
   0% { transform: translatex(0); 
   opacity: 0;}
   50% { transform: translatex(200%); 
     opacity: 1;}
   100% { transform: translatex(400%); 
   opacity: 0;}
-}
-
-@keyframes loadingAlbum {
+`
+export const AlbumLoad = keyframes`
   0% { 
     transform: translatex(-100%); 
     opacity: 0;
@@ -321,25 +274,61 @@
     transform: translatex(100%); 
     opacity: 0;
   }
-}
-
-.track-play__loading {
+`
+export const LoadPlay = styled.div`
   display: inherit;
   width: 49px;
   height: 15px;
   background-color: #313131;
-}
-
-.loading_bar__album {
+`
+export const LoadAlbum = styled.div`
   width: 20px;
   height: 51px;
   background: linear-gradient(90deg, rgba(49,49,49,1) 0%, rgba(255,255,255,0.44021358543417366) 49%, rgba(49,49,49,1) 100%);
-  animation: loadingAlbum 1.5s linear infinite;
-}
-
-.loading_bar__player {
+  animation: ${AlbumLoad} 1.5s linear infinite;
+`
+export const LoadInfo = styled.div`
   width: 10px;
   height: 15px;
   background: linear-gradient(90deg, rgba(49,49,49,1) 0%, rgba(255,255,255,0.44021358543417366) 49%, rgba(49,49,49,1) 100%);
-  animation: loadingPlayer 1.5s linear infinite;
-}
+  animation: ${PlayerLoad} 1.5s linear infinite;
+`
+export const LikeBlock = styled.div`
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 26%;
+`
+export const HoverLikes = styled.div`
+  padding: 5px;
+  &:hover svg {
+    fill: transparent;
+    stroke: #acacac;
+    cursor: pointer;
+  };
+  &:active svg {
+    fill: #696969;
+    stroke: #ffffff;
+    cursor: pointer;
+  }
+`
+export const LikeSvg = styled.svg`
+  width: 14px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+`
+export const DislikeSvg = styled.svg`
+  margin-left: 28.5px;
+  width: 14.34px;
+  height: 13px;
+  fill: transparent;
+  stroke: #696969;
+`
