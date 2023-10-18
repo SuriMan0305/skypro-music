@@ -1,6 +1,13 @@
 import "../nav.css";
 import { NavMenu } from "../menu/MenuNav";
 import React from "react";
+import styled from 'styled-components'
+
+const StyledMainNav = styled.nav`
+  width: 244px;
+  background-color: #181818;
+  padding: 20px 0 20px 36px;
+`
 
 const { useState } = React;
 
@@ -10,7 +17,7 @@ export const NavPanel = () => {
   const toggleVisibility = () => setVisible(!visible);
 
   return (
-    <nav className="main__nav nav">
+    <StyledMainNav className="main__nav nav">
       <div className="nav__logo logo">
         <img className="logo__image" src="img/logo.png" alt="logo" />
       </div>
@@ -28,6 +35,6 @@ export const NavPanel = () => {
           </ul>
         )}
       </div>
-    </nav>
+    </StyledMainNav>
   );
 };
