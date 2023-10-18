@@ -1,6 +1,5 @@
 import React from "react";
-import "./sidebar.css";
-
+import * as S from './SidebarStyles.js'
 const { useEffect, useState } = React;
 
 export const SidePanel = () => {
@@ -23,73 +22,70 @@ export const SidePanel = () => {
 
   if (seconds === 3) {
     return (
-      <div className="main__sidebar sidebar">
-        <div className="sidebar__personal">
-          <p className="sidebar__personal-name">levchenko Kirill</p>
-          <div className="sidebar__icon">
+      <S.MainSidebar>
+        <S.SidebarPersonal>
+          <S.SidebarPersonalName>levchenko Kirill</S.SidebarPersonalName>
+          <S.SidebarIcon>
             <svg alt="logout">
               <use xlinkHref="img/icon/sprite.svg#logout" />
             </svg>
-          </div>
-        </div>
-        <div className="sidebar__block">
-          <div className="sidebar__list">
-            <div className="sidebar__item">
-              <a className="sidebar__link" href="#!">
-                <img
-                  className="sidebar__img"
+          </S.SidebarIcon>
+        </S.SidebarPersonal>
+        <S.SidebarBlock>
+          <S.SidebarList>
+            <S.SidebarItem>
+              <S.SidebarLink href="#!">
+                <S.SidebarImg
                   src="img/playlist01.png"
                   alt="day's playlist"
                 />
-              </a>
-            </div>
-            <div className="sidebar__item">
-              <a className="sidebar__link" href="#!">
-                <img
-                  className="sidebar__img"
+              </S.SidebarLink>
+            </S.SidebarItem>
+            <S.SidebarItem>
+              <S.SidebarLink href="#!">
+                <S.SidebarImg
                   src="img/playlist02.png"
                   alt="day's playlist"
                 />
-              </a>
-            </div>
-            <div className="sidebar__item">
-              <a className="sidebar__link" href="#!">
-                <img
-                  className="sidebar__img"
+              </S.SidebarLink>
+            </S.SidebarItem>
+            <S.SidebarItem>
+              <S.SidebarLink href="#!">
+                <S.SidebarImg
                   src="img/playlist03.png"
                   alt="day's playlist"
                 />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+              </S.SidebarLink>
+            </S.SidebarItem>
+          </S.SidebarList>
+        </S.SidebarBlock>
+      </S.MainSidebar>
     );
   } else {
     return (
-      <div className="main__sidebar sidebar">
-        <div className="sidebar__personal">
-          <p className="sidebar__personal-name">loading...</p>
-          <div className="sidebar__icon">
+      <S.MainSidebar>
+        <S.SidebarPersonal>
+          <S.SidebarPersonalName>loading...</S.SidebarPersonalName>
+          <S.SidebarIcon className="sidebar__icon">
             <svg alt="logout">
               <use xlinkHref="img/icon/sprite.svg#logout" />
             </svg>
-          </div>
-        </div>
-        <div className="sidebar__block">
-          <div className="sidebar__list">
-            <div className="sidebar__item_loading">
-              <div className="sidebar__preload"></div>
-            </div>
-            <div className="sidebar__item_loading">
-              <div className="sidebar__preload"></div>
-            </div>
-            <div className="sidebar__item_loading">
-              <div className="sidebar__preload"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+          </S.SidebarIcon>
+        </S.SidebarPersonal>
+        <S.SidebarBlock>
+          <S.SidebarList>
+            <S.SidebarLoading>
+              <S.Preload></S.Preload>
+            </S.SidebarLoading>
+            <S.SidebarLoading>
+              <S.Preload></S.Preload>
+            </S.SidebarLoading>
+            <S.SidebarLoading>
+              <S.Preload></S.Preload>
+            </S.SidebarLoading>
+          </S.SidebarList>
+        </S.SidebarBlock>
+      </S.MainSidebar>
     );
   }
 };
