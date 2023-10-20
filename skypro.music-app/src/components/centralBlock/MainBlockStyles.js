@@ -400,14 +400,6 @@ export const ListAuthors = styled.div`
   }
 `;
 export const ListText = styled.p`
-  @font-face {
-    font-family: "StratosSkyeng";
-    src: local("StratosSkyeng"), local("StratosSkyeng"),
-      url("../../../public/fonts/StratosSkyeng.woff2") format("woff2"),
-      url("../../../public/fonts/StratosSkyeng.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-  }
   font-family: "StratosSkyeng", sans-serif;
   font-weight: 400;
   font-size: 20px;

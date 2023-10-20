@@ -1,11 +1,11 @@
-import styled, {createGlobalStyle} from 'styled-components'
+import styled, { createGlobalStyle } from "styled-components";
 
 export const AppStyle = createGlobalStyle`
-  @font-face {
+@font-face {
   font-family: "StratosSkyeng";
   src: local("StratosSkyeng"), local("StratosSkyeng"),
-    url("../public/fonts/StratosSkyeng.woff2") format("woff2"),
-    url("../public/fonts/StratosSkyeng.woff") format("woff");
+    url('../fonts/StratosSkyeng.woff2') format("woff2"),
+    url('../fonts/StratosSkyeng.woff') format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -41,20 +41,20 @@ body {
   font-family: "StratosSkyeng", sans-serif;
   color: #ffffff;
 }
-`
+`;
 export const Wrapper = styled.div`
   width: 100%;
   min-height: 100%;
   overflow: hidden;
   background-color: #383838;
-`
+`;
 export const Container = styled.div`
   max-width: 1920px;
   height: 100vh;
   margin: 0 auto;
   position: relative;
   background-color: #181818;
-`
+`;
 export const Main = styled.div`
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
@@ -67,11 +67,11 @@ export const Main = styled.div`
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-`
+`;
 export const MainCenterBlock = styled.div`
   width: auto;
   -webkit-box-flex: 3;
   -ms-flex-positive: 3;
   flex-grow: 3;
   padding: 20px 40px 20px 111px;
-`
+`;
