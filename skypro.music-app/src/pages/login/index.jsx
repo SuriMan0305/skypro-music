@@ -1,4 +1,5 @@
-import * as S from './styles'
+import { NavLink } from "react-router-dom";
+import * as S from "./styles";
 export const Sign = () => {
   return (
     <>
@@ -12,17 +13,19 @@ export const Sign = () => {
                   <img src="../img/logo_modal.png" alt="logo" />
                 </S.ModalLogo>
               </a>
-              <S.ModalInput type="text" name="login" placeholder="Почта" />
-              <S.ModalInput
-                type="password"
-                name="password"
-                placeholder="Пароль"
-              />
+              <S.InputBlock>
+                <S.ModalInput type="text" name="login" placeholder="Почта" />
+                <S.ModalInput
+                  type="password"
+                  name="password"
+                  placeholder="Пароль"
+                />
+              </S.InputBlock>
               <S.ButtonEnter>
-                <a href="../index.html">Войти</a>
+                <NavLink to="/main">Войти</NavLink>
               </S.ButtonEnter>
               <S.ButtonSignUp>
-                <a href="signup.html">Зарегистрироваться</a>
+                <NavLink to="/sign">Зарегистрироваться</NavLink>
               </S.ButtonSignUp>
             </S.ModalFormLogin>
           </S.ModalBlock>

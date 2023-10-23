@@ -1,11 +1,11 @@
 import { MenuItemComponent} from "../menu/MenuNav";
 import React from "react";
-import * as S from '../MenuStyles.js'
+import * as S from '../MenuStyles'
 
 const { useState } = React;
 
 export const NavPanel = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
 
   const toggleVisibility = () => setVisible(!visible);
 
@@ -22,9 +22,9 @@ export const NavPanel = () => {
       <S.NavMenu>
         {visible && (
           <S.MenuList>
-            <MenuItemComponent title="Главное" />
-            <MenuItemComponent title="Мой плейлист" />
-            <MenuItemComponent title="Войти" adress='/authorization' />
+            <MenuItemComponent title="Главное" adress='/main' />
+            <MenuItemComponent title="Мой плейлист" adress='/myplaylist'/>
+            <MenuItemComponent title="Выйти" adress='/' />
           </S.MenuList>
         )}
       </S.NavMenu>
