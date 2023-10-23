@@ -5,7 +5,7 @@ import * as S from '../MenuStyles'
 const { useState } = React;
 
 export const NavPanel = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   const toggleVisibility = () => setVisible(!visible);
 

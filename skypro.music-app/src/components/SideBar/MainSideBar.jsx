@@ -2,7 +2,7 @@ import React from "react";
 import * as S from './SidebarStyles.js'
 const { useEffect, useState } = React;
 
-export const SidePanel = () => {
+export const SidePanel = (props) => {
   const [seconds, setSeconds] = useState(0);
 
   const increase = () => {
@@ -31,34 +31,7 @@ export const SidePanel = () => {
             </svg>
           </S.SidebarIcon>
         </S.SidebarPersonal>
-        <S.SidebarBlock>
-          <S.SidebarList>
-            <S.SidebarItem>
-              <S.SidebarLink href="#!">
-                <S.SidebarImg
-                  src="img/playlist01.png"
-                  alt="day's playlist"
-                />
-              </S.SidebarLink>
-            </S.SidebarItem>
-            <S.SidebarItem>
-              <S.SidebarLink href="#!">
-                <S.SidebarImg
-                  src="img/playlist02.png"
-                  alt="day's playlist"
-                />
-              </S.SidebarLink>
-            </S.SidebarItem>
-            <S.SidebarItem>
-              <S.SidebarLink href="#!">
-                <S.SidebarImg
-                  src="img/playlist03.png"
-                  alt="day's playlist"
-                />
-              </S.SidebarLink>
-            </S.SidebarItem>
-          </S.SidebarList>
-        </S.SidebarBlock>
+        {props.contain}
       </S.MainSidebar>
     );
   } else {
@@ -72,19 +45,7 @@ export const SidePanel = () => {
             </svg>
           </S.SidebarIcon>
         </S.SidebarPersonal>
-        <S.SidebarBlock>
-          <S.SidebarList>
-            <S.SidebarLoading>
-              <S.Preload></S.Preload>
-            </S.SidebarLoading>
-            <S.SidebarLoading>
-              <S.Preload></S.Preload>
-            </S.SidebarLoading>
-            <S.SidebarLoading>
-              <S.Preload></S.Preload>
-            </S.SidebarLoading>
-          </S.SidebarList>
-        </S.SidebarBlock>
+        {props.contain}
       </S.MainSidebar>
     );
   }

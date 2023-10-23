@@ -1,9 +1,12 @@
-import * as S from './AppStyles'
+import * as S from "./AppStyles";
 import { SidePanel } from "../../components/SideBar/MainSideBar";
 import { PlayerPanel } from "../../components/bottombar/player/Player";
 import { MainContent } from "../../components/centralBlock/content/Content";
 import { SearchBar } from "../../components/centralBlock/search/Search";
 import { NavPanel } from "../../components/navigations/panel/MainNavPanel";
+import { FilterBlock } from "../../components/centralBlock/filterBlock/FilterBlock";
+import { MainTitle } from "../../components/centralBlock/titleBlock/MainTitle";
+import { SideListBlock } from "../../components/SideBar/sideBarBlock/sideBlock";
 
 export const Main = () => {
   return (
@@ -15,9 +18,11 @@ export const Main = () => {
             <NavPanel />
             <S.MainCenterBlock>
               <SearchBar />
+              <MainTitle title='Треки' />
+              <FilterBlock />
               <MainContent />
             </S.MainCenterBlock>
-            <SidePanel />
+            <SidePanel contain={<SideListBlock />} />
           </S.Main>
           <PlayerPanel></PlayerPanel>
           <footer className="footer" />
