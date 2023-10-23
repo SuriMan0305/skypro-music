@@ -1,4 +1,4 @@
-import * as S from './AppStyles.js'
+import * as S from './AppStyles'
 import { SidePanel } from "../../components/SideBar/MainSideBar";
 import { PlayerPanel } from "../../components/bottombar/player/Player";
 import { MainContent } from "../../components/centralBlock/content/Content";

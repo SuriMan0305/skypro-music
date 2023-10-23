@@ -24,7 +24,7 @@ export const NavPanel = () => {
           <S.MenuList>
             <MenuItemComponent title="Главное" />
             <MenuItemComponent title="Мой плейлист" />
-            <MenuItemComponent title="Войти" adress="../signin.html" />
+            <MenuItemComponent title="Войти" adress='/authorization' />
           </S.MenuList>
         )}
       </S.NavMenu>

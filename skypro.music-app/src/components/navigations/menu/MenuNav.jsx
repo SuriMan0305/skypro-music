@@ -1,9 +1,10 @@
-import * as S from '../MenuStyles.js'
+import * as S from "../MenuStyles.js";
+import { NavLink } from "react-router-dom";
 
 export function MenuItemComponent(props) {
-  return <S.MenuItem>
-  <S.MenuLink href={props.adress}>
-    {props.title}
-  </S.MenuLink>
-</S.MenuItem>
+  return (
+    <S.MenuItem>
+      <NavLink to={props.adress}>{props.title}</NavLink>
+    </S.MenuItem>
+  );
 }
