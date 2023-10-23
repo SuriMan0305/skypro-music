@@ -5,6 +5,7 @@ import { PlayerPanel } from "../../components/bottombar/player/Player";
 import { MainContent } from "../../components/centralBlock/content/Content";
 import { SearchBar } from "../../components/centralBlock/search/Search";
 import { NavPanel } from "../../components/navigations/panel/MainNavPanel";
+import { MainTitle } from '../../components/centralBlock/titleBlock/MainTitle';
 
 export const Playlist = () => {
   return (
@@ -15,7 +16,8 @@ export const Playlist = () => {
         <S.Main>
           <NavPanel />
           <S.MainCenterBlock>
-            <SearchBar />
+              <SearchBar />
+              <MainTitle title='Мои Треки' />
             <MainContent />
           </S.MainCenterBlock>
           <SidePanel />
