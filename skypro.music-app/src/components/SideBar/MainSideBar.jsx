@@ -1,8 +1,9 @@
 import React from "react";
 import * as S from './SidebarStyles.js'
+import { SideListBlock, SideListBlockLoading } from "./sideBarBlock/sideBlock.jsx";
 const { useEffect, useState } = React;
 
-export const SidePanel = (props) => {
+export const SidePanel = () => {
   const [seconds, setSeconds] = useState(0);
 
   const increase = () => {
@@ -24,28 +25,28 @@ export const SidePanel = (props) => {
     return (
       <S.MainSidebar>
         <S.SidebarPersonal>
-          <S.SidebarPersonalName>levchenko Kirill</S.SidebarPersonalName>
+          <S.SidebarPersonalName></S.SidebarPersonalName>
           <S.SidebarIcon>
             <svg alt="logout">
               <use xlinkHref="img/icon/sprite.svg#logout" />
             </svg>
           </S.SidebarIcon>
         </S.SidebarPersonal>
-        {props.contain}
+        <SideListBlock />
       </S.MainSidebar>
     );
   } else {
     return (
       <S.MainSidebar>
         <S.SidebarPersonal>
-          <S.SidebarPersonalName>loading...</S.SidebarPersonalName>
+          <S.SidebarPersonalName></S.SidebarPersonalName>
           <S.SidebarIcon className="sidebar__icon">
             <svg alt="logout">
               <use xlinkHref="img/icon/sprite.svg#logout" />
             </svg>
           </S.SidebarIcon>
         </S.SidebarPersonal>
-        {props.contain}
+        <SideListBlockLoading />
       </S.MainSidebar>
     );
   }

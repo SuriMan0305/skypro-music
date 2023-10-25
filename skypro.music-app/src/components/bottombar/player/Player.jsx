@@ -1,7 +1,8 @@
+import { MYPLAYLIST } from "../../../constants";
 import { PlayingInfoSong } from "../info/SongInfo";
 import * as S from "../PlayeStyles.js";
 
-export const PlayerPanel = () => {
+export const PlayerPanel = ({songlist = MYPLAYLIST}) => {
   return (
     <S.Bar>
       <S.Content>
@@ -35,7 +36,7 @@ export const PlayerPanel = () => {
                 </S.ShuffleButtonSvg>
               </S.ShuffleButton>
             </S.PlayerControls>
-            <PlayingInfoSong song="Ты та..." artist="Баста" />
+            <PlayingInfoSong song={songlist[0].title} artist={songlist[0].name} />
           </S.BarPlayer>
           <S.BarVolumeBlock>
             <S.VolumeContent>

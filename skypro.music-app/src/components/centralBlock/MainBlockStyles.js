@@ -1,11 +1,11 @@
-import styled, {keyframes, css} from 'styled-components'
+import styled, { keyframes, css } from "styled-components";
 
- export const  PlaylistItem = styled.div`
-  width: 100%;
+export const PlaylistItem = styled.div`
+  width: 1105px;
   display: block;
   margin-bottom: 12px;
-`
- export const  PlaylistTrack = styled.div`
+`;
+export const PlaylistTrack = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,8 +19,8 @@ import styled, {keyframes, css} from 'styled-components'
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-`
- export const  TrackTitle = styled.div`
+`;
+export const TrackTitle = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,8 +32,8 @@ import styled, {keyframes, css} from 'styled-components'
   -ms-flex-align: center;
   align-items: center;
   width: 447px;
-`
- export const  TrackTitleImage = styled.div`
+`;
+export const TrackTitleImage = styled.div`
   width: 51px;
   height: 51px;
   padding: 16px;
@@ -48,55 +48,55 @@ import styled, {keyframes, css} from 'styled-components'
   -ms-flex-pack: center;
   justify-content: center;
   margin-right: 17px;
-`
- export const  TrackTitleSvg = styled.svg`
+`;
+export const TrackTitleSvg = styled.svg`
   width: 18px;
   height: 17px;
   fill: transparent;
   stroke: #4e4e4e;
-`
- export const  TrackTitleLink = styled.a`
+`;
+export const TrackTitleLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
-`
- export const  TrackTitleSpan = styled.span`
+`;
+export const TrackTitleSpan = styled.span`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #4e4e4e;
-`
- export const  TrackAuthor = styled.div`
-  width: 321px;
+`;
+export const TrackAuthor = styled.div`
+  width: 320px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-`
- export const  TrackAuthorLink = styled.a`
+`;
+export const TrackAuthorLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
   text-align: left;
-`
- export const  TrackAlbum = styled.div`
-  width: 245px;
-`
- export const  TrackAlbumLink = styled.a`
+`;
+export const TrackAlbum = styled.div`
+  width: 206px;
+`;
+export const TrackAlbumLink = styled.a`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #696969;
-`
- export const  TrackTimeSvg = styled.svg`
+`;
+export const TrackTimeSvg = styled.svg`
   width: 14px;
   height: 12px;
   margin-right: 17px;
@@ -106,22 +106,22 @@ import styled, {keyframes, css} from 'styled-components'
     fill: transparent;
     stroke: #acacac;
     cursor: pointer;
-  };
+  }
   &:active use {
     fill: #696969;
     stroke: #ffffff;
     cursor: pointer;
   }
-`
- export const  TrackTimeText = styled.span`
+`;
+export const TrackTimeText = styled.span`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   text-align: right;
   color: #696969;
-`
- export const  LoadingTracks = keyframes`
+`;
+export const LoadingTracks = keyframes`
   0% { 
     opacity: 0.3;
   }
@@ -131,40 +131,86 @@ import styled, {keyframes, css} from 'styled-components'
   100% { 
     opacity: 0.3;
   }
-`
- export const  LoadingTrackImage = styled.div`
+`;
+export const LoadingTrackImage = styled.div`
   width: 51px;
   height: 51px;
   margin-right: 17px;
   background-color: #5b5a5a;
   animation: ${LoadingTracks} 2s linear infinite;
-`
- export const  TrackTitleLoading = styled.div`
+`;
+export const TrackTitleLoading = styled.div`
   width: 356px;
   height: 19px;
   background-color: #5b5a5a;
   animation: ${LoadingTracks} 2.2s linear infinite;
-`
- export const  TrackAuthorLoading = styled.div`
-  width: 305px;
+`;
+export const TrackAuthorLoading = styled.div`
+  width: 340px;
   height: 19px;
+  margin-left: 48px;
   background-color: #5b5a5a;
   animation: ${LoadingTracks} 2.4s linear infinite;
+`;
+export const TrackAlbumLoading = styled.div`
+  width: 210px;
+  height: 19px;
+  background-color: #5b5a5a;
+  margin-right: 40px;
+  margin-left: 20px;
+  animation: ${LoadingTracks} 2.6s linear infinite;
+`;
+export const TrackTimeLoading = styled.div`
+  width: 55px;
+  height: 19px;
+  background-color: #5b5a5a;
+  animation: ${LoadingTracks} 2.8s linear infinite;
+`;
+// my playlist styles
+export const ContentPlaylistPage = styled.div`
+  width: 1298px;
+`;
+export const TracklistPlaylistPage = styled.div`
+  width: 100%;
+`;
+export const PlaylistItemPlaylistPage = styled.div`
+  margin-bottom: 12px;
 `
- export const  TrackAlbumLoading = styled.div`
-  width: 220px;
+
+export const LoadingTrackImageMyPlaylist = styled.div`
+  width: 51px;
+  height: 51px;
+  margin-right: 17px;
+  background-color: #5b5a5a;
+  animation: ${LoadingTracks} 2s linear infinite;
+`;
+export const TrackTitleLoadingMyPlaylist = styled.div`
+  width: 356px;
+  height: 19px;
+  background-color: #5b5a5a;
+  animation: ${LoadingTracks} 2.2s linear infinite;
+`;
+export const TrackAuthorLoadingMyPlaylist = styled.div`
+  width: 330px;
+  height: 19px;
+  margin-left: 30px;
+  background-color: #5b5a5a;
+  animation: ${LoadingTracks} 2.4s linear infinite;
+`;
+export const TrackAlbumLoadingMyPlaylist = styled.div`
+  width: 210px;
   height: 19px;
   background-color: #5b5a5a;
   margin-right: 31px;
   margin-left: 20px;
   animation: ${LoadingTracks} 2.6s linear infinite;
-`
- export const  TrackTimeLoading = styled.div`
+`;
+export const TrackTimeLoadingMyPlaylist = styled.div`
   width: 55px;
   height: 19px;
   background-color: #5b5a5a;
-  animation: ${LoadingTracks} 2.8s linear infinite;
-`
+  animation: ${LoadingTracks} 2s linear infinite;
+`;
 //
 export const Search = styled.div`
   width: 100%;
@@ -207,7 +253,7 @@ export const SearchText = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-  };
+  }
   &:-ms-input-placeholder {
     background-color: transparent;
     color: #ffffff;
@@ -215,7 +261,7 @@ export const SearchText = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-  };
+  }
   &::-ms-input-placeholder {
     background-color: transparent;
     color: #ffffff;
@@ -223,7 +269,7 @@ export const SearchText = styled.input`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-  };
+  }
   &::placeholder {
     background-color: transparent;
     color: #ffffff;
@@ -232,7 +278,7 @@ export const SearchText = styled.input`
     font-size: 16px;
     line-height: 24px;
   }
-`
+`;
 export const BlockText = styled.h2`
   font-style: normal;
   font-weight: 400;
@@ -240,7 +286,7 @@ export const BlockText = styled.h2`
   line-height: 72px;
   letter-spacing: -0.8px;
   margin-bottom: 45px;
-`
+`;
 export const BlockFilter = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
@@ -254,14 +300,14 @@ export const BlockFilter = styled.div`
   align-items: center;
   margin-bottom: 51px;
   position: relative;
-`
+`;
 export const BlockFilterTitle = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   margin-right: 15px;
-`
+`;
 //
 
 export const Content = styled.div`
@@ -272,7 +318,7 @@ export const Content = styled.div`
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-`
+`;
 export const ContentTitle = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
@@ -287,8 +333,8 @@ export const ContentTitle = styled.div`
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin-bottom: 24px;
-`
+  margin-bottom: 20px;
+`;
 export const WIDTH = {
   col1: css`
     width: 447px;
@@ -300,14 +346,14 @@ export const WIDTH = {
     width: 245px;
   `,
   col4: css`
-    width: 60px;
+    width: 19px;
   `,
-}
+};
 
 export const columnStyle = (column = "col1") => {
   const style = WIDTH[column];
   return style;
-}
+};
 
 export const TitleColumn = styled.div`
   font-style: normal;
@@ -317,26 +363,26 @@ export const TitleColumn = styled.div`
   letter-spacing: 2px;
   color: #696969;
   text-transform: uppercase;
-`
+`;
 
 export const TitleColumnFirst = styled(TitleColumn)`
-  ${columnStyle('col1')}
-`
+  ${columnStyle("col1")}
+`;
 export const TitleColumnSecond = styled(TitleColumn)`
-  ${columnStyle('col2')}
-`
+  ${columnStyle("col2")}
+`;
 export const TitleColumnThird = styled(TitleColumn)`
-  ${columnStyle('col3')}
-`
+  ${columnStyle("col3")}
+`;
 export const TitleColumnFour = styled(TitleColumn)`
-  ${columnStyle('col4')}
-`
+  ${columnStyle("col4")}
+`;
 export const PlaylistTitleSvg = styled.svg`
   width: 12px;
   height: 12px;
   fill: transparent;
   stroke: #696969;
-`
+`;
 export const ContentPlaylist = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
@@ -346,7 +392,7 @@ export const ContentPlaylist = styled.div`
   -ms-flex-direction: column;
   flex-direction: column;
   overflow-y: auto;
-`
+`;
 ///
 export const FilterButton = styled.div`
   color: ${(props) => (props.$show ? "#9a48f1" : "white")};
@@ -435,7 +481,7 @@ export const SearchType = styled.div`
   position: absolute;
   top: 49px;
   left: 390px;
-`
+`;
 export const ListType = styled.div`
   width: 180px;
   height: 237px;
@@ -452,4 +498,4 @@ export const ListType = styled.div`
     border-radius: 6px;
     background-color: #fff;
   }
-`
+`;

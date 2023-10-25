@@ -23,3 +23,21 @@ export const SideListBlock = () => {
     </S.SidebarBlock>
   );
 };
+
+export const SideListBlockLoading = () => {
+  return (
+    <S.SidebarBlock>
+      <S.SidebarList>
+        <S.SidebarLoading>
+          <S.Preload />
+        </S.SidebarLoading>
+        <S.SidebarLoading>
+          <S.Preload />
+        </S.SidebarLoading>
+        <S.SidebarLoading>
+          <S.Preload />
+        </S.SidebarLoading>
+      </S.SidebarList>
+    </S.SidebarBlock>
+  );
+};

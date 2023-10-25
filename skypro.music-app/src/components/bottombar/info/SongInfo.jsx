@@ -32,12 +32,12 @@ export const PlayingInfoSong = (props) => {
             </S.TrackPlaySvg>
           </S.TrackPlayImage>
           <S.InfoPlayAuthor>
-            <S.InfoPlayAuthorLink href="http://">
+            <S.InfoPlayAuthorLink href="#!">
               {props.song}
             </S.InfoPlayAuthorLink>
           </S.InfoPlayAuthor>
           <S.InfoPlayAlbum>
-            <S.InfoPlayAlbumLink href="http://">
+            <S.InfoPlayAlbumLink href="#!">
               {props.artist}
             </S.InfoPlayAlbumLink>
           </S.InfoPlayAlbum>
