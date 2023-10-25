@@ -1,6 +1,16 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const Base = createGlobalStyle`
+@font-face {
+  font-family: "StratosSkyeng";
+  src: local("StratosSkyeng"), local("StratosSkyeng"),
+    url("/fonts/StratosSkyeng.woff2") format("woff2"),
+    url("/fonts/StratosSkyeng.woff") format("woff"),
+    url("/public/fonts/StratosSkyeng.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -29,15 +39,6 @@ ul li {
   list-style: none;
 }
 
-@font-face {
-  font-family: "StratosSkyeng";
-  src: local("StratosSkyeng"), local("StratosSkyeng"),
-    url("../fonts/SratosSkyeng.woff2") format("woff2"),
-    url("../fonts/StratosSkyeng.woff") format("woff"),
-    url("../fonts/StratosSkyeng.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
 
 html,
 body {

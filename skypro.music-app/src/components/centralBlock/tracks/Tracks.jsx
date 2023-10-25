@@ -12,7 +12,7 @@ export const TrackInfo = (props) => {
 
   useEffect(() => {
     const TimerId = setInterval(() => {
-      if (seconds < 3) {
+      if (seconds < 1) {
         increase();
       }
     }, 1000);
@@ -21,7 +21,7 @@ export const TrackInfo = (props) => {
     };
   });
 
-  if (seconds === 3) {
+  if (seconds === 1) {
     return (
       <S.PlaylistItem>
         <S.PlaylistTrack>

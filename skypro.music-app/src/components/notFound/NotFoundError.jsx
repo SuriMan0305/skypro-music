@@ -12,7 +12,7 @@ export const NotFoundComponent = () => {
         <S.Reason>
           Возможно, она была удалена <br /> или перенесена на другой адрес
         </S.Reason>
-        <NavLink to='/main'>
+        <NavLink to='/'>
           <S.ComebackButton>Вернуться на главную</S.ComebackButton>
         </NavLink>
       </S.ErrorContainer>

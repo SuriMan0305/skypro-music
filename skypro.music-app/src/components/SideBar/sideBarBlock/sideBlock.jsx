@@ -1,29 +1,24 @@
 import { NavLink } from "react-router-dom";
 import * as S from "../SidebarStyles";
+import { CATEGORIES } from "../../../constants";
 
-export const SideListBlock = () => {
+export const SideListBlock = ({categories = CATEGORIES}) => {
   return (
     <S.SidebarBlock>
       <S.SidebarList>
         <S.SidebarItem>
-          <NavLink to={"/category1/"}>
-            <S.SidebarLink href="#!">
+          <NavLink to={`/category/${categories[0].id}`}>
               <S.SidebarImg src="/img/playlist01.png" alt="day's playlist" />
-            </S.SidebarLink>
           </NavLink>
         </S.SidebarItem>
         <S.SidebarItem>
-          <NavLink to={"/category2/"}>
-            <S.SidebarLink href="#!">
+          <NavLink to={`/category/${categories[1].id}`}>
               <S.SidebarImg src="/img/playlist02.png" alt="100 dance hits" />
-            </S.SidebarLink>
           </NavLink>
         </S.SidebarItem>
         <S.SidebarItem>
-          <NavLink to={'/category3/'}>
-            <S.SidebarLink href="#!">
+          <NavLink to={`/category/${categories[2].id}`}>
               <S.SidebarImg src="/img/playlist03.png" alt="indy charge" />
-            </S.SidebarLink>
           </NavLink>
         </S.SidebarItem>
       </S.SidebarList>

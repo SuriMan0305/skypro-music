@@ -22,9 +22,9 @@ export const NavPanel = () => {
       <S.NavMenu>
         {visible && (
           <S.MenuList>
-            <MenuItemComponent title="Главное" adress='/main' />
-            <MenuItemComponent title="Мой плейлист" adress='/myplaylist'/>
-            <MenuItemComponent title="Выйти" adress='/' />
+            <MenuItemComponent title="Главное" adress='/' />
+            <MenuItemComponent title="Мой плейлист" adress='/favorites'/>
+            <MenuItemComponent title="Выйти" adress='/login' />
           </S.MenuList>
         )}
       </S.NavMenu>

@@ -13,7 +13,7 @@ export const PlayingInfoSong = (props) => {
 
   useEffect(() => {
     const TimerId = setInterval(() => {
-      if (seconds < 3) {
+      if (seconds < 1) {
         increase();
       }
     }, 1000);
@@ -22,7 +22,7 @@ export const PlayingInfoSong = (props) => {
     };
   });
 
-  if (seconds === 3) {
+  if (seconds === 1) {
     return (
       <S.TrackPlay>
         <S.TrackPlayContain>
@@ -32,12 +32,12 @@ export const PlayingInfoSong = (props) => {
             </S.TrackPlaySvg>
           </S.TrackPlayImage>
           <S.InfoPlayAuthor>
-            <S.InfoPlayAuthorLink href="#!">
+            <S.InfoPlayAuthorLink href="http://">
               {props.song}
             </S.InfoPlayAuthorLink>
           </S.InfoPlayAuthor>
           <S.InfoPlayAlbum>
-            <S.InfoPlayAlbumLink href="#!">
+            <S.InfoPlayAlbumLink href="http://">
               {props.artist}
             </S.InfoPlayAlbumLink>
           </S.InfoPlayAlbum>

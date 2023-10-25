@@ -12,7 +12,7 @@ export const SidePanel = () => {
 
   useEffect(() => {
     const TimerId = setInterval(() => {
-      if (seconds < 3) {
+      if (seconds < 1) {
         increase();
       }
     }, 1000);
@@ -21,7 +21,7 @@ export const SidePanel = () => {
     };
   });
 
-  if (seconds === 3) {
+  if (seconds === 1) {
     return (
       <S.MainSidebar>
         <S.SidebarPersonal>

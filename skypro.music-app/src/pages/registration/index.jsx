@@ -26,7 +26,7 @@ export const Reg = () => {
                 placeholder="Повторите пароль"
               />
               <S.ButtonSignUp>
-                <NavLink to='/main'>Зарегистрироваться</NavLink>
+                <NavLink to='/'>Зарегистрироваться</NavLink>
               </S.ButtonSignUp>
             </S.ModalFormLogin>
           </S.ModalBlock>

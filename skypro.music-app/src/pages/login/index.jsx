@@ -22,10 +22,10 @@ export const Sign = () => {
                 />
               </S.InputBlock>
               <S.ButtonEnter>
-                <NavLink to="/main">Войти</NavLink>
+                <NavLink to="/">Войти</NavLink>
               </S.ButtonEnter>
               <S.ButtonSignUp>
-                <NavLink to="/sign">Зарегистрироваться</NavLink>
+                <NavLink to="/register">Зарегистрироваться</NavLink>
               </S.ButtonSignUp>
             </S.ModalFormLogin>
           </S.ModalBlock>

@@ -13,7 +13,7 @@ export const MyPlayList = ({ songlist = MYPLAYLIST}) => {
 
   useEffect(() => {
     const TimerId = setInterval(() => {
-      if (seconds < 3) {
+      if (seconds < 1) {
         increase();
       }
     }, 1000);
@@ -21,7 +21,7 @@ export const MyPlayList = ({ songlist = MYPLAYLIST}) => {
       clearInterval(TimerId);
     };
   });
-  if (seconds === 3) {
+  if (seconds === 1) {
     return (
       <S.ContentPlaylistPage>
         <S.ContentTitle>
