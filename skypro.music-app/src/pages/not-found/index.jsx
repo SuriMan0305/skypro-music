@@ -1,7 +1,7 @@
 import * as S from "./NotFoundStyles";
 
-import { SidePanel } from "../../components/SideBar/MainSideBar";
-import { PlayerPanel } from "../../components/bottombar/player/Player";
+import { SidePanelEmpty } from "../../components/SideBar/EmtySideBar";
+import { PlayerPanelNotFound } from "../../components/bottombar/player/PlayerNotContent";
 import { SearchBar } from "../../components/centralBlock/search/Search";
 import { NavPanel } from "../../components/navigations/panel/MainNavPanel";
 import { NotFoundComponent } from "../../components/notFound/NotFoundError";
@@ -18,9 +18,9 @@ export const Undefined = () => {
               <SearchBar />
               <NotFoundComponent />
             </S.MainCenterBlock>
-            <SidePanel />
+            <SidePanelEmpty />
           </S.Main>
-          <PlayerPanel></PlayerPanel>
+          <PlayerPanelNotFound></PlayerPanelNotFound>
           <footer className="footer" />
         </S.Container>
       </S.Wrapper>
