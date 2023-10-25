@@ -11,27 +11,27 @@ export const PlayerPanelNotFound = () => {
             <S.PlayerControls>
               <S.PrevButton>
                 <S.PrevButtonSvg alt="prev">
-                  <use xlinkHref="img/icon/sprite.svg#icon-prev" />
+                  <use xlinkHref="/img/icon/sprite.svg#icon-prev" />
                 </S.PrevButtonSvg>
               </S.PrevButton>
               <S.PlayButton>
                 <S.PlayButtonSvg alt="play">
-                  <use xlinkHref="img/icon/sprite.svg#icon-play" />
+                  <use xlinkHref="/img/icon/sprite.svg#icon-play" />
                 </S.PlayButtonSvg>
               </S.PlayButton>
               <S.NextButton>
                 <S.NextButtonSvg alt="next">
-                  <use xlinkHref="img/icon/sprite.svg#icon-next" />
+                  <use xlinkHref="/img/icon/sprite.svg#icon-next" />
                 </S.NextButtonSvg>
               </S.NextButton>
               <S.RepeatButton>
                 <S.RepeatButtonSvg alt="repeat">
-                  <use xlinkHref="img/icon/sprite.svg#icon-repeat" />
+                  <use xlinkHref="/img/icon/sprite.svg#icon-repeat" />
                 </S.RepeatButtonSvg>
               </S.RepeatButton>
               <S.ShuffleButton>
                 <S.ShuffleButtonSvg alt="shuffle">
-                  <use xlinkHref="img/icon/sprite.svg#icon-shuffle" />
+                  <use xlinkHref="/img/icon/sprite.svg#icon-shuffle" />
                 </S.ShuffleButtonSvg>
               </S.ShuffleButton>
             </S.PlayerControls>
@@ -41,7 +41,7 @@ export const PlayerPanelNotFound = () => {
             <S.VolumeContent>
               <S.VolumeImage>
                 <S.VolumeSvg alt="volume">
-                  <use xlinkHref="img/icon/sprite.svg#icon-volume" />
+                  <use xlinkHref="/img/icon/sprite.svg#icon-volume" />
                 </S.VolumeSvg>
               </S.VolumeImage>
               <S.VolumeProgress>

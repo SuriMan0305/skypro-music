@@ -1,23 +1,30 @@
-import * as S from '../SidebarStyles'
+import { NavLink } from "react-router-dom";
+import * as S from "../SidebarStyles";
 
 export const SideListBlock = () => {
   return (
     <S.SidebarBlock>
       <S.SidebarList>
         <S.SidebarItem>
-          <S.SidebarLink href="#!">
-            <S.SidebarImg src="img/playlist01.png" alt="day's playlist" />
-          </S.SidebarLink>
+          <NavLink to={"/category1/"}>
+            <S.SidebarLink href="#!">
+              <S.SidebarImg src="/img/playlist01.png" alt="day's playlist" />
+            </S.SidebarLink>
+          </NavLink>
         </S.SidebarItem>
         <S.SidebarItem>
-          <S.SidebarLink href="#!">
-            <S.SidebarImg src="img/playlist02.png" alt="day's playlist" />
-          </S.SidebarLink>
+          <NavLink to={"/category2/"}>
+            <S.SidebarLink href="#!">
+              <S.SidebarImg src="/img/playlist02.png" alt="100 dance hits" />
+            </S.SidebarLink>
+          </NavLink>
         </S.SidebarItem>
         <S.SidebarItem>
-          <S.SidebarLink href="#!">
-            <S.SidebarImg src="img/playlist03.png" alt="day's playlist" />
-          </S.SidebarLink>
+          <NavLink to={'/category3/'}>
+            <S.SidebarLink href="#!">
+              <S.SidebarImg src="/img/playlist03.png" alt="indy charge" />
+            </S.SidebarLink>
+          </NavLink>
         </S.SidebarItem>
       </S.SidebarList>
     </S.SidebarBlock>

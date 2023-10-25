@@ -28,7 +28,7 @@ export const SidePanel = () => {
           <S.SidebarPersonalName></S.SidebarPersonalName>
           <S.SidebarIcon>
             <svg alt="logout">
-              <use xlinkHref="img/icon/sprite.svg#logout" />
+              <use xlinkHref="/img/icon/sprite.svg#logout" />
             </svg>
           </S.SidebarIcon>
         </S.SidebarPersonal>
@@ -42,7 +42,7 @@ export const SidePanel = () => {
           <S.SidebarPersonalName></S.SidebarPersonalName>
           <S.SidebarIcon className="sidebar__icon">
             <svg alt="logout">
-              <use xlinkHref="img/icon/sprite.svg#logout" />
+              <use xlinkHref="/img/icon/sprite.svg#logout" />
             </svg>
           </S.SidebarIcon>
         </S.SidebarPersonal>

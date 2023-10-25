@@ -10,7 +10,7 @@ export const MainContent = () => {
         <S.TitleColumnThird>АЛЬБОМ</S.TitleColumnThird>
         <S.TitleColumnFour>
           <S.PlaylistTitleSvg alt="time">
-            <use xlinkHref="img/icon/sprite.svg#icon-watch" />
+            <use xlinkHref="/img/icon/sprite.svg#icon-watch" />
           </S.PlaylistTitleSvg>
         </S.TitleColumnFour>
       </S.ContentTitle>

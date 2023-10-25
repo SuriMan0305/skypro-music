@@ -28,7 +28,7 @@ export const TrackInfo = (props) => {
           <S.TrackTitle>
             <S.TrackTitleImage>
               <S.TrackTitleSvg alt="music">
-                <use xlinkHref="img/icon/sprite.svg#icon-note" />
+                <use xlinkHref="/img/icon/sprite.svg#icon-note" />
               </S.TrackTitleSvg>
             </S.TrackTitleImage>
             <div>
@@ -50,7 +50,7 @@ export const TrackInfo = (props) => {
           </S.TrackAlbum>
           <div>
             <S.TrackTimeSvg alt="time">
-              <use xlinkHref="img/icon/sprite.svg#icon-like" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-like" />
             </S.TrackTimeSvg>
             <S.TrackTimeText>{props.time}</S.TrackTimeText>
           </div>

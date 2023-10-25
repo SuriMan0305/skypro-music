@@ -8,7 +8,7 @@ export const MyPlaylistSide = () => {
         <S.SidebarPersonalName></S.SidebarPersonalName>
         <S.SidebarIcon>
           <svg alt="logout">
-            <use xlinkHref="img/icon/sprite.svg#logout" />
+            <use xlinkHref="/img/icon/sprite.svg#logout" />
           </svg>
         </S.SidebarIcon>
       </S.SidebarPersonal>

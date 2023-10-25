@@ -20,12 +20,12 @@ export const PlayingInfoSongNotFound = (props) => {
         <S.LikeBlock>
           <S.HoverLikes>
             <S.LikeSvg alt="like">
-              <use xlinkHref="img/icon/sprite.svg#icon-like" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-like" />
             </S.LikeSvg>
           </S.HoverLikes>
           <S.HoverLikes>
             <S.DislikeSvg alt="dislike">
-              <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-dislike" />
             </S.DislikeSvg>
           </S.HoverLikes>
         </S.LikeBlock>

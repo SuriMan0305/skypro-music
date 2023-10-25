@@ -4,7 +4,7 @@ import * as S from "../../MainBlockStyles.js";
 
 const { useEffect, useState } = React;
 
-export const MyPlayList = ({ songlist = MYPLAYLIST }) => {
+export const MyPlayList = ({ songlist = MYPLAYLIST}) => {
   const [seconds, setSeconds] = useState(0);
 
   const increase = () => {
@@ -30,7 +30,7 @@ export const MyPlayList = ({ songlist = MYPLAYLIST }) => {
           <S.TitleColumnThird>АЛЬБОМ</S.TitleColumnThird>
           <S.TitleColumnFour>
             <S.PlaylistTitleSvg alt="time">
-              <use xlinkHref="img/icon/sprite.svg#icon-watch" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-watch" />
             </S.PlaylistTitleSvg>
           </S.TitleColumnFour>
         </S.ContentTitle>
@@ -41,7 +41,7 @@ export const MyPlayList = ({ songlist = MYPLAYLIST }) => {
                 <S.TrackTitle>
                   <S.TrackTitleImage>
                     <S.TrackTitleSvg alt="music">
-                      <use xlinkHref="img/icon/sprite.svg#icon-note" />
+                      <use xlinkHref="/img/icon/sprite.svg#icon-note" />
                     </S.TrackTitleSvg>
                   </S.TrackTitleImage>
                   <div>
@@ -63,7 +63,7 @@ export const MyPlayList = ({ songlist = MYPLAYLIST }) => {
                 </S.TrackAlbum>
                 <div>
                   <S.TrackTimeSvg alt="time">
-                    <use xlinkHref="img/icon/sprite.svg#icon-like" />
+                    <use xlinkHref="/img/icon/sprite.svg#icon-like" />
                   </S.TrackTimeSvg>
                   <S.TrackTimeText>{track.time}</S.TrackTimeText>
                 </div>
@@ -82,7 +82,7 @@ export const MyPlayList = ({ songlist = MYPLAYLIST }) => {
           <S.TitleColumnThird>АЛЬБОМ</S.TitleColumnThird>
           <S.TitleColumnFour>
             <S.PlaylistTitleSvg alt="time">
-              <use xlinkHref="img/icon/sprite.svg#icon-watch" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-watch" />
             </S.PlaylistTitleSvg>
           </S.TitleColumnFour>
         </S.ContentTitle>

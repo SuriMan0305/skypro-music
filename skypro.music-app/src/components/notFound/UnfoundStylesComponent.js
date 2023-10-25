@@ -27,7 +27,7 @@ export const Description = styled.p`
 export const Smile = styled.div`
   width: 52px;
   height: 52px;
-  background-image: url("img/crying.png");
+  background-image: url("/img/crying.png");
   background-repeat: no-repeat;
   background-size: cover;
 `;
