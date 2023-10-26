@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { Main } from "./pages/main";
 import { Undefined } from "./pages/not-found";
 import { Sign } from "./pages/login";
@@ -9,8 +9,16 @@ import { PlaylistDanceHits } from "./pages/selections/dancungHits";
 import { PlaylistIndy } from "./pages/selections/indyCharge";
 import { CATEGORIES, TOKEN } from "./constants";
 import { ProtectedRoute } from "./components/protect";
+import { useEffect } from "react";
 
 export const AppRoutes = ({ categories = CATEGORIES, key = TOKEN }) => {
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (Boolean(TOKEN) === true) {
+      navigate('/')
+    }
+  },[])
+  console.log(Boolean(key));
   return (
     <Routes>
       <Route path="/login" element={<Sign />} />

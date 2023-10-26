@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import * as S from "./styles";
+
 export const Sign = () => {
   return (
     <>
