@@ -144,4 +144,4 @@ export const CATEGORIES = [
     id:3
   }
 ]
-export const TOKEN = 'sdsd';
+export const TOKEN = 'fhhg';

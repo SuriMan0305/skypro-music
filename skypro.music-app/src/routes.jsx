@@ -16,22 +16,22 @@ export const AppRoutes = ({ categories = CATEGORIES, key = TOKEN }) => {
       <Route path="/login" element={<Sign />} />
       <Route path="/register" element={<Reg />} />
 
-      <Route path="/favorites" element={<Playlist />} />
-      <Route
-        path={`/category/${categories[0].id}`}
-        element={<PlaylistDaily />}
-      />
-      <Route
-        path={`/category/${categories[1].id}`}
-        element={<PlaylistDanceHits />}
-      />
-      <Route
-        path={`/category/${categories[2].id}`}
-        element={<PlaylistIndy />}
-      />
-
-      <Route element={<ProtectedRoute isAuthorize={Boolean(key)} />}>
-        <Route path="/" element={<Main />} />
+      <Route element={<ProtectedRoute isAllowed={Boolean(key)}/>} >
+        <Route path="/" element={<Main />}>
+        </Route>
+        <Route path="/favorites" element={<Playlist />} />
+          <Route
+            path={`/category/${categories[0].id}`}
+            element={<PlaylistDaily />}
+          />
+          <Route
+            path={`/category/${categories[1].id}`}
+            element={<PlaylistDanceHits />}
+          />
+          <Route
+            path={`/category/${categories[2].id}`}
+            element={<PlaylistIndy />}
+          />
       </Route>
 
       <Route path="*" element={<Undefined />} />
