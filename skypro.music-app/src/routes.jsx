@@ -9,8 +9,10 @@ import { useEffect } from "react";
 import { Collections } from "./pages/selections/collections";
 
 export const AppRoutes = () => {
+  const navigate = useNavigate()
   useEffect(() => {
     localStorage.getItem('token')
+    navigate('/')
   },[])
   return (
     <Routes>
