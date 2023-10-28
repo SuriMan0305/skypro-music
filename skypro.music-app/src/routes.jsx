@@ -12,7 +12,6 @@ export const AppRoutes = () => {
   const navigate = useNavigate()
   useEffect(() => {
     localStorage.getItem('token')
-    navigate('/')
   },[])
   return (
     <Routes>
