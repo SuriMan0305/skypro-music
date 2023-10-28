@@ -2,6 +2,11 @@ import * as S from "./styles";
 import { NavLink } from "react-router-dom";
 
 export const Reg = () => {
+
+  const letEnter = () => {
+    return localStorage.setItem('token', true)
+  }
+
   return (
     <>
       <S.Base></S.Base>
@@ -26,7 +31,7 @@ export const Reg = () => {
                 placeholder="Повторите пароль"
               />
               <S.ButtonSignUp>
-                <NavLink to='/'>Зарегистрироваться</NavLink>
+                <NavLink to='/' onClick={letEnter}>Зарегистрироваться</NavLink>
               </S.ButtonSignUp>
             </S.ModalFormLogin>
           </S.ModalBlock>

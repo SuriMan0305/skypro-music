@@ -6,9 +6,12 @@ import { SearchBar } from "../../../components/centralBlock/search/Search";
 import { NavPanel } from "../../../components/navigations/panel/MainNavPanel";
 import { MainTitle } from "../../../components/centralBlock/titleBlock/MainTitle";
 import { MyPlaylistSide } from "../../../components/centralBlock/myPlaylistComponents/sideBarThis/SideBarMyPlaylist";
-import { DAILYPLAYLIST } from "../../../constants";
+import { COLLECTIONS, DAILYPLAYLIST } from "../../../constants";
+import { useParams } from "react-router-dom";
 
-export const PlaylistDaily = () => {
+export const Collections = () => {
+  const params = useParams()
+  const useCollection = COLLECTIONS.find((collection) => collection.id === Number(params.id))
   return (
     <>
       <S.AppStyle></S.AppStyle>
@@ -18,8 +21,8 @@ export const PlaylistDaily = () => {
             <NavPanel />
             <S.MainCenterBlock>
               <SearchBar />
-              <MainTitle title="Плейлист дня" />
-              <MyPlayList songlist={DAILYPLAYLIST}></MyPlayList>
+              <MainTitle title={useCollection.name} />
+              <MyPlayList songlist={useCollection.container}></MyPlayList>
             </S.MainCenterBlock>
             <MyPlaylistSide />
           </S.Main>

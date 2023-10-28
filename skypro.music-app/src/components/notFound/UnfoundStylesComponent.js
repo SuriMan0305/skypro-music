@@ -14,11 +14,11 @@ export const ErrorContainer = styled.div`
   height: 366px;
   text-align: center;
 `;
-export const Title = styled.p`
+export const Title = styled.div`
   font-size: 160px;
   line-height: 168px;
 `;
-export const Description = styled.p`
+export const Description = styled.div`
   display: flex;
   gap: 8px;
   font-size: 32px;
@@ -31,7 +31,7 @@ export const Smile = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
 `;
-export const Reason = styled.p`
+export const Reason = styled.div`
   @font-face {
     font-family: "StratosSkyeng";
     src: local("StratosSkyeng"), local("StratosSkyeng"),

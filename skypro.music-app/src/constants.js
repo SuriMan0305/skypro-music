@@ -134,13 +134,20 @@ export const INDYPLAYLIST = [
     time: "4:44",
   },
 ];
-export const CATEGORIES = [
+export const COLLECTIONS = [
   {
-    id:1
+    id: 1,
+    name: 'Плейлист дня',
+    container: DAILYPLAYLIST
   },
-  {
-    id:2
-  },  {
-    id:3
+    {
+    id: 2,
+    name: '100 танцевальных хитов',
+    container: DANCINGPLAYLIST
+  },
+    {
+    id: 3,
+    name: 'Инди-заряд',
+    container: INDYPLAYLIST
   }
 ]
