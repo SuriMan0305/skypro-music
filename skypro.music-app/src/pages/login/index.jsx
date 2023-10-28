@@ -2,6 +2,10 @@ import { NavLink} from "react-router-dom";
 import * as S from "./styles";
 
 export const Sign = () => {
+  const letEnter = () => {
+    return localStorage.setItem('token', true)
+  }
+
   return (
     <>
       <S.Base />
@@ -23,10 +27,10 @@ export const Sign = () => {
                 />
               </S.InputBlock>
               <S.ButtonEnter>
-                <NavLink to="/">Войти</NavLink>
+                <NavLink to="/" onClick={letEnter}>Войти</NavLink>
               </S.ButtonEnter>
               <S.ButtonSignUp>
-                <NavLink to="/register">Зарегистрироваться</NavLink>
+                <NavLink to="/register" onClick={letEnter}>Зарегистрироваться</NavLink>
               </S.ButtonSignUp>
             </S.ModalFormLogin>
           </S.ModalBlock>

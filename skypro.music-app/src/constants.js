@@ -144,4 +144,3 @@ export const CATEGORIES = [
     id:3
   }
 ]
-export const TOKEN = Boolean(localStorage.getItem('token'))

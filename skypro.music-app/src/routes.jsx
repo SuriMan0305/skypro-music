@@ -11,20 +11,21 @@ import { CATEGORIES, TOKEN } from "./constants";
 import { ProtectedRoute } from "./components/protect";
 import { useEffect } from "react";
 
-export const AppRoutes = ({ categories = CATEGORIES, key = TOKEN }) => {
+export const AppRoutes = ({ categories = CATEGORIES}) => {
   const navigate = useNavigate()
   useEffect(() => {
-    if (Boolean(TOKEN) === true) {
-      navigate('/')
+    localStorage.getItem('token')
+    if (localStorage.getItem('token') === 'true') {
+      return navigate('/')
     }
   },[])
-  console.log(Boolean(key));
   return (
     <Routes>
-      <Route path="/login" element={<Sign />} />
-      <Route path="/register" element={<Reg />} />
+        <Route path="/login" element={<Sign />} />
+        <Route path="/register" element={<Reg />} />
 
-      <Route element={<ProtectedRoute isAllowed={Boolean(key)}/>} >
+
+      <Route element={<ProtectedRoute isAllowed={localStorage.getItem('token') === 'true' ? true : false}/>} >
         <Route path="/" element={<Main />}>
         </Route>
         <Route path="/favorites" element={<Playlist />} />

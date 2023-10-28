@@ -1,5 +1,5 @@
 import { MenuItemComponent} from "../menu/MenuNav";
-import React from "react";
+import React, { useEffect } from "react";
 import * as S from '../MenuStyles'
 
 const { useState } = React;
@@ -8,7 +8,7 @@ export const NavPanel = () => {
   const [visible, setVisible] = useState(true);
 
   const toggleVisibility = () => setVisible(!visible);
-
+  
   return (
     <S.MainNav>
       <S.NavLogo>
