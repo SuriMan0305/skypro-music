@@ -1,20 +1,20 @@
-import "../central.css";
 import { TrackInfo } from "../tracks/Tracks";
+import * as S from '../MainBlockStyles.js'
 
 export const MainContent = () => {
   return (
-    <div className="centerblock__content">
-      <div className="content__title playlist-title">
-        <div className="playlist-title__col col01">Трек</div>
-        <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-        <div className="playlist-title__col col03">АЛЬБОМ</div>
-        <div className="playlist-title__col col04">
-          <svg className="playlist-title__svg" alt="time">
+    <S.Content>
+      <S.ContentTitle>
+        <S.TitleColumnFirst>Трек</S.TitleColumnFirst>
+        <S.TitleColumnSecond>ИСПОЛНИТЕЛЬ</S.TitleColumnSecond>
+        <S.TitleColumnThird>АЛЬБОМ</S.TitleColumnThird>
+        <S.TitleColumnFour>
+          <S.PlaylistTitleSvg alt="time">
             <use xlinkHref="img/icon/sprite.svg#icon-watch" />
-          </svg>
-        </div>
-      </div>
-      <div className="content__playlist playlist">
+          </S.PlaylistTitleSvg>
+        </S.TitleColumnFour>
+      </S.ContentTitle>
+      <S.ContentPlaylist>
         <TrackInfo
           title="Guilt"
           name="Nero"
@@ -79,7 +79,7 @@ export const MainContent = () => {
           album="Captivating"
           time="1:48"
         />
-      </div>
-    </div>
+      </S.ContentPlaylist>
+    </S.Content>
   );
 };

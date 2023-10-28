@@ -1,5 +1,6 @@
 import React from "react";
-import "../bar.css";
+import * as S from '../PlayeStyles.js'
+
 
 const { useEffect, useState } = React;
 
@@ -23,65 +24,65 @@ export const PlayingInfoSong = (props) => {
 
   if (seconds === 3) {
     return (
-      <div className="player__track-play track-play">
-        <div className="track-play__contain">
-          <div className="track-play__image">
-            <svg className="track-play__svg" alt="music">
+      <S.TrackPlay>
+        <S.TrackPlayContain>
+          <S.TrackPlayImage>
+            <S.TrackPlaySvg alt="music">
               <use xlinkHref="img/icon/sprite.svg#icon-note" />
-            </svg>
-          </div>
-          <div className="track-play__author">
-            <a className="track-play__author-link" href="http://">
+            </S.TrackPlaySvg>
+          </S.TrackPlayImage>
+          <S.InfoPlayAuthor>
+            <S.InfoPlayAuthorLink href="http://">
               {props.song}
-            </a>
-          </div>
-          <div className="track-play__album">
-            <a className="track-play__album-link" href="http://">
+            </S.InfoPlayAuthorLink>
+          </S.InfoPlayAuthor>
+          <S.InfoPlayAlbum>
+            <S.InfoPlayAlbumLink href="http://">
               {props.artist}
-            </a>
-          </div>
-        </div>
-        <div className="track-play__like-dis">
-          <div className="track-play__like _btn-icon">
-            <svg className="track-play__like-svg" alt="like">
+            </S.InfoPlayAlbumLink>
+          </S.InfoPlayAlbum>
+        </S.TrackPlayContain>
+        <S.LikeBlock>
+          <S.HoverLikes>
+            <S.LikeSvg alt="like">
               <use xlinkHref="img/icon/sprite.svg#icon-like" />
-            </svg>
-          </div>
-          <div className="track-play__dislike _btn-icon">
-            <svg className="track-play__dislike-svg" alt="dislike">
+            </S.LikeSvg>
+          </S.HoverLikes>
+          <S.HoverLikes>
+            <S.DislikeSvg alt="dislike">
               <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
-            </svg>
-          </div>
-        </div>
-      </div>
+            </S.DislikeSvg>
+          </S.HoverLikes>
+        </S.LikeBlock>
+      </S.TrackPlay>
     );
   } else {
     return (
-      <div className="player__track-play track-play">
-        <div className="track-play__contain">
-          <div className="track-play__image">
-            <div className="loading_bar__album"></div>
-          </div>
-          <div className="track-play__loading">
-              <div className="loading_bar__player"></div>
-          </div>
-          <div className="track-play__loading">
-            <div className="loading_bar__player"></div>
-          </div>
-        </div>
-        <div className="track-play__like-dis">
-          <div className="track-play__like _btn-icon">
-            <svg className="track-play__like-svg" alt="like">
+      <S.TrackPlay>
+        <S.TrackPlayContain>
+          <S.TrackPlayImage>
+            <S.LoadAlbum></S.LoadAlbum>
+          </S.TrackPlayImage>
+          <S.LoadPlay>
+              <S.LoadInfo></S.LoadInfo>
+          </S.LoadPlay>
+          <S.LoadPlay>
+            <S.LoadInfo></S.LoadInfo>
+          </S.LoadPlay>
+        </S.TrackPlayContain>
+        <S.LikeBlock>
+          <S.HoverLikes>
+            <S.LikeSvg alt="like">
               <use xlinkHref="img/icon/sprite.svg#icon-like" />
-            </svg>
-          </div>
-          <div className="track-play__dislike _btn-icon">
-            <svg className="track-play__dislike-svg" alt="dislike">
+            </S.LikeSvg>
+          </S.HoverLikes>
+          <S.HoverLikes>
+            <S.DislikeSvg alt="dislike">
               <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
-            </svg>
-          </div>
-        </div>
-      </div>
+            </S.DislikeSvg>
+          </S.HoverLikes>
+        </S.LikeBlock>
+      </S.TrackPlay>
     );
   }
 };
