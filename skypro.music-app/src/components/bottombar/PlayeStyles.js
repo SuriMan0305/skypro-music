@@ -287,6 +287,11 @@ export const LoadAlbum = styled.div`
   background: linear-gradient(90deg, rgba(49,49,49,1) 0%, rgba(255,255,255,0.44021358543417366) 49%, rgba(49,49,49,1) 100%);
   animation: ${AlbumLoad} 1.5s linear infinite;
 `
+export const EmptyAlbum = styled.div`
+  width: 20px;
+  height: 51px;
+`
+
 export const LoadInfo = styled.div`
   width: 10px;
   height: 15px;

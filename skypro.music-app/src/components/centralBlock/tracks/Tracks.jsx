@@ -12,7 +12,7 @@ export const TrackInfo = (props) => {
 
   useEffect(() => {
     const TimerId = setInterval(() => {
-      if (seconds < 3) {
+      if (seconds < 1) {
         increase();
       }
     }, 1000);
@@ -21,14 +21,14 @@ export const TrackInfo = (props) => {
     };
   });
 
-  if (seconds === 3) {
+  if (seconds === 1) {
     return (
       <S.PlaylistItem>
         <S.PlaylistTrack>
           <S.TrackTitle>
             <S.TrackTitleImage>
               <S.TrackTitleSvg alt="music">
-                <use xlinkHref="img/icon/sprite.svg#icon-note" />
+                <use xlinkHref="/img/icon/sprite.svg#icon-note" />
               </S.TrackTitleSvg>
             </S.TrackTitleImage>
             <div>
@@ -50,7 +50,7 @@ export const TrackInfo = (props) => {
           </S.TrackAlbum>
           <div>
             <S.TrackTimeSvg alt="time">
-              <use xlinkHref="img/icon/sprite.svg#icon-like" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-like" />
             </S.TrackTimeSvg>
             <S.TrackTimeText>{props.time}</S.TrackTimeText>
           </div>

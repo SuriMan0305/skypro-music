@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from './SidebarStyles.js'
+import { SideListBlock, SideListBlockLoading } from "./sideBarBlock/sideBlock.jsx";
 const { useEffect, useState } = React;
 
 export const SidePanel = () => {
@@ -11,7 +12,7 @@ export const SidePanel = () => {
 
   useEffect(() => {
     const TimerId = setInterval(() => {
-      if (seconds < 3) {
+      if (seconds < 1) {
         increase();
       }
     }, 1000);
@@ -20,71 +21,32 @@ export const SidePanel = () => {
     };
   });
 
-  if (seconds === 3) {
+  if (seconds === 1) {
     return (
       <S.MainSidebar>
         <S.SidebarPersonal>
-          <S.SidebarPersonalName>levchenko Kirill</S.SidebarPersonalName>
+          <S.SidebarPersonalName></S.SidebarPersonalName>
           <S.SidebarIcon>
             <svg alt="logout">
-              <use xlinkHref="img/icon/sprite.svg#logout" />
+              <use xlinkHref="/img/icon/sprite.svg#logout" />
             </svg>
           </S.SidebarIcon>
         </S.SidebarPersonal>
-        <S.SidebarBlock>
-          <S.SidebarList>
-            <S.SidebarItem>
-              <S.SidebarLink href="#!">
-                <S.SidebarImg
-                  src="img/playlist01.png"
-                  alt="day's playlist"
-                />
-              </S.SidebarLink>
-            </S.SidebarItem>
-            <S.SidebarItem>
-              <S.SidebarLink href="#!">
-                <S.SidebarImg
-                  src="img/playlist02.png"
-                  alt="day's playlist"
-                />
-              </S.SidebarLink>
-            </S.SidebarItem>
-            <S.SidebarItem>
-              <S.SidebarLink href="#!">
-                <S.SidebarImg
-                  src="img/playlist03.png"
-                  alt="day's playlist"
-                />
-              </S.SidebarLink>
-            </S.SidebarItem>
-          </S.SidebarList>
-        </S.SidebarBlock>
+        <SideListBlock />
       </S.MainSidebar>
     );
   } else {
     return (
       <S.MainSidebar>
         <S.SidebarPersonal>
-          <S.SidebarPersonalName>loading...</S.SidebarPersonalName>
+          <S.SidebarPersonalName></S.SidebarPersonalName>
           <S.SidebarIcon className="sidebar__icon">
             <svg alt="logout">
-              <use xlinkHref="img/icon/sprite.svg#logout" />
+              <use xlinkHref="/img/icon/sprite.svg#logout" />
             </svg>
           </S.SidebarIcon>
         </S.SidebarPersonal>
-        <S.SidebarBlock>
-          <S.SidebarList>
-            <S.SidebarLoading>
-              <S.Preload></S.Preload>
-            </S.SidebarLoading>
-            <S.SidebarLoading>
-              <S.Preload></S.Preload>
-            </S.SidebarLoading>
-            <S.SidebarLoading>
-              <S.Preload></S.Preload>
-            </S.SidebarLoading>
-          </S.SidebarList>
-        </S.SidebarBlock>
+        <SideListBlockLoading />
       </S.MainSidebar>
     );
   }

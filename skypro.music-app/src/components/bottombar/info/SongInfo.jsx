@@ -13,7 +13,7 @@ export const PlayingInfoSong = (props) => {
 
   useEffect(() => {
     const TimerId = setInterval(() => {
-      if (seconds < 3) {
+      if (seconds < 1) {
         increase();
       }
     }, 1000);
@@ -22,13 +22,13 @@ export const PlayingInfoSong = (props) => {
     };
   });
 
-  if (seconds === 3) {
+  if (seconds === 1) {
     return (
       <S.TrackPlay>
         <S.TrackPlayContain>
           <S.TrackPlayImage>
             <S.TrackPlaySvg alt="music">
-              <use xlinkHref="img/icon/sprite.svg#icon-note" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-note" />
             </S.TrackPlaySvg>
           </S.TrackPlayImage>
           <S.InfoPlayAuthor>
@@ -45,12 +45,12 @@ export const PlayingInfoSong = (props) => {
         <S.LikeBlock>
           <S.HoverLikes>
             <S.LikeSvg alt="like">
-              <use xlinkHref="img/icon/sprite.svg#icon-like" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-like" />
             </S.LikeSvg>
           </S.HoverLikes>
           <S.HoverLikes>
             <S.DislikeSvg alt="dislike">
-              <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-dislike" />
             </S.DislikeSvg>
           </S.HoverLikes>
         </S.LikeBlock>
@@ -73,12 +73,12 @@ export const PlayingInfoSong = (props) => {
         <S.LikeBlock>
           <S.HoverLikes>
             <S.LikeSvg alt="like">
-              <use xlinkHref="img/icon/sprite.svg#icon-like" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-like" />
             </S.LikeSvg>
           </S.HoverLikes>
           <S.HoverLikes>
             <S.DislikeSvg alt="dislike">
-              <use xlinkHref="img/icon/sprite.svg#icon-dislike" />
+              <use xlinkHref="/img/icon/sprite.svg#icon-dislike" />
             </S.DislikeSvg>
           </S.HoverLikes>
         </S.LikeBlock>

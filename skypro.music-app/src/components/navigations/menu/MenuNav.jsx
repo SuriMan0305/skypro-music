@@ -1,9 +1,24 @@
-import * as S from '../MenuStyles.js'
+
+import * as S from "../MenuStyles.js";
+import { NavLink } from "react-router-dom";
 
 export function MenuItemComponent(props) {
-  return <S.MenuItem>
-  <S.MenuLink href={props.adress}>
-    {props.title}
-  </S.MenuLink>
-</S.MenuItem>
+  const letExit = () => {
+    return localStorage.removeItem('token')
+  }
+
+  if (props.adress === '/login') {
+    return (
+      <S.MenuItem>
+        <NavLink to={props.adress} onClick={letExit}> {props.title} </NavLink>
+      </S.MenuItem>
+    );
+  } else {
+    return (
+      <S.MenuItem>
+        <NavLink to={props.adress}> {props.title} </NavLink>
+      </S.MenuItem>
+    )
+  }
+
 }
