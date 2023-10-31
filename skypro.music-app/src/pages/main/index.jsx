@@ -6,6 +6,7 @@ import { SearchBar } from "../../components/centralBlock/search/Search";
 import { NavPanel } from "../../components/navigations/panel/MainNavPanel";
 import { FilterBlock } from "../../components/centralBlock/filterBlock/FilterBlock";
 import { MainTitle } from "../../components/centralBlock/titleBlock/MainTitle";
+import { getAllTracks } from "../../api";
 
 export const Main = () => {
   return (

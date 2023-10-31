@@ -1,29 +1,11 @@
 import React from "react";
-import * as S from '../MainBlockStyles.js'
+import * as S from "../MainBlockStyles.js";
 
-const { useEffect, useState } = React;
+export const TrackInfo = ({ trackList }) => {
 
-export const TrackInfo = (props) => {
-  const [seconds, setSeconds] = useState(0);
-
-  const increase = () => {
-    setSeconds(seconds + 1);
-  };
-
-  useEffect(() => {
-    const TimerId = setInterval(() => {
-      if (seconds < 1) {
-        increase();
-      }
-    }, 1000);
-    return () => {
-      clearInterval(TimerId);
-    };
-  });
-
-  if (seconds === 1) {
+  return trackList.map((track) => {
     return (
-      <S.PlaylistItem>
+      <S.PlaylistItem key={track.id}>
         <S.PlaylistTrack>
           <S.TrackTitle>
             <S.TrackTitleImage>
@@ -32,49 +14,26 @@ export const TrackInfo = (props) => {
               </S.TrackTitleSvg>
             </S.TrackTitleImage>
             <div>
-              <S.TrackTitleLink href="http://">
-                {props.title}{" "}
-                <S.TrackTitleSpan>{props.remix}</S.TrackTitleSpan>
+              <S.TrackTitleLink href={track.track_file}>
+                {track.name}{" "}
+                <S.TrackTitleSpan>({track.genre})</S.TrackTitleSpan>
               </S.TrackTitleLink>
             </div>
           </S.TrackTitle>
           <S.TrackAuthor>
-            <S.TrackAuthorLink href="http://">
-              {props.name}
-            </S.TrackAuthorLink>
+            <S.TrackAuthorLink href="http://">{track.author}</S.TrackAuthorLink>
           </S.TrackAuthor>
           <S.TrackAlbum>
-            <S.TrackAlbumLink href="http://">
-              {props.album}
-            </S.TrackAlbumLink>
+            <S.TrackAlbumLink href="http://">{track.album}</S.TrackAlbumLink>
           </S.TrackAlbum>
           <div>
             <S.TrackTimeSvg alt="time">
               <use xlinkHref="/img/icon/sprite.svg#icon-like" />
             </S.TrackTimeSvg>
-            <S.TrackTimeText>{props.time}</S.TrackTimeText>
+            <S.TrackTimeText>{track.duration_in_seconds}</S.TrackTimeText>
           </div>
         </S.PlaylistTrack>
       </S.PlaylistItem>
     );
-  } else {
-    return (
-      <S.PlaylistItem>
-        <S.PlaylistTrack>
-          <S.TrackTitle>
-              <S.LoadingTrackImage>
-              </S.LoadingTrackImage>
-            <S.TrackTitleLoading>
-            </S.TrackTitleLoading>
-          </S.TrackTitle>
-          <S.TrackAuthorLoading>
-          </S.TrackAuthorLoading>
-          <S.TrackAlbumLoading>
-          </S.TrackAlbumLoading>
-          <S.TrackTimeLoading>
-          </S.TrackTimeLoading>
-        </S.PlaylistTrack>
-      </S.PlaylistItem>
-    );
-  }
+  });
 };
