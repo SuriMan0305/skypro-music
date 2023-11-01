@@ -6,3 +6,15 @@ export async function getAllTracks() {
   })
   return response
 }
+
+export async function getFirstCollectionTracks() {
+  const response = await fetch('https://skypro-music-api.skyeng.tech/catalog/selection/1/', {
+    method: 'GET',
+  }).then((response) => {
+    return response.json()
+  })
+  console.log(response);
+  return response
+}
+
+

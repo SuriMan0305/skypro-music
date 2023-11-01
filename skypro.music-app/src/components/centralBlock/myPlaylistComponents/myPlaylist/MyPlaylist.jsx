@@ -4,7 +4,13 @@ import * as S from "../../MainBlockStyles.js";
 
 const { useEffect, useState } = React;
 
-export const MyPlayList = ({ songlist = MYPLAYLIST}) => {
+export const MyPlayList = ({
+  songlist = MYPLAYLIST,
+  playerVision,
+  setPlayerVision,
+  info,
+  setInfo,
+}) => {
   const [seconds, setSeconds] = useState(0);
 
   const increase = () => {
@@ -45,7 +51,16 @@ export const MyPlayList = ({ songlist = MYPLAYLIST}) => {
                     </S.TrackTitleSvg>
                   </S.TrackTitleImage>
                   <div>
-                    <S.TrackTitleLink href="http://">
+                    <S.TrackTitleLink
+                      href="http://"
+                      onClick={() => {
+                        setInfo({
+                          name: track.title,
+                          author: track.name,
+                          link: ''
+                        })
+                        setPlayerVision(true);
+                      }}>
                       {track.title}{" "}
                       <S.TrackTitleSpan>{track.remix}</S.TrackTitleSpan>
                     </S.TrackTitleLink>

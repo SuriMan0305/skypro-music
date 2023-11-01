@@ -6,9 +6,9 @@ import { SearchBar } from "../../components/centralBlock/search/Search";
 import { NavPanel } from "../../components/navigations/panel/MainNavPanel";
 import { FilterBlock } from "../../components/centralBlock/filterBlock/FilterBlock";
 import { MainTitle } from "../../components/centralBlock/titleBlock/MainTitle";
-import { getAllTracks } from "../../api";
+import { useState } from "react";
 
-export const Main = () => {
+export const Main = ({ playerVision, setPlayerVision, info, setInfo }) => {
   return (
     <>
       <S.AppStyle></S.AppStyle>
@@ -20,11 +20,11 @@ export const Main = () => {
               <SearchBar />
               <MainTitle title='Треки' />
               <FilterBlock />
-              <MainContent />
+              <MainContent playerVision={playerVision} setPlayerVision={setPlayerVision} info={info} setInfo={setInfo}/>
             </S.MainCenterBlock>
             <SidePanel />
           </S.Main>
-          <PlayerPanel></PlayerPanel>
+          {playerVision ? (<PlayerPanel info={info} setInfo={setInfo}></PlayerPanel>) : ('')}
           <footer className="footer" />
         </S.Container>
       </S.Wrapper>

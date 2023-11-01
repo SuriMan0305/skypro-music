@@ -2,22 +2,25 @@ import { TrackInfo } from "../tracks/Tracks";
 import * as S from "../MainBlockStyles.js";
 import { getAllTracks } from "../../../api";
 import { useEffect, useState } from "react";
-import { SceletonTracks } from '../../sceletons/sceletonTracks';
+import { SceletonTracks } from "../../sceletons/sceletonTracks";
 
-export const MainContent = () => {
-  const [trackList, setTrackList] = useState([]);
+export const MainContent = ({
+  playerVision,
+  setPlayerVision,
+  setInfo,
+  info,
+}) => {
+  const [trackList, setTrackList] = useState();
   const [load, setLoad] = useState(true);
-
   useEffect(() => {
     getAllTracks()
       .then((response) => {
         setTrackList(response);
-        console.log(trackList);
       })
       .then(() => {
         setLoad(false);
       });
-  }, []);
+  }, []); // не понимаю почему ругается на пустой массив он там должен быть в любом случае
 
   return (
     <S.Content>
@@ -60,7 +63,15 @@ export const MainContent = () => {
             <SceletonTracks />
           </>
         ) : (
-          <TrackInfo trackList={trackList} />
+            <S.Container>
+            <TrackInfo
+              trackList={trackList}
+              playerVision={playerVision}
+              setPlayerVision={setPlayerVision}
+              info={info}
+              setInfo={setInfo}
+            />
+          </S.Container>
         )}
       </S.ContentPlaylist>
     </S.Content>

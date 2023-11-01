@@ -1,7 +1,16 @@
 import styled, { keyframes, css } from "styled-components";
 
+export const Container = styled.div`
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 40px;
+  }
+  width: 1100px;
+  height: 680px;
+`;
+
 export const PlaylistItem = styled.div`
-  width: 1105px;
+  width: 1050px;
   display: block;
   margin-bottom: 12px;
 `;
@@ -175,7 +184,7 @@ export const TracklistPlaylistPage = styled.div`
 `;
 export const PlaylistItemPlaylistPage = styled.div`
   margin-bottom: 12px;
-`
+`;
 
 export const LoadingTrackImageMyPlaylist = styled.div`
   width: 51px;
@@ -323,6 +332,7 @@ export const ContentTitle = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 1050px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
@@ -391,7 +401,6 @@ export const ContentPlaylist = styled.div`
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  overflow-y: auto;
 `;
 ///
 export const FilterButton = styled.div`
