@@ -12,15 +12,29 @@ export const MainContent = ({
 }) => {
   const [trackList, setTrackList] = useState();
   const [load, setLoad] = useState(true);
-  useEffect(() => {
-    getAllTracks()
+
+  useEffect( () => {
+    try {
+     getAllTracks()
       .then((response) => {
         setTrackList(response);
       })
       .then(() => {
         setLoad(false);
       });
-  }, []); // не понимаю почему ругается на пустой массив он там должен быть в любом случае
+    } catch (error) {
+      alert('Ошибка')
+    }
+  }, [])
+
+  /*try {
+    useEffect(() => {
+     
+    }, []);
+  } catch (error) {
+    return alert(error.message)
+  }*/
+
 
   return (
     <S.Content>
