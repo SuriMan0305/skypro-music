@@ -9,10 +9,11 @@ function App() {
     author: '',
     link: ''
   })
+  const [trackList, setTrackList] = useState([]);
   return (
   <div className="App">
     <div className="App-layout">
-        <AppRoutes playerVision={playerVision} setPlayerVision={setPlayerVision} info={ info } setInfo={setInfo} />
+        <AppRoutes playerVision={playerVision} setPlayerVision={setPlayerVision} info={ info } setInfo={setInfo} trackList={trackList} setTrackList={setTrackList} />
     </div>
   </div>
   )

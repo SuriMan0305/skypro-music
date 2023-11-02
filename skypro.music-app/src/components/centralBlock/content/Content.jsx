@@ -9,32 +9,18 @@ export const MainContent = ({
   setPlayerVision,
   setInfo,
   info,
+  trackList,
+  setTrackList
 }) => {
-  const [trackList, setTrackList] = useState();
+
   const [load, setLoad] = useState(true);
 
-  useEffect( () => {
-    try {
-     getAllTracks()
-      .then((response) => {
-        setTrackList(response);
-      })
+  useEffect(() => {
+    getAllTracks({setTrackList})
       .then(() => {
         setLoad(false);
       });
-    } catch (error) {
-      alert('Ошибка')
-    }
-  }, [])
-
-  /*try {
-    useEffect(() => {
-     
-    }, []);
-  } catch (error) {
-    return alert(error.message)
-  }*/
-
+  }, []);
 
   return (
     <S.Content>
@@ -77,9 +63,10 @@ export const MainContent = ({
             <SceletonTracks />
           </>
         ) : (
-            <S.Container>
+          <S.Container>
             <TrackInfo
-              trackList={trackList}
+                trackList={trackList}
+                setTrackList={setTrackList}
               playerVision={playerVision}
               setPlayerVision={setPlayerVision}
               info={info}
