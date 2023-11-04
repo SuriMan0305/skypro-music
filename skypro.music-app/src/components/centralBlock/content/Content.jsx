@@ -10,16 +10,14 @@ export const MainContent = ({
   setInfo,
   info,
   trackList,
-  setTrackList
+  setTrackList,
 }) => {
-
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
-    getAllTracks({setTrackList})
-      .then(() => {
-        setLoad(false);
-      });
+    getAllTracks({ setTrackList }).then(() => {
+      setLoad(false);
+    });
   }, []);
 
   return (
@@ -65,8 +63,8 @@ export const MainContent = ({
         ) : (
           <S.Container>
             <TrackInfo
-                trackList={trackList}
-                setTrackList={setTrackList}
+              trackList={trackList}
+              setTrackList={setTrackList}
               playerVision={playerVision}
               setPlayerVision={setPlayerVision}
               info={info}

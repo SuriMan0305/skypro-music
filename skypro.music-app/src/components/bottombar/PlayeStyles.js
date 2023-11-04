@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 
 export const Audio = styled.audio`
-  display: block;
+  display: none;
   height: 30px;
   width: 200px;
 `
