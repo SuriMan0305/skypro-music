@@ -10,10 +10,11 @@ function App() {
     link: ''
   })
   const [trackList, setTrackList] = useState([]);
+  const [realDuration, setRealDuration] = useState()
   return (
   <div className="App">
     <div className="App-layout">
-        <AppRoutes playerVision={playerVision} setPlayerVision={setPlayerVision} info={ info } setInfo={setInfo} trackList={trackList} setTrackList={setTrackList} />
+        <AppRoutes playerVision={playerVision} setPlayerVision={setPlayerVision} info={ info } setInfo={setInfo} trackList={trackList} setTrackList={setTrackList} realDuration={realDuration} setRealDuration={setRealDuration}/>
     </div>
   </div>
   )

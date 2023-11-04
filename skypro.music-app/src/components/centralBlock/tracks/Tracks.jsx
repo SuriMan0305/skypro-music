@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import * as S from "../MainBlockStyles.js";
 
-export const TrackInfo = ({ trackList, setPlayerVision, setInfo }) => {
+export const TrackInfo = ({ trackList, setPlayerVision, setInfo, realDuration, setRealDuration }) => {
+
+  const audioPlaylistRef = useRef()
+
+  const takeDuration = () => {
+    setRealDuration(audioPlaylistRef.current.duration)
+  }
+
   const convertTime = (seconds) => {
     return (
       `${Math.floor(seconds/60)} : ${(seconds%60) >= 10 ? (seconds%60) : `0${seconds%60}`}`
@@ -17,7 +24,8 @@ export const TrackInfo = ({ trackList, setPlayerVision, setInfo }) => {
   } else {
     return trackList.map((track) => {
       return (
-            <S.PlaylistItem key={track.id}>
+        <S.PlaylistItem key={track.id}>
+          <audio src={track.track_file} ref={audioPlaylistRef}></audio>
               <S.PlaylistTrack>
                 <S.TrackTitle>
                   <S.TrackTitleImage>
@@ -36,6 +44,7 @@ export const TrackInfo = ({ trackList, setPlayerVision, setInfo }) => {
                           author: track.author,
                           link: track.track_file,
                         });
+                        takeDuration()
                       }}>
                       {track.name}{" "}
                       <S.TrackTitleSpan>({track.genre})</S.TrackTitleSpan>

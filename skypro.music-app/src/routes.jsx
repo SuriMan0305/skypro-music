@@ -8,7 +8,7 @@ import { ProtectedRoute } from "./components/protect";
 import { useEffect } from "react";
 import { Collections } from "./pages/selections/collections";
 
-export const AppRoutes = ({playerVision, setPlayerVision, info, setInfo, trackList, setTrackList}) => {
+export const AppRoutes = ({playerVision, setPlayerVision, info, setInfo, trackList, setTrackList, realDuration, setRealDuration}) => {
   const navigate = useNavigate() //без этого кусочука почему-то не работает как надо
   useEffect(() => {
     localStorage.getItem('token')
@@ -20,7 +20,7 @@ export const AppRoutes = ({playerVision, setPlayerVision, info, setInfo, trackLi
 
 
       <Route element={<ProtectedRoute isAllowed={localStorage.getItem('token') === 'true' ? true : false}/>} >
-        <Route path="/" element={<Main playerVision={playerVision} setPlayerVision={ setPlayerVision } info={ info } setInfo={setInfo} trackList={trackList} setTrackList={setTrackList} />}>
+        <Route path="/" element={<Main playerVision={playerVision} setPlayerVision={ setPlayerVision } info={ info } setInfo={setInfo} trackList={trackList} setTrackList={setTrackList} realDuration={realDuration} setRealDuration={setRealDuration}/>}>
         </Route>
         <Route path="/favorites" element={<Playlist playerVision={playerVision} setPlayerVision={ setPlayerVision } info={ info } setInfo={setInfo}/>} />
           <Route

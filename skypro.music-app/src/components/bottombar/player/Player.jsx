@@ -2,52 +2,56 @@ import { useEffect, useRef, useState } from "react";
 import { PlayingInfoSong } from "../info/SongInfo";
 import * as S from "../PlayeStyles.js";
 
-export const PlayerPanel = ({ info }) => {
+export const PlayerPanel = ({ info, realDuration, setRealDuration }) => {
   const [Playing, setPlaying] = useState(true);
-  const [volume, setVolume] = useState(0.5)
-  const [isLoop, setIsLoop] = useState(true)
+  const [volume, setVolume] = useState(0.5);
+  const [isLoop, setIsLoop] = useState(true);
+  const [nowTime, setNowTime] = useState(0);
   const audioRef = useRef(null);
+
+  const handleClick = onClick => {
+    console.log('hello');
+  }
+
   const handleStart = () => {
     audioRef.current.play();
     setPlaying(true);
-    console.log(audioRef.current);
   };
   const handleStop = () => {
     audioRef.current.pause();
     setPlaying(false);
   };
-  const togglePlay = Playing ? handleStop : handleStart
+  const togglePlay = Playing ? handleStop : handleStart;
 
   const handleChangeVolume = (range) => {
-    setVolume(range/100 - (range%10)/100)
-    console.log(volume);
-    return audioRef.current.volume = volume
-  }
+    setVolume(range / 100 - (range % 10) / 100);
+    return (audioRef.current.volume = volume);
+  };
 
   const handleMute = () => {
-    volume !== 0 ? setVolume(0) : setVolume(0.2)
-    audioRef.current.volume = (volume !== 0 ? 0 : 0.2)
-  }
+    volume !== 0 ? setVolume(0) : setVolume(0.2);
+    audioRef.current.volume = volume !== 0 ? 0 : 0.2;
+  };
 
   const handleChangeLoop = () => {
-    console.log(isLoop);
-    isLoop ? setIsLoop(false) : setIsLoop(true)
-    console.log(isLoop);
-    audioRef.current.loop = isLoop
-  }
-
-
+    isLoop ? setIsLoop(false) : setIsLoop(true);
+    audioRef.current.loop = isLoop;
+  };
 
   useEffect(() => {
-    setVolume(volume)
-    audioRef.current.volume = volume
-  }, [])
+    audioRef.current.volume = volume;
+  }, []);
 
   return (
     <S.Bar>
       <S.Audio controls src={info.link} ref={audioRef} autoPlay></S.Audio>
       <S.Content>
-        <S.PlayerProgress />
+        <S.PlayerProgress
+          type="range"
+          name="rangeTime"
+          min="0"
+          max="100"
+          defaultValue={`${(nowTime / realDuration) * 100}`}></S.PlayerProgress>
         <S.PlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>
@@ -87,9 +91,16 @@ export const PlayerPanel = ({ info }) => {
                 </S.VolumeSvg>
               </S.VolumeImage>
               <S.VolumeProgress>
-                <S.VolumeProgressLine type="range" name="range" min='0' max='100' value={volume*100} onChange={(range) => {
-                  handleChangeVolume(range.currentTarget.value)
-                }}/>
+                <S.VolumeProgressLine
+                  type="range"
+                  name="range"
+                  min="0"
+                  max="100"
+                  defaultValue={volume * 100}
+                  onChange={(range) => {
+                    handleChangeVolume(range.currentTarget.value);
+                  }}
+                />
               </S.VolumeProgress>
             </S.VolumeContent>
           </S.BarVolumeBlock>
