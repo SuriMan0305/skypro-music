@@ -5,6 +5,7 @@ import * as S from "../PlayeStyles.js";
 export const PlayerPanel = ({ info }) => {
   const [Playing, setPlaying] = useState(true);
   const [volume, setVolume] = useState(0.5)
+  const [isLoop, setIsLoop] = useState(true)
   const audioRef = useRef(null);
   const handleStart = () => {
     audioRef.current.play();
@@ -23,9 +24,24 @@ export const PlayerPanel = ({ info }) => {
     return audioRef.current.volume = volume
   }
 
+  const handleMute = () => {
+    volume !== 0 ? setVolume(0) : setVolume(0.2)
+    audioRef.current.volume = (volume !== 0 ? 0 : 0.2)
+  }
+
+  const handleChangeLoop = () => {
+    console.log(isLoop);
+    isLoop ? setIsLoop(false) : setIsLoop(true)
+    console.log(isLoop);
+    audioRef.current.loop = isLoop
+  }
+
+
+
   useEffect(() => {
+    setVolume(volume)
     audioRef.current.volume = volume
-  })
+  }, [])
 
   return (
     <S.Bar>
@@ -50,7 +66,7 @@ export const PlayerPanel = ({ info }) => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-next" />
                 </S.NextButtonSvg>
               </S.NextButton>
-              <S.RepeatButton>
+              <S.RepeatButton onClick={handleChangeLoop}>
                 <S.RepeatButtonSvg alt="repeat">
                   <use xlinkHref="/img/icon/sprite.svg#icon-repeat" />
                 </S.RepeatButtonSvg>
@@ -65,13 +81,13 @@ export const PlayerPanel = ({ info }) => {
           </S.BarPlayer>
           <S.BarVolumeBlock>
             <S.VolumeContent>
-              <S.VolumeImage>
+              <S.VolumeImage onClick={handleMute}>
                 <S.VolumeSvg alt="volume">
                   <use xlinkHref="/img/icon/sprite.svg#icon-volume" />
                 </S.VolumeSvg>
               </S.VolumeImage>
               <S.VolumeProgress>
-                <S.VolumeProgressLine type="range" name="range" min='0' max='100' value={volume*100} progress='0' onChange={(range) => {
+                <S.VolumeProgressLine type="range" name="range" min='0' max='100' value={volume*100} onChange={(range) => {
                   handleChangeVolume(range.currentTarget.value)
                 }}/>
               </S.VolumeProgress>
