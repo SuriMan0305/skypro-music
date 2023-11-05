@@ -76,7 +76,9 @@ export const PlayerPanel = ({ info }) => {
           <S.BarPlayer>
             <S.PlayerControls>
               <S.PrevButton>
-                <S.PrevButtonSvg alt="prev">
+                <S.PrevButtonSvg alt="prev" onClick={() => {
+                  alert('element of player in production')
+                }}>
                   <use xlinkHref="/img/icon/sprite.svg#icon-prev" />
                 </S.PrevButtonSvg>
               </S.PrevButton>
@@ -86,7 +88,9 @@ export const PlayerPanel = ({ info }) => {
                 </S.PlayButtonSvg>
               </S.PlayButton>
               <S.NextButton>
-                <S.NextButtonSvg alt="next">
+                <S.NextButtonSvg alt="next" onClick={() => {
+                  alert('element of player in production')
+                }}>
                   <use xlinkHref="/img/icon/sprite.svg#icon-next" />
                 </S.NextButtonSvg>
               </S.NextButton>
@@ -96,7 +100,9 @@ export const PlayerPanel = ({ info }) => {
                 </S.RepeatButtonSvg>
               </S.RepeatButton>
               <S.ShuffleButton>
-                <S.ShuffleButtonSvg alt="shuffle">
+                <S.ShuffleButtonSvg alt="shuffle" onClick={() => {
+                  alert('element of player in production')
+                }}>
                   <use xlinkHref="/img/icon/sprite.svg#icon-shuffle" />
                 </S.ShuffleButtonSvg>
               </S.ShuffleButton>

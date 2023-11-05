@@ -31,11 +31,10 @@ export const TrackInfo = ({ trackList, setPlayerVision, setInfo }) => {
                   </S.TrackTitleImage>
                   <div>
                     <S.TrackTitleLink
-                      href="http://"
                       id={track.id}
                       onClick={() => {
                         setPlayerVision(true);
-                        setInfo({
+                        return setInfo({
                           name: track.name,
                           author: track.author,
                           link: track.track_file,

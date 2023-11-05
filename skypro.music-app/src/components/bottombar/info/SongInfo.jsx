@@ -44,12 +44,16 @@ export const PlayingInfoSong = (props) => {
         </S.TrackPlayContain>
         <S.LikeBlock>
           <S.HoverLikes>
-            <S.LikeSvg alt="like">
+            <S.LikeSvg alt="like" onClick={() => {
+                  alert('element of player in production')
+                }}>
               <use xlinkHref="/img/icon/sprite.svg#icon-like" />
             </S.LikeSvg>
           </S.HoverLikes>
           <S.HoverLikes>
-            <S.DislikeSvg alt="dislike">
+            <S.DislikeSvg alt="dislike" onClick={() => {
+                  alert('element of player in production')
+                }}>
               <use xlinkHref="/img/icon/sprite.svg#icon-dislike" />
             </S.DislikeSvg>
           </S.HoverLikes>
