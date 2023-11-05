@@ -11,7 +11,7 @@ export const PlayerPanel = ({ info }) => {
   const [ending, setEnding] = useState(false);
 
   const volumeRef = useRef(null);
-  const inputRef = useRef([null]);
+  const inputRef = useRef(null);
   const audioRef = useRef(null);
 
   const handleStart = () => {

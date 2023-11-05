@@ -34,29 +34,17 @@ export const PlayerProgress = styled.input`
   height: 5px;
   background-color: #2e2e2e;
   cursor: pointer;
+  transition: 0.4s;
+    &:hover {
+      transform: scaleY(1.5);
+    }
   &::-webkit-slider-thumb {
     display: block;
     opacity: 0;
   };
   &::-moz-range-thumb {
-    border-radius: 15px;
-    border-color: #2e2e2e;
-    height: 15px;
-    width: 15px;
-    background: #9a48f1;
+    opacity: 0;
     cursor: pointer;
-  };
-  &::-ms-thumb {
-    border-radius: 15px;
-    border-color: #2e2e2e;
-    height: 15px;
-    width: 15px;
-    background: #9a48f1;
-    cursor: pointer;
-  };
-  &::-moz-range-thumb:hover {
-    opacity: 0.8;
-    background-color: #b46ffc;
   };
   &::-ms-thumb:hover {
     opacity: 0.8;
@@ -67,10 +55,6 @@ export const PlayerProgress = styled.input`
       background: linear-gradient(to right, #B672FF, #B672FF), #2e2e2e;
       background-size: var(--background-size, 0%) 100%;
       background-repeat: no-repeat;
-      transition: 0.35s;
-      &:hover {
-        transform: scaleY(1.5);
-      }
   };
   &::-moz-range-progress {
     height: 5px;
@@ -245,8 +229,14 @@ export const VolumeProgress = styled.div`
 
 export const VolumeProgressLine = styled.input`
   width: 109px;
+  height: 10px;
   cursor: pointer;
-  margin-bottom: 12px;
+  align-items: baseline;
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: #fff;
+  opacity: 0.7;
   &::-webkit-slider-thumb {
     display: block;
     opacity: 0;
@@ -260,6 +250,14 @@ export const VolumeProgressLine = styled.input`
       &:hover {
         transform: scaleY(1.5);
       }
+  };
+  &::-moz-range-thumb {
+    opacity: 0;
+    cursor: pointer;
+  };
+  &::-moz-range-progress {
+    height: 5px;
+    background: #fff;
   };
 `;
 
