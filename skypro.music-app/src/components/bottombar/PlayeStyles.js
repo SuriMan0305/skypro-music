@@ -143,24 +143,29 @@ export const ButtonsStyles = styled.div`
 `;
 export const PrevButton = styled(ButtonsStyles)`
   margin-right: 23px;
+  &:hover {
+    color: #696969;
+  }
 `;
 export const PrevButtonSvg = styled.svg`
   width: 15px;
   height: 14px;
-  fill: inherit;
-  stroke: #d9d9d9;
 `;
 export const PlayButton = styled(ButtonsStyles)`
   margin-right: 23px;
+  &:hover {
+    color: #696969;
+  }
 `;
 export const PlayButtonSvg = styled.svg`
   width: 22px;
   height: 20px;
-  fill: #d9d9d9;
 `;
 export const NextButton = styled(ButtonsStyles)`
   margin-right: 28px;
-  fill: #a53939;
+  &:hover {
+    color: #696969;
+  }
 `;
 export const NextButtonSvg = styled.svg`
   width: 15px;
@@ -170,12 +175,12 @@ export const NextButtonSvg = styled.svg`
 `;
 export const RepeatButton = styled(ButtonsStyles)`
   margin-right: 24px;
+  color: white;
 `;
 export const RepeatButtonSvg = styled.svg`
   width: 18px;
   height: 12px;
-  fill: transparent;
-  stroke: #696969;
+  color: white;
   &:hover {
     fill: transparent;
     stroke: #acacac;
