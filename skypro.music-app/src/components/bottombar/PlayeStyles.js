@@ -1,11 +1,17 @@
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+export const Audio = styled.audio`
+  display: block;
+  height: 30px;
+  width: 200px;
+`
 
 export const Bar = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(28, 28, 28, 0.5);
+  background: linear-gradient(0deg, rgba(24,24,24,1) 15%, rgba(24,24,24,0) 100%);
 `
 export const Content = styled.div`
   display: -webkit-box;
@@ -227,10 +233,9 @@ export const TrackPlaySvg = styled.svg`
   stroke: #4e4e4e;
 `
 export const InfoPlayAuthor = styled.div`
-  -ms-grid-row-span: 1;
-  -ms-grid-column-span: 2;
+
   grid-area: author;
-  min-width: 49px;
+  width: auto;
 `
 export const InfoPlayAuthorLink = styled.a`
   font-style: normal;
@@ -309,7 +314,7 @@ export const LikeBlock = styled.div`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-left: 26%;
+  margin-left: 10%;
 `
 export const HoverLikes = styled.div`
   padding: 5px;

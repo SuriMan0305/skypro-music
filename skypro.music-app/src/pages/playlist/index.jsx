@@ -7,7 +7,8 @@ import { NavPanel } from "../../components/navigations/panel/MainNavPanel";
 import { MainTitle } from "../../components/centralBlock/titleBlock/MainTitle";
 import { MyPlaylistSide } from "../../components/centralBlock/myPlaylistComponents/sideBarThis/SideBarMyPlaylist";
 
-export const Playlist = () => {
+export const Playlist = ({ info, setInfo, playerVision, setPlayerVision }) => {
+  
   return (
     <>
       <S.AppStyle></S.AppStyle>
@@ -18,11 +19,11 @@ export const Playlist = () => {
             <S.MainCenterBlock>
               <SearchBar />
               <MainTitle title="Мои Треки" />
-              <MyPlayList />
+              <MyPlayList playerVision={ playerVision } setPlayerVision={setPlayerVision} info={info} setInfo={setInfo}/>
             </S.MainCenterBlock>
             <MyPlaylistSide />
           </S.Main>
-          <PlayerPanel></PlayerPanel>
+          {playerVision ? (<PlayerPanel info={info} setInfo={setInfo}></PlayerPanel>) : ('')}
           <footer className="footer" />
         </S.Container>
       </S.Wrapper>

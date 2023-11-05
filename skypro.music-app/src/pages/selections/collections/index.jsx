@@ -6,10 +6,10 @@ import { SearchBar } from "../../../components/centralBlock/search/Search";
 import { NavPanel } from "../../../components/navigations/panel/MainNavPanel";
 import { MainTitle } from "../../../components/centralBlock/titleBlock/MainTitle";
 import { MyPlaylistSide } from "../../../components/centralBlock/myPlaylistComponents/sideBarThis/SideBarMyPlaylist";
-import { COLLECTIONS, DAILYPLAYLIST } from "../../../constants";
+import { COLLECTIONS } from "../../../constants";
 import { useParams } from "react-router-dom";
 
-export const Collections = () => {
+export const Collections = ({ playerVision, setPlayerVision, info, setInfo }) => {
   const params = useParams()
   const useCollection = COLLECTIONS.find((collection) => collection.id === Number(params.id))
   return (
@@ -22,11 +22,11 @@ export const Collections = () => {
             <S.MainCenterBlock>
               <SearchBar />
               <MainTitle title={useCollection.name} />
-              <MyPlayList songlist={useCollection.container}></MyPlayList>
+              <MyPlayList songlist={useCollection.container} info={info} setInfo={setInfo} setPlayerVision={setPlayerVision}></MyPlayList>
             </S.MainCenterBlock>
             <MyPlaylistSide />
           </S.Main>
-          <PlayerPanel></PlayerPanel>
+          {playerVision ? (<PlayerPanel info={info} setInfo={setInfo}></PlayerPanel>) : ('')}
           <footer className="footer" />
         </S.Container>
       </S.Wrapper>

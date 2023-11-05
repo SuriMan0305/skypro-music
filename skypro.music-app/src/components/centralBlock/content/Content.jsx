@@ -1,7 +1,27 @@
 import { TrackInfo } from "../tracks/Tracks";
-import * as S from '../MainBlockStyles.js'
+import * as S from "../MainBlockStyles.js";
+import { getAllTracks } from "../../../api";
+import { useEffect, useState } from "react";
+import { SceletonTracks } from "../../sceletons/sceletonTracks";
 
-export const MainContent = () => {
+export const MainContent = ({
+  playerVision,
+  setPlayerVision,
+  setInfo,
+  info,
+  trackList,
+  setTrackList
+}) => {
+
+  const [load, setLoad] = useState(true);
+
+  useEffect(() => {
+    getAllTracks({setTrackList})
+      .then(() => {
+        setLoad(false);
+      });
+  }, []);
+
   return (
     <S.Content>
       <S.ContentTitle>
@@ -15,70 +35,45 @@ export const MainContent = () => {
         </S.TitleColumnFour>
       </S.ContentTitle>
       <S.ContentPlaylist>
-        <TrackInfo
-          title="Guilt"
-          name="Nero"
-          album="Welcome Reality"
-          time="4:44"
-        />
-        <TrackInfo
-          title="Elektro"
-          name="Dynoro, Outwork, Mr. Gee"
-          album="Elektro"
-          time="2:22"
-        />
-        <TrackInfo
-          title="I’m Fire"
-          name="Ali Bakgor"
-          album="I’m Fire"
-          time="2:22"
-        />
-        <TrackInfo
-          title="Non Stop"
-          remix="(Remix)"
-          name="Стоункат, Psychopath"
-          album="Non Stop"
-          time="4:12"
-        />
-        <TrackInfo
-          title="Run Run"
-          remix="(feat. AR/CO)"
-          name="Jaded, Will Clarke, AR/CO"
-          album="Run Run"
-          time="2:54"
-        />
-        <TrackInfo
-          title="Eyes on Fire"
-          remix="(Zeds Dead Remix)"
-          name="Blue Foundation, Zeds Dead"
-          album="Eyes on Fire"
-          time="5:20"
-        />
-        <TrackInfo
-          title="Mucho Bien"
-          remix="(Hi Profile Remix)"
-          name="HYBIT, Mr. Black, Offer Nissim, Hi Profile"
-          album="Mucho Bien"
-          time="3:41"
-        />
-        <TrackInfo
-          title="Knives n Cherries"
-          name="minthaze"
-          album="Captivating"
-          time="1:48"
-        />
-        <TrackInfo
-          title="Knives n Cherries"
-          name="minthaze"
-          album="Captivating"
-          time="1:48"
-        />
-        <TrackInfo
-          title="Knives n Cherries"
-          name="minthaze"
-          album="Captivating"
-          time="1:48"
-        />
+        {load ? (
+          <>
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+            <SceletonTracks />
+          </>
+        ) : (
+          <S.Container>
+            <TrackInfo
+                trackList={trackList}
+                setTrackList={setTrackList}
+              playerVision={playerVision}
+              setPlayerVision={setPlayerVision}
+              info={info}
+              setInfo={setInfo}
+            />
+          </S.Container>
+        )}
       </S.ContentPlaylist>
     </S.Content>
   );
