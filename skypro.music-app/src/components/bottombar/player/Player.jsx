@@ -8,13 +8,11 @@ export const PlayerPanel = ({ info }) => {
   const [isLoop, setIsLoop] = useState(true);
   const [nowTime, setNowTime] = useState(0);
   const [length, setLength] = useState();
-  const [ending, setEnding] = useState();
+  const [ending, setEnding] = useState(false);
 
   const volumeRef = useRef(null);
-  const inputRef = useRef(null);
+  const inputRef = useRef([null]);
   const audioRef = useRef(null);
-
-  console.log(info);
 
   const handleStart = () => {
     if ((!ending && playing) || (ending && !playing)) {
@@ -69,7 +67,7 @@ export const PlayerPanel = ({ info }) => {
 
   useEffect(() => {
     if (volume === 0.5) {
-      volumeRef.current.style.setProperty("--background-size", `50%`);
+        volumeRef.current.style.setProperty("--background-size", `50%`);
     }
     audioRef.current.volume = volume;
     const getInfoFunc = () => {
@@ -82,10 +80,10 @@ export const PlayerPanel = ({ info }) => {
 
       timeSong.addEventListener("timeupdate", () => {
         setNowTime(timeSong.currentTime);
-        inputRef.current.style.setProperty(
-          "--background-size",
-          `${inputRef.current.value}%`
-        );
+          inputRef.current.style.setProperty(
+            "--background-size",
+            `${inputRef.current.value}%`
+          );
         setEnding(audioRef.current.ended);
       });
     };
@@ -93,9 +91,6 @@ export const PlayerPanel = ({ info }) => {
     return getInfoFunc();
   }, [nowTime, length, playing, isLoop, ending, inputRef, audioRef]);
 
-  if (info.link === "") {
-    return <div>нет ссылки на источник</div>;
-  } else {
     return (
       <S.Bar>
         <S.Timer>{timer(nowTime, length)}</S.Timer>
@@ -241,4 +236,3 @@ export const PlayerPanel = ({ info }) => {
       </S.Bar>
     );
   }
-};
