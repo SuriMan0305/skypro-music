@@ -18,7 +18,7 @@ export const MainContent = ({
     getAllTracks({ setTrackList }).then(() => {
       setLoad(false);
     });
-  }, []);
+  }, [setTrackList]);
 
   return (
     <S.Content>
