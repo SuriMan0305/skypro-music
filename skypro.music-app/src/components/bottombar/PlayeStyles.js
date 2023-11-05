@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 export const Audio = styled.audio`
-  display: block;
+  display: none;
   height: 30px;
   width: 200px;
 `;
@@ -28,18 +28,15 @@ export const Content = styled.div`
 `;
 
 export const PlayerProgress = styled.input`
+-webkit-appearence: none;
   width: 100%;
   height: 5px;
   background-color: #2e2e2e;
   cursor: pointer;
   &::-webkit-slider-thumb {
-    border-radius: 15px;
-    border-color: #2e2e2e;
-    height: 15px;
-    width: 15px;
-    background: #9a48f1;
     cursor: pointer;
-  }
+    margin-top: -6px;
+  };
   &::-moz-range-thumb {
     border-radius: 15px;
     border-color: #2e2e2e;
@@ -47,7 +44,7 @@ export const PlayerProgress = styled.input`
     width: 15px;
     background: #9a48f1;
     cursor: pointer;
-  }
+  };
   &::-ms-thumb {
     border-radius: 15px;
     border-color: #2e2e2e;
@@ -55,31 +52,37 @@ export const PlayerProgress = styled.input`
     width: 15px;
     background: #9a48f1;
     cursor: pointer;
-  }
+  };
   &::-webkit-slider-thumb:hover {
     opacity: 0.8;
     background-color: #b46ffc;
-  }
+  };
   &::-moz-range-thumb:hover {
     opacity: 0.8;
     background-color: #b46ffc;
-  }
+  };
   &::-ms-thumb:hover {
     opacity: 0.8;
     background-color: #b46ffc;
-  }
+  };
   &::-webkit-progress-inner-value {
     height: 5px;
     background: #9a48f1;
-  }
+  };
+  &::-webkit-slider-runnable-track {
+      height: 5px;
+      background: linear-gradient(to right, #B672FF, #B672FF), #2e2e2e;
+      background-size: var(--background-size, 0%) 100%;
+      background-repeat: no-repeat;
+  };
   &::-moz-range-progress {
     height: 5px;
     background: #9a48f1;
-  }
+  };
   &::-ms-fill-lower {
     height: 5px;
     background: #9a48f1;
-  }
+  };
 `;
 
 export const PlayerBlock = styled.div`

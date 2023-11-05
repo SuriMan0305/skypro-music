@@ -10,6 +10,7 @@ export const PlayerPanel = ({ info }) => {
   const [nowTime, setNowTime] = useState(0);
   const [length, setLength] = useState()
 
+  const inputRef = useRef(null)
   const audioRef = useRef(null);
 
   const handleStart = () => {
@@ -50,6 +51,7 @@ export const PlayerPanel = ({ info }) => {
   
       timeSong.addEventListener("timeupdate", () => {
         setNowTime(timeSong.currentTime)
+        inputRef.current.style.setProperty('--background-size', `${inputRef.current.value}%`)
       });
     }
 
@@ -68,12 +70,14 @@ export const PlayerPanel = ({ info }) => {
       </div>
       <S.Content>
         <S.PlayerProgress
+          ref={inputRef}
           type="range"
           name="rangeTime"
           min="0"
           max={100}
           onChange={(range) => {
             audioRef.current.currentTime = (range.currentTarget.value*length/100)
+            range.currentTarget.style.setProperty('--background-size', `${range.currentTarget.value}%`)
           }}
           value={`${100 * nowTime/length}`}
           ></S.PlayerProgress>
