@@ -9,20 +9,22 @@ export const PlayerPanel = ({ info }) => {
   const [isLoop, setIsLoop] = useState(true);
   const [nowTime, setNowTime] = useState(0);
   const [length, setLength] = useState()
+  const [ending, setEnding] = useState()
 
   const volumeRef = useRef(null)
   const inputRef = useRef(null)
   const audioRef = useRef(null);
 
   const handleStart = () => {
-      audioRef.current.play();
-      setPlaying(true);
-  };
-  const handleStop = () => {
+    if (!ending&&playing) {
       audioRef.current.pause();
       setPlaying(false);
+    } else if (!ending&&!playing || ending&&playing) {
+      audioRef.current.play();
+      setPlaying(true);
+    }
+    console.log(audioRef.current.ended);
   };
-  const togglePlay = playing ? handleStop : handleStart;
 
   const handleChangeVolume = (range) => {
     setVolume(range / 100 - (range % 10) / 100);
@@ -58,16 +60,12 @@ export const PlayerPanel = ({ info }) => {
       timeSong.addEventListener("timeupdate", () => {
         setNowTime(timeSong.currentTime)
         inputRef.current.style.setProperty('--background-size', `${inputRef.current.value}%`)
+        setEnding(audioRef.current.ended)
       });
     }
 
-    if (Math.floor(nowTime) === Math.floor(length)) {
-      setNowTime(0)
-      setPlaying(false)
-    }
-
     return getInfoFunc()
-  }, [nowTime, length, playing]);
+  }, [nowTime, length, playing, isLoop]);
 
   return (
     <S.Bar>
@@ -100,9 +98,9 @@ export const PlayerPanel = ({ info }) => {
                   </svg>
                 </S.PrevButtonSvg>
               </S.PrevButton>
-              <S.PlayButton onClick={togglePlay}>
+              <S.PlayButton onClick={handleStart}>
                 <S.PlayButtonSvg alt="play">
-                  {playing ? 
+                  {playing&&!ending ? 
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="19" viewBox="0 0 15 19" fill="currentColor">
                       <rect width="5" height="19"/>
                       <rect x="10" width="5" height="19"/>
