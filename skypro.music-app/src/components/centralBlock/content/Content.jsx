@@ -65,8 +65,8 @@ export const MainContent = ({
         ) : (
           <S.Container>
             <TrackInfo
-                trackList={trackList}
-                setTrackList={setTrackList}
+              trackList={trackList}
+              setTrackList={setTrackList}
               playerVision={playerVision}
               setPlayerVision={setPlayerVision}
               info={info}
