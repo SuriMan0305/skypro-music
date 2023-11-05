@@ -7,10 +7,12 @@ export const Audio = styled.audio`
 `;
 
 export const Bar = styled.div`
+  display: flex;
   position: absolute;
   bottom: 0;
-  left: 0;
+  rigth: 0;
   width: 100%;
+  flex-direction: column;
   background: linear-gradient(
     0deg,
     rgba(24, 24, 24, 1) 15%,
@@ -260,6 +262,11 @@ export const VolumeProgressLine = styled.input`
       }
   };
 `;
+
+export const Timer = styled.div`
+  width: 60px;
+  margin: 0% 0% 1% 95%;
+`
 
 
 export const TrackPlay = styled.div`

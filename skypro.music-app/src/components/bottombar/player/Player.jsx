@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { PlayingInfoSong } from "../info/SongInfo";
 import * as S from "../PlayeStyles.js";
-import { createGlobalStyle } from "styled-components";
 
 export const PlayerPanel = ({ info }) => {
   const [playing, setPlaying] = useState(true);
@@ -42,6 +41,14 @@ export const PlayerPanel = ({ info }) => {
     audioRef.current.loop = isLoop;
   };
 
+  const timer = (current, length) => {
+    const minutesCurrent = Math.floor(current / 60) < 10 ? ('0' + Math.floor(current / 60)) : Math.floor(current / 60)
+    const secondsCurrent = Math.floor(current % 60) < 10 ? ('0' + Math.floor(current % 60)) : Math.floor(current % 60);
+    const minutesLength = Math.floor(length / 60) < 10 ? ('0' + Math.floor(length / 60)) : Math.floor(length / 60)
+    const secondsLength = Math.floor(length % 60) < 10 ? ('0' + Math.floor(length % 60)) : Math.floor(length % 60);
+    return (`${minutesCurrent + ':' + secondsCurrent}` + `/` + `${minutesLength+ ':' + secondsLength}`)
+  }
+
 
   useEffect(() => {
 
@@ -69,7 +76,11 @@ export const PlayerPanel = ({ info }) => {
 
   return (
     <S.Bar>
+      <S.Timer>
+          {timer(nowTime, length)}
+      </S.Timer>
       <div>
+        <div>
 <S.Audio controls src={info.link} ref={audioRef} autoPlay></S.Audio>
       </div>
       <S.Content>
@@ -169,6 +180,7 @@ export const PlayerPanel = ({ info }) => {
           </S.BarVolumeBlock>
         </S.PlayerBlock>
       </S.Content>
+      </div>
     </S.Bar>
   );
 };
