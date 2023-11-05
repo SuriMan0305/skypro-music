@@ -10,6 +10,7 @@ export const PlayerPanel = ({ info }) => {
   const [nowTime, setNowTime] = useState(0);
   const [length, setLength] = useState()
 
+  const volumeRef = useRef(null)
   const inputRef = useRef(null)
   const audioRef = useRef(null);
 
@@ -149,6 +150,7 @@ export const PlayerPanel = ({ info }) => {
               </S.VolumeImage>
               <S.VolumeProgress>
                 <S.VolumeProgressLine
+                ref={volumeRef}
                   type="range"
                   name="range"
                   min="0"
@@ -156,6 +158,7 @@ export const PlayerPanel = ({ info }) => {
                   defaultValue={volume * 100}
                   onChange={(range) => {
                     handleChangeVolume(range.currentTarget.value);
+                    volumeRef.current.style.setProperty('--background-size', `${range.currentTarget.value}%`)
                   }}
                 />
               </S.VolumeProgress>

@@ -28,14 +28,13 @@ export const Content = styled.div`
 `;
 
 export const PlayerProgress = styled.input`
--webkit-appearence: none;
   width: 100%;
   height: 5px;
   background-color: #2e2e2e;
   cursor: pointer;
   &::-webkit-slider-thumb {
-    cursor: pointer;
-    margin-top: -6px;
+    display: block;
+    opacity: 0;
   };
   &::-moz-range-thumb {
     border-radius: 15px;
@@ -53,10 +52,6 @@ export const PlayerProgress = styled.input`
     background: #9a48f1;
     cursor: pointer;
   };
-  &::-webkit-slider-thumb:hover {
-    opacity: 0.8;
-    background-color: #b46ffc;
-  };
   &::-moz-range-thumb:hover {
     opacity: 0.8;
     background-color: #b46ffc;
@@ -65,15 +60,15 @@ export const PlayerProgress = styled.input`
     opacity: 0.8;
     background-color: #b46ffc;
   };
-  &::-webkit-progress-inner-value {
-    height: 5px;
-    background: #9a48f1;
-  };
   &::-webkit-slider-runnable-track {
       height: 5px;
       background: linear-gradient(to right, #B672FF, #B672FF), #2e2e2e;
       background-size: var(--background-size, 0%) 100%;
       background-repeat: no-repeat;
+      transition: 0.35s;
+      &:hover {
+        transform: scaleY(1.5);
+      }
   };
   &::-moz-range-progress {
     height: 5px;
@@ -244,10 +239,29 @@ export const VolumeProgress = styled.div`
   width: 109px;
   cursor: pointer;
 `;
+
+
 export const VolumeProgressLine = styled.input`
   width: 109px;
   cursor: pointer;
+  margin-bottom: 12px;
+  &::-webkit-slider-thumb {
+    display: block;
+    opacity: 0;
+  };
+  &::-webkit-slider-runnable-track {
+      height: 5px;
+      background: linear-gradient(to right, #fff, #fff), #2e2e2e;
+      background-size: var(--background-size, 0%) 100%;
+      background-repeat: no-repeat;
+      transition: 0.35s;
+      &:hover {
+        transform: scaleY(1.5);
+      }
+  };
 `;
+
+
 export const TrackPlay = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
