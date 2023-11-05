@@ -28,8 +28,6 @@ export const Content = styled.div`
 `;
 
 export const PlayerProgress = styled.input`
-  @track-color: #fff;
-  position: relative;
   width: 100%;
   height: 5px;
   background-color: #2e2e2e;

@@ -7,7 +7,7 @@ import { NavPanel } from "../../components/navigations/panel/MainNavPanel";
 import { FilterBlock } from "../../components/centralBlock/filterBlock/FilterBlock";
 import { MainTitle } from "../../components/centralBlock/titleBlock/MainTitle";
 
-export const Main = ({ playerVision, setPlayerVision, info, setInfo, trackList, setTrackList, realDuration, setRealDuration }) => {
+export const Main = ({ playerVision, setPlayerVision, info, setInfo, trackList, setTrackList }) => {
   return (
     <>
       <S.AppStyle></S.AppStyle>
@@ -19,11 +19,11 @@ export const Main = ({ playerVision, setPlayerVision, info, setInfo, trackList, 
               <SearchBar />
               <MainTitle title='Треки' />
               <FilterBlock />
-              <MainContent playerVision={playerVision} setPlayerVision={setPlayerVision} info={info} setInfo={setInfo} trackList={trackList} setTrackList={setTrackList} realDuration={realDuration} setRealDuration={setRealDuration} />
+              <MainContent playerVision={playerVision} trackList={trackList} setTrackList={setTrackList}  setPlayerVision={setPlayerVision} setInfo={setInfo} info={info} />
             </S.MainCenterBlock>
             <SidePanel />
           </S.Main>
-          {playerVision ? (<PlayerPanel info={info} setInfo={setInfo} realDuration={realDuration} setRealDuration={setRealDuration}></PlayerPanel>) : ('')}
+          {playerVision ? (<PlayerPanel info={info} setInfo={setInfo}></PlayerPanel>) : ('')}
           <footer className="footer" />
         </S.Container>
       </S.Wrapper>

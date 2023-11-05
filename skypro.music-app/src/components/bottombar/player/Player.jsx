@@ -2,16 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import { PlayingInfoSong } from "../info/SongInfo";
 import * as S from "../PlayeStyles.js";
 
-export const PlayerPanel = ({ info, realDuration, setRealDuration }) => {
+export const PlayerPanel = ({ info }) => {
   const [Playing, setPlaying] = useState(true);
   const [volume, setVolume] = useState(0.5);
   const [isLoop, setIsLoop] = useState(true);
   const [nowTime, setNowTime] = useState(0);
-  const audioRef = useRef(null);
+  const [length, setLength] = useState()
 
-  const handleClick = onClick => {
-    console.log('hello');
-  }
+  const audioRef = useRef(null);
 
   const handleStart = () => {
     audioRef.current.play();
@@ -38,20 +36,42 @@ export const PlayerPanel = ({ info, realDuration, setRealDuration }) => {
     audioRef.current.loop = isLoop;
   };
 
+
   useEffect(() => {
-    audioRef.current.volume = volume;
-  }, []);
+    audioRef.current.volume = volume
+    const getInfoFunc = () => {
+      const timeSong = audioRef.current;
+      const timer = audioRef.current;
+
+      timer.addEventListener('loadedmetadata', () => {
+        setLength(timer.duration)
+        //console.log(length);
+      })
+  
+      timeSong.addEventListener("timeupdate", () => {
+        setNowTime(timeSong.currentTime)
+      });
+    }
+
+    return getInfoFunc()
+  }, [nowTime, setNowTime, length, setLength]);
 
   return (
     <S.Bar>
-      <S.Audio controls src={info.link} ref={audioRef} autoPlay></S.Audio>
+      <div>
+<S.Audio controls src={info.link} ref={audioRef} autoPlay></S.Audio>
+      </div>
       <S.Content>
         <S.PlayerProgress
           type="range"
           name="rangeTime"
           min="0"
-          max="100"
-          defaultValue={`${(nowTime / realDuration) * 100}`}></S.PlayerProgress>
+          max={100}
+          onChange={(range) => {
+            audioRef.current.currentTime = (range.currentTarget.value*length/100)
+          }}
+          value={`${100 * nowTime/length}`}
+          ></S.PlayerProgress>
         <S.PlayerBlock>
           <S.BarPlayer>
             <S.PlayerControls>

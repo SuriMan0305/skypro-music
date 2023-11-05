@@ -11,8 +11,6 @@ export const MainContent = ({
   info,
   trackList,
   setTrackList,
-  realDuration,
-  setRealDuration
 }) => {
   const [load, setLoad] = useState(true);
 
@@ -70,9 +68,7 @@ export const MainContent = ({
               playerVision={playerVision}
               setPlayerVision={setPlayerVision}
               info={info}
-                setInfo={setInfo}
-                realDuration={realDuration}
-              setRealDuration={setRealDuration}
+              setInfo={setInfo}
             />
           </S.Container>
         )}
