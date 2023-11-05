@@ -1,6 +1,6 @@
 import { TrackInfo } from "../tracks/Tracks";
 import * as S from "../MainBlockStyles.js";
-import { getAllTracks } from "../../../api";
+import { getAllTracks } from "../../../apimodules/api.js";
 import { useEffect, useState } from "react";
 import { SceletonTracks } from "../../sceletons/sceletonTracks";
 
@@ -15,11 +15,14 @@ export const MainContent = ({
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
-    getAllTracks({ setTrackList }).then(() => {
+    getAllTracks({ setTrackList }).then((response) => {
       setLoad(false);
+      if (response.error !== undefined) {
+        setTrackList('error')
+      }
     });
   }, [setTrackList]);
-
+  
   return (
     <S.Content>
       <S.ContentTitle>
