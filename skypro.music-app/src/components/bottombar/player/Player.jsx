@@ -32,6 +32,7 @@ export const PlayerPanel = ({ info }) => {
   const handleMute = () => {
     volume !== 0 ? setVolume(0) : setVolume(0.2);
     audioRef.current.volume = volume !== 0 ? 0 : 0.2;
+    volumeRef.current.style.setProperty('--background-size', `${volume !== 0 ? 0 : 20}%`)
   };
 
   const handleChangeLoop = () => {
@@ -41,6 +42,10 @@ export const PlayerPanel = ({ info }) => {
 
 
   useEffect(() => {
+
+    if (volume === 0.5) {
+      volumeRef.current.style.setProperty('--background-size', `50%`)
+    }
     audioRef.current.volume = volume
     const getInfoFunc = () => {
       const timeSong = audioRef.current;
@@ -155,7 +160,7 @@ export const PlayerPanel = ({ info }) => {
                   name="range"
                   min="0"
                   max="100"
-                  defaultValue={volume * 100}
+                  value={volume * 100}
                   onChange={(range) => {
                     handleChangeVolume(range.currentTarget.value);
                     volumeRef.current.style.setProperty('--background-size', `${range.currentTarget.value}%`)
