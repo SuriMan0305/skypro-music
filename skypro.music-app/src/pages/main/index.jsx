@@ -19,7 +19,7 @@ export const Main = ({ playerVision, setPlayerVision, info, setInfo, trackList, 
               <SearchBar />
               <MainTitle title='Треки' />
               <FilterBlock />
-              <MainContent playerVision={playerVision} setPlayerVision={setPlayerVision} info={info} setInfo={setInfo} trackList={trackList} setTrackList={setTrackList} />
+              <MainContent playerVision={playerVision} trackList={trackList} setTrackList={setTrackList}  setPlayerVision={setPlayerVision} setInfo={setInfo} info={info} />
             </S.MainCenterBlock>
             <SidePanel />
           </S.Main>

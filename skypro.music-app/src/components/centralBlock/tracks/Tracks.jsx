@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useRef } from "react";
 import * as S from "../MainBlockStyles.js";
 
 export const TrackInfo = ({ trackList, setPlayerVision, setInfo }) => {
-  const convertTime = (seconds) => {
-    return (
-      `${Math.floor(seconds/60)} : ${(seconds%60) >= 10 ? (seconds%60) : `0${seconds%60}`}`
-    )
-  }
+  const audioPlaylistRef = useRef();
 
-  if (`${trackList}` === 'TypeError: NetworkError when attempting to fetch resource.') {
+  const convertTime = (seconds) => {
+    return `${Math.floor(seconds / 60)} : ${
+      seconds % 60 >= 10 ? seconds % 60 : `0${seconds % 60}`
+    }`;
+  };
+
+  if (
+    `${trackList}` ===
+    "error"
+  ) {
     return (
       <div>
         {`Плейлист не удалось загрузить, попробуйте перезагрузить страницу позже (Ошибка соединения с сервером ${trackList}..)`}
       </div>
-    )
+    );
   } else {
     return trackList.map((track) => {
       return (
@@ -27,10 +32,11 @@ export const TrackInfo = ({ trackList, setPlayerVision, setInfo }) => {
                   </S.TrackTitleImage>
                   <div>
                     <S.TrackTitleLink
+                      href="http://"
                       id={track.id}
                       onClick={() => {
                         setPlayerVision(true);
-                        return setInfo({
+                        setInfo({
                           name: track.name,
                           author: track.author,
                           link: track.track_file,
@@ -60,6 +66,6 @@ export const TrackInfo = ({ trackList, setPlayerVision, setInfo }) => {
               </S.PlaylistTrack>
             </S.PlaylistItem>
       );
-    })
+    });
   }
 };

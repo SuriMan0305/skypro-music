@@ -64,12 +64,13 @@ export const TrackTitleSvg = styled.svg`
   fill: transparent;
   stroke: #4e4e4e;
 `;
-export const TrackTitleLink = styled.a`
+export const TrackTitleLink = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
+  cursor: pointer;
 `;
 export const TrackTitleSpan = styled.span`
   font-style: normal;
@@ -87,23 +88,25 @@ export const TrackAuthor = styled.div`
   -ms-flex-pack: start;
   justify-content: flex-start;
 `;
-export const TrackAuthorLink = styled.a`
+export const TrackAuthorLink = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
   text-align: left;
+  cursor: pointer;
 `;
 export const TrackAlbum = styled.div`
   width: 206px;
 `;
-export const TrackAlbumLink = styled.a`
+export const TrackAlbumLink = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   color: #696969;
+  cursor: pointer;
 `;
 export const TrackTimeSvg = styled.svg`
   width: 14px;
