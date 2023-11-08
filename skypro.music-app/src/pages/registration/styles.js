@@ -145,10 +145,17 @@ export const ModalInput = styled.input`
   }
 `;
 
+export const Error = styled.div`
+  font-family: "StratosSkyeng", sans-serif;
+  font-weight: 600;
+  margin-top: -20px;
+  color: red;
+`;
+
 export const ButtonSignUp = styled.button`
   width: 278px;
   height: 52px;
-  background-color: #580EA2;
+  background-color: #580ea2;
   border: none;
   border-radius: 6px;
   margin-top: 28px;
