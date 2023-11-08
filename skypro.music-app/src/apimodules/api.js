@@ -49,3 +49,32 @@ export async function registration({ email, password }) {
 
   }
 }
+
+export async function authorization({ email, password }) {
+  try {
+
+    const response = await fetch(`${apiUrl}/user/login/`, {
+      method: "POST",
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (data) {
+      return data;
+    } else {
+      return;
+    }
+
+  } catch (error) {
+
+    return { error: error.message };
+
+  }
+}

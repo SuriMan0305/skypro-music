@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import * as S from "./styles";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { registration } from "../../apimodules/api";
 
 export const Reg = () => {
+  const navigate = useNavigate()
+
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [repeatInput, setRepeatInput] = useState("");
   const [errorInputs, setErrorInputs] = useState("");
+  const [key, setKey] = useState(localStorage.getItem('idUser'))
 
   const writeEmail = (e) => {
     setEmailInput(e.currentTarget.value);
@@ -31,7 +34,8 @@ export const Reg = () => {
         (response) => {
           if (response.id !== undefined) {
             setErrorInputs('')
-            return localStorage.setItem("idUser", response.id);
+            localStorage.setItem("idUser", response.id)
+            return setKey(localStorage.getItem("idUser", response.id));
           } else if (response.email !== undefined) {
             setErrorInputs(response.email);
           } else if (response.password !== undefined) {
@@ -48,10 +52,15 @@ export const Reg = () => {
     } else if (passwordInput !== repeatInput) {
       setErrorInputs(`Password mismatch`);
     }
-    console.log(localStorage.getItem('idUser'));
+    console.log(key);
+    
   };
 
-  useEffect(() => {}, [emailInput, passwordInput, repeatInput]);
+  useEffect(() => {
+    if (key) {
+      navigate('/', {replace: true})
+    }
+  }, [emailInput, passwordInput, repeatInput, key]);
 
   return (
     <>
@@ -91,7 +100,9 @@ export const Reg = () => {
               />
               <S.Error>{errorInputs}</S.Error>
               <S.ButtonSignUp>
-                <NavLink to={localStorage.getItem('idUser') ? '/' : '/register'} onClick={onButtonClick}>
+                <NavLink to={key ? '/' : '/register'} onClick={
+                  onButtonClick
+                }>
                   Зарегистрироваться
                 </NavLink>
               </S.ButtonSignUp>
