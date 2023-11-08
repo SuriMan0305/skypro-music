@@ -28,7 +28,7 @@ export const AppRoutes = ({
       <Route
         element={
           <ProtectedRoute
-            isAllowed={localStorage.getItem("idUser") !== undefined ? true : false}
+            isAllowed={localStorage.getItem("idUser") !== null ? true : false}
           />
         }>
         <Route
