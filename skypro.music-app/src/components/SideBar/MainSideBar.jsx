@@ -3,7 +3,7 @@ import * as S from './SidebarStyles.js'
 import { SideListBlock, SideListBlockLoading } from "./sideBarBlock/sideBlock.jsx";
 const { useEffect, useState } = React;
 
-export const SidePanel = () => {
+export const SidePanel = ({username}) => {
   const [seconds, setSeconds] = useState(0);
 
   const increase = () => {
@@ -25,7 +25,7 @@ export const SidePanel = () => {
     return (
       <S.MainSidebar>
         <S.SidebarPersonal>
-          <S.SidebarPersonalName></S.SidebarPersonalName>
+          <S.SidebarPersonalName>{ username }</S.SidebarPersonalName>
           <S.SidebarIcon>
             <svg alt="logout">
               <use xlinkHref="/img/icon/sprite.svg#logout" />

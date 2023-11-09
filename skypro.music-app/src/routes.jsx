@@ -1,12 +1,13 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { Main } from "./pages/main";
 import { Undefined } from "./pages/not-found";
 import { Sign } from "./pages/login";
 import { Reg } from "./pages/registration";
 import { Playlist } from "./pages/playlist";
 import { ProtectedRoute } from "./components/protect";
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Collections } from "./pages/selections/collections";
+import { UserContext } from "./context/userInfo";
 
 export const AppRoutes = ({
   playerVision,
@@ -16,9 +17,12 @@ export const AppRoutes = ({
   trackList,
   setTrackList,
 }) => {
+  const navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.getItem('idUser');
+    if (localStorage.getItem("idUser")) {
+      navigate("/", { replace: true });
+    }
   }, []);
   return (
     <Routes>
@@ -34,14 +38,17 @@ export const AppRoutes = ({
         <Route
           path="/"
           element={
-            <Main
-              playerVision={playerVision}
-              setPlayerVision={setPlayerVision}
-              info={info}
-              setInfo={setInfo}
-              trackList={trackList}
-              setTrackList={setTrackList}
-            />
+            <UserContext.Provider
+              value={JSON.parse(localStorage.getItem("idUser"))}>
+              <Main
+                playerVision={playerVision}
+                setPlayerVision={setPlayerVision}
+                info={info}
+                setInfo={setInfo}
+                trackList={trackList}
+                setTrackList={setTrackList}
+              />
+            </UserContext.Provider>
           }></Route>
         <Route
           path="/favorites"

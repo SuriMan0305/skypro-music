@@ -6,6 +6,7 @@ import { SearchBar } from "../../components/centralBlock/search/Search";
 import { NavPanel } from "../../components/navigations/panel/MainNavPanel";
 import { FilterBlock } from "../../components/centralBlock/filterBlock/FilterBlock";
 import { MainTitle } from "../../components/centralBlock/titleBlock/MainTitle";
+import { UserContext } from "../../context/userInfo";
 
 export const Main = ({ playerVision, setPlayerVision, info, setInfo, trackList, setTrackList }) => {
   return (
@@ -21,7 +22,9 @@ export const Main = ({ playerVision, setPlayerVision, info, setInfo, trackList, 
               <FilterBlock />
               <MainContent playerVision={playerVision} trackList={trackList} setTrackList={setTrackList}  setPlayerVision={setPlayerVision} setInfo={setInfo} info={info} />
             </S.MainCenterBlock>
-            <SidePanel />
+            <UserContext.Consumer>
+              {(info) => <SidePanel username={ info.username } />}
+            </UserContext.Consumer>
           </S.Main>
           {playerVision ? (<PlayerPanel info={info} setInfo={setInfo}></PlayerPanel>) : ('')}
           <footer className="footer" />

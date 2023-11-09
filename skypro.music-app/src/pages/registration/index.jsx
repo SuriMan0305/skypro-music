@@ -36,13 +36,13 @@ export const Reg = () => {
         (response) => {
           if (response.id !== undefined) {
             setErrorInputs('')
-            localStorage.setItem("idUser", {
+            localStorage.setItem("idUser", JSON.stringify({
               id: response.id,
               username: response.username,
               first_name: response.first_name,
               last_name: response.last_name,
               email: response.email
-            })
+            }))
             return setKey(localStorage.getItem("idUser", response.id));
           } else if (response.email !== undefined) {
             setErrorInputs(response.email);

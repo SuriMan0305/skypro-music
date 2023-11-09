@@ -103,6 +103,7 @@ export const InputBlock = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
+  margin-bottom: 100px;
 `
 export const ModalInput = styled.input`
   font-family: "StratosSkyeng", sans-serif;
@@ -150,17 +151,17 @@ export const ModalInput = styled.input`
 `;
 
 export const Validation = styled.div`
-  margin-bottom: -39px;
+  margin-top: -100px;
+  margin-bottom: 20px;
   color: red;
 `
 
 export const ButtonEnter = styled.button`
-  box-sizing: border-box;
   width: 278px;
   height: 52px;
   background-color: #580ea2;
   border-radius: 6px;
-  margin-top: 57px;
+
   margin-bottom: 20px;
   border: none;
   display: -webkit-box;
