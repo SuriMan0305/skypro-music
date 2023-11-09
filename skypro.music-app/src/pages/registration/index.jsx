@@ -52,8 +52,6 @@ export const Reg = () => {
     } else if (passwordInput !== repeatInput) {
       setErrorInputs(`Password mismatch`);
     }
-    console.log(key);
-    
   };
 
   useEffect(() => {

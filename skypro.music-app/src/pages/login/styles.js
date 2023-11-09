@@ -148,6 +148,12 @@ export const ModalInput = styled.input`
     color: #d0cece;
   }
 `;
+
+export const Validation = styled.div`
+  margin-bottom: -39px;
+  color: red;
+`
+
 export const ButtonEnter = styled.button`
   box-sizing: border-box;
   width: 278px;

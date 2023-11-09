@@ -149,6 +149,7 @@ export const Error = styled.div`
   font-family: "StratosSkyeng", sans-serif;
   font-weight: 600;
   margin-top: -20px;
+  margin-bottom: -20px;
   color: red;
 `;
 
