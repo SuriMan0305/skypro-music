@@ -8,7 +8,14 @@ import { FilterBlock } from "../../components/centralBlock/filterBlock/FilterBlo
 import { MainTitle } from "../../components/centralBlock/titleBlock/MainTitle";
 import { UserContext } from "../../context/userInfo";
 
-export const Main = ({ playerVision, setPlayerVision, info, setInfo, trackList, setTrackList }) => {
+export const Main = ({
+  playerVision,
+  setPlayerVision,
+  info,
+  setInfo,
+  trackList,
+  setTrackList,
+}) => {
   return (
     <>
       <S.AppStyle></S.AppStyle>
@@ -18,15 +25,24 @@ export const Main = ({ playerVision, setPlayerVision, info, setInfo, trackList, 
             <NavPanel />
             <S.MainCenterBlock>
               <SearchBar />
-              <MainTitle title='Треки' />
+              <MainTitle title="Треки" />
               <FilterBlock />
-              <MainContent playerVision={playerVision} trackList={trackList} setTrackList={setTrackList}  setPlayerVision={setPlayerVision} setInfo={setInfo} info={info} />
+              <MainContent
+                playerVision={playerVision}
+                trackList={trackList}
+                setTrackList={setTrackList}
+                setPlayerVision={setPlayerVision}
+                setInfo={setInfo}
+                info={info}
+              />
             </S.MainCenterBlock>
-            <UserContext.Consumer>
-              {(info) => <SidePanel username={ info.username } />}
-            </UserContext.Consumer>
+            <SidePanel />
           </S.Main>
-          {playerVision ? (<PlayerPanel info={info} setInfo={setInfo}></PlayerPanel>) : ('')}
+          {playerVision ? (
+            <PlayerPanel info={info} setInfo={setInfo}></PlayerPanel>
+          ) : (
+            ""
+          )}
           <footer className="footer" />
         </S.Container>
       </S.Wrapper>

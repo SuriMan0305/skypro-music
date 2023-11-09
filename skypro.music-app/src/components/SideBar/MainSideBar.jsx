@@ -1,9 +1,13 @@
 import React from "react";
 import * as S from './SidebarStyles.js'
 import { SideListBlock, SideListBlockLoading } from "./sideBarBlock/sideBlock.jsx";
+import { useUserContext } from "../../context/userInfo.jsx";
 const { useEffect, useState } = React;
 
-export const SidePanel = ({username}) => {
+export const SidePanel = () => {
+
+  const {username} = useUserContext()
+
   const [seconds, setSeconds] = useState(0);
 
   const increase = () => {

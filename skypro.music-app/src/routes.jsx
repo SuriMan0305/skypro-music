@@ -7,7 +7,6 @@ import { Playlist } from "./pages/playlist";
 import { ProtectedRoute } from "./components/protect";
 import React, { useEffect } from "react";
 import { Collections } from "./pages/selections/collections";
-import { UserContext } from "./context/userInfo";
 
 export const AppRoutes = ({
   playerVision,
@@ -38,8 +37,6 @@ export const AppRoutes = ({
         <Route
           path="/"
           element={
-            <UserContext.Provider
-              value={JSON.parse(localStorage.getItem("idUser"))}>
               <Main
                 playerVision={playerVision}
                 setPlayerVision={setPlayerVision}
@@ -48,7 +45,6 @@ export const AppRoutes = ({
                 trackList={trackList}
                 setTrackList={setTrackList}
               />
-            </UserContext.Provider>
           }></Route>
         <Route
           path="/favorites"
