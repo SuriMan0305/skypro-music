@@ -11,6 +11,7 @@ export const Reg = () => {
   const [repeatInput, setRepeatInput] = useState("");
   const [errorInputs, setErrorInputs] = useState("");
   const [key, setKey] = useState(localStorage.getItem('idUser'))
+  const [load, setLoad] = useState(false)
 
   const writeEmail = (e) => {
     setEmailInput(e.currentTarget.value);
@@ -25,6 +26,7 @@ export const Reg = () => {
   };
 
   const onButtonClick = () => {
+    setLoad(true)
     if (
       passwordInput === repeatInput &&
       passwordInput.length >= 8 &&
@@ -34,7 +36,13 @@ export const Reg = () => {
         (response) => {
           if (response.id !== undefined) {
             setErrorInputs('')
-            localStorage.setItem("idUser", response.id)
+            localStorage.setItem("idUser", {
+              id: response.id,
+              username: response.username,
+              first_name: response.first_name,
+              last_name: response.last_name,
+              email: response.email
+            })
             return setKey(localStorage.getItem("idUser", response.id));
           } else if (response.email !== undefined) {
             setErrorInputs(response.email);
@@ -42,14 +50,20 @@ export const Reg = () => {
             setErrorInputs(response.password);
           }
         }
-      );
+      ).then(() => {
+        setLoad(false)
+      })
     } else if (emailInput.length === 0) {
+      setLoad(false)
       setErrorInputs(`Input 'email' is empty`);
     } else if (passwordInput.length === 0 || repeatInput.length === 0) {
+      setLoad(false)
       setErrorInputs(`Inputs 'password' is empty`);
     } else if (passwordInput.length < 8 || repeatInput.length < 8) {
+      setLoad(false)
       setErrorInputs(`Minimal long password 8 symbols`);
     } else if (passwordInput !== repeatInput) {
+      setLoad(false)
       setErrorInputs(`Password mismatch`);
     }
   };
@@ -97,13 +111,13 @@ export const Reg = () => {
                 }}
               />
               <S.Error>{errorInputs}</S.Error>
-              <S.ButtonSignUp>
-                <NavLink to={key ? '/' : '/register'} onClick={
+              <NavLink to={key ? '/' : '/register'}>
+                <S.ButtonSignUp onClick={
                   onButtonClick
-                }>
+                } disabled={load ? true : false}>
                   Зарегистрироваться
-                </NavLink>
-              </S.ButtonSignUp>
+                </S.ButtonSignUp>
+              </NavLink>
             </S.ModalFormLogin>
           </S.ModalBlock>
         </S.Container>

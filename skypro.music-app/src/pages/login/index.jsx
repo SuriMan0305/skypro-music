@@ -11,6 +11,7 @@ export const Sign = () => {
   const [emailInput, setEmailInput] = useState('')
   const [passwordInput, setPasswordInput] = useState('')
   const [key, setKey] = useState(localStorage.getItem('idUser'))
+  const [load, setLoad] = useState(false)
 
   const writeEmail = (e) => {
     setEmailInput(e.currentTarget.value);
@@ -21,10 +22,17 @@ export const Sign = () => {
   };
 
   const onEnterClick = () => {
+      setLoad(true)
       authorization({email: emailInput, password: passwordInput}).then((response) => {
         if (response.id !== undefined) {
           setErrorInputs('')
-          localStorage.setItem("idUser", response.id)
+          localStorage.setItem("idUser", {
+              id: response.id,
+              username: response.username,
+              first_name: response.first_name,
+              last_name: response.last_name,
+              email: response.email
+            })
           return setKey(localStorage.getItem("idUser", response.id));
         } else if (response.email !== undefined) {
           setErrorInputs(`${response.email} - поле 'Почта'`)
@@ -33,6 +41,8 @@ export const Sign = () => {
         } else if (response.detail !== undefined) {
           setErrorInputs(response.detail)
         }
+      }).then(() => {
+        setLoad(false)
       })
   }
 
@@ -64,11 +74,13 @@ export const Sign = () => {
                 />
               </S.InputBlock>
               <S.Validation>{errorInputs}</S.Validation>
-              <S.ButtonEnter>
-                <NavLink to={key ? "/" : '/login'} onClick={() => {
+                <NavLink to={key ? "/" : '/login'}>
+                  <S.ButtonEnter onClick={() => {
                   onEnterClick()
-                }}>Войти</NavLink>
-              </S.ButtonEnter>
+                }} disabled={load ? true : false}>
+                    Войти
+                </S.ButtonEnter>
+                  </NavLink>
               <S.ButtonSignUp>
                 <NavLink to="/register">Зарегистрироваться</NavLink>
               </S.ButtonSignUp>

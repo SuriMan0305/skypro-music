@@ -5,7 +5,7 @@ import { Sign } from "./pages/login";
 import { Reg } from "./pages/registration";
 import { Playlist } from "./pages/playlist";
 import { ProtectedRoute } from "./components/protect";
-import { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Collections } from "./pages/selections/collections";
 
 export const AppRoutes = ({
@@ -16,9 +16,9 @@ export const AppRoutes = ({
   trackList,
   setTrackList,
 }) => {
-  const navigate = useNavigate(); //без этого кусочука почему-то не работает как надо
+
   useEffect(() => {
-    localStorage.getItem("token");
+    localStorage.getItem('idUser');
   }, []);
   return (
     <Routes>
