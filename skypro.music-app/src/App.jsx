@@ -12,8 +12,8 @@ function App() {
   const [trackList, setTrackList] = useState([]);
 
   return (
-    <div className="App">
-      <div className="App-layout">
+    <div>
+      <div>
         <UserContext.Provider value={JSON.parse(localStorage.getItem('idUser'))}>
           <AppRoutes
             playerVision={playerVision}
