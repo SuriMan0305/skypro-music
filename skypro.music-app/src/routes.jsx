@@ -1,11 +1,11 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { Main } from "./pages/main";
 import { Undefined } from "./pages/not-found";
 import { Sign } from "./pages/login";
 import { Reg } from "./pages/registration";
 import { Playlist } from "./pages/playlist";
 import { ProtectedRoute } from "./components/protect";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Collections } from "./pages/selections/collections";
 
 export const AppRoutes = ({
@@ -16,9 +16,12 @@ export const AppRoutes = ({
   trackList,
   setTrackList,
 }) => {
-  const navigate = useNavigate(); //без этого кусочука почему-то не работает как надо
+  const navigate = useNavigate();
+
   useEffect(() => {
-    localStorage.getItem("token");
+    if (localStorage.getItem("idUser")) {
+      navigate("/", { replace: true });
+    }
   }, []);
   return (
     <Routes>
@@ -28,20 +31,20 @@ export const AppRoutes = ({
       <Route
         element={
           <ProtectedRoute
-            isAllowed={localStorage.getItem("token") === "true" ? true : false}
+            isAllowed={localStorage.getItem("idUser") !== null ? true : false}
           />
         }>
         <Route
           path="/"
           element={
-            <Main
-              playerVision={playerVision}
-              setPlayerVision={setPlayerVision}
-              info={info}
-              setInfo={setInfo}
-              trackList={trackList}
-              setTrackList={setTrackList}
-            />
+              <Main
+                playerVision={playerVision}
+                setPlayerVision={setPlayerVision}
+                info={info}
+                setInfo={setInfo}
+                trackList={trackList}
+                setTrackList={setTrackList}
+              />
           }></Route>
         <Route
           path="/favorites"

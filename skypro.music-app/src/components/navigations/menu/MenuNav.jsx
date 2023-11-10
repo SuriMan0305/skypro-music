@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export function MenuItemComponent(props) {
   const letExit = () => {
-    return localStorage.removeItem('token')
+    return localStorage.removeItem('idUser')
   }
 
   if (props.adress === '/login') {

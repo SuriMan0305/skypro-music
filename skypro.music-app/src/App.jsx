@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AppRoutes } from "./routes";
+import { UserContext } from "./context/userInfo";
 
 function App() {
   const [playerVision, setPlayerVision] = useState(false);
@@ -13,14 +14,16 @@ function App() {
   return (
     <div className="App">
       <div className="App-layout">
-        <AppRoutes
-          playerVision={playerVision}
-          setPlayerVision={setPlayerVision}
-          info={info}
-          setInfo={setInfo}
-          trackList={trackList}
-          setTrackList={setTrackList}
-        />
+        <UserContext.Provider value={JSON.parse(localStorage.getItem('idUser'))}>
+          <AppRoutes
+            playerVision={playerVision}
+            setPlayerVision={setPlayerVision}
+            info={info}
+            setInfo={setInfo}
+            trackList={trackList}
+            setTrackList={setTrackList}
+          />
+        </UserContext.Provider>
       </div>
     </div>
   );

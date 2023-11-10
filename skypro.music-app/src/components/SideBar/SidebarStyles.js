@@ -2,7 +2,7 @@ import styled, {keyframes} from "styled-components";
 
 export const MainSidebar = styled.div`
   max-width: 418px;
-  padding: 20px 90px 20px 78px;
+  padding: 20px 90px 20px 50px;
 `;
 
 export const SidebarPersonal = styled.div`
@@ -32,9 +32,15 @@ export const SidebarPersonalName = styled.p`
 export const SidebarIcon = styled.div`
   width: 43px;
   height: 43px;
-  background-color: #313131;
   border-radius: 50%;
+  color: #696969;
   cursor: pointer;
+  :hover {
+    color: #acacac;
+  }
+  :active {
+    color: white;
+  }
 `
 
 export const SidebarBlock = styled.div`

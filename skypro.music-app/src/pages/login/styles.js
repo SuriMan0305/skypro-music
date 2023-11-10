@@ -103,6 +103,7 @@ export const InputBlock = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
+  margin-bottom: 100px;
 `
 export const ModalInput = styled.input`
   font-family: "StratosSkyeng", sans-serif;
@@ -148,13 +149,19 @@ export const ModalInput = styled.input`
     color: #d0cece;
   }
 `;
+
+export const Validation = styled.div`
+  margin-top: -100px;
+  margin-bottom: 20px;
+  color: red;
+`
+
 export const ButtonEnter = styled.button`
-  box-sizing: border-box;
   width: 278px;
   height: 52px;
   background-color: #580ea2;
   border-radius: 6px;
-  margin-top: 57px;
+
   margin-bottom: 20px;
   border: none;
   display: -webkit-box;
@@ -166,29 +173,19 @@ export const ButtonEnter = styled.button`
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  a {
-    width: 100%;
-    height: 100%;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 24px;
-    letter-spacing: -0.05px;
-    color: #ffffff;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
+  color:white;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.05px;
   &:hover {
     background-color: #3f007d;
   }
   &:active {
+    background-color: #271a58;
+  }
+  &:disabled {
     background-color: #271a58;
   }
 `;

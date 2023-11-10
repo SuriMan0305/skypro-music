@@ -183,7 +183,7 @@ export const ContentPlaylistPage = styled.div`
   width: 1298px;
 `;
 export const TracklistPlaylistPage = styled.div`
-  width: 100%;
+  max-width: 1050px;
 `;
 export const PlaylistItemPlaylistPage = styled.div`
   margin-bottom: 12px;
