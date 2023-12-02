@@ -1,8 +1,20 @@
-import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
 import * as S from "../MainBlockStyles.js";
+import { startHandlePlay } from "../../../store/slices/playerActions.js";
 
-export const TrackInfo = ({ trackList, setPlayerVision, setInfo }) => {
-  const audioPlaylistRef = useRef();
+export const TrackInfo = ({ trackList, setPlayerVision }) => {
+
+  const dispatch = useDispatch()
+
+  const handleToggleTrack = (info) => {
+    setPlayerVision(true)
+    dispatch(startHandlePlay({
+      album: info.album,
+      author: info.author,
+      track_file: info.track_file,
+    }))
+  }
+
 
   const convertTime = (seconds) => {
     return `${Math.floor(seconds / 60)} : ${
@@ -22,7 +34,7 @@ export const TrackInfo = ({ trackList, setPlayerVision, setInfo }) => {
   } else {
     return trackList.map((track) => {
       return (
-            <S.PlaylistItem key={track.id}>
+        <S.PlaylistItem key={track.id}>
               <S.PlaylistTrack>
                 <S.TrackTitle>
                   <S.TrackTitleImage>
@@ -35,12 +47,7 @@ export const TrackInfo = ({ trackList, setPlayerVision, setInfo }) => {
                       href="http://"
                       id={track.id}
                       onClick={() => {
-                        setPlayerVision(true);
-                        setInfo({
-                          name: track.name,
-                          author: track.author,
-                          link: track.track_file,
-                        });
+                        handleToggleTrack(track)
                       }}>
                       {track.name}{" "}
                       <S.TrackTitleSpan>({track.genre})</S.TrackTitleSpan>

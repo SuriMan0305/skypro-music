@@ -9,7 +9,6 @@ function App() {
     author: "",
     link: "",
   });
-  const [trackList, setTrackList] = useState([]);
 
   return (
     <div className="App">
@@ -20,8 +19,6 @@ function App() {
             setPlayerVision={setPlayerVision}
             info={info}
             setInfo={setInfo}
-            trackList={trackList}
-            setTrackList={setTrackList}
           />
         </UserContext.Provider>
       </div>

@@ -6,16 +6,27 @@ import { SearchBar } from "../../components/centralBlock/search/Search";
 import { NavPanel } from "../../components/navigations/panel/MainNavPanel";
 import { FilterBlock } from "../../components/centralBlock/filterBlock/FilterBlock";
 import { MainTitle } from "../../components/centralBlock/titleBlock/MainTitle";
-import { UserContext } from "../../context/userInfo";
+import { useDispatch } from "react-redux";
+import { getAllTracks } from "../../apimodules/api";
+import { setPlaylist } from "../../store/slices/playerActions";
+import { useEffect, useState } from "react";
 
 export const Main = ({
   playerVision,
   setPlayerVision,
   info,
   setInfo,
-  trackList,
-  setTrackList,
 }) => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    getAllTracks().then((response) => {
+      return dispatch(setPlaylist(response))
+    })
+  }, [])
+
+
   return (
     <>
       <S.AppStyle></S.AppStyle>
@@ -29,8 +40,6 @@ export const Main = ({
               <FilterBlock />
               <MainContent
                 playerVision={playerVision}
-                trackList={trackList}
-                setTrackList={setTrackList}
                 setPlayerVision={setPlayerVision}
                 setInfo={setInfo}
                 info={info}

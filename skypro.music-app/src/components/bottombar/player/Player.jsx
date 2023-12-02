@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { PlayingInfoSong } from "../info/SongInfo";
 import * as S from "../PlayeStyles.js";
+import { useSelector } from "react-redux";
 
-export const PlayerPanel = ({ info }) => {
+export const PlayerPanel = () => {
   const [playing, setPlaying] = useState(true);
   const [volume, setVolume] = useState(0.5);
   const [isLoop, setIsLoop] = useState(true);
@@ -13,6 +14,8 @@ export const PlayerPanel = ({ info }) => {
   const volumeRef = useRef(null);
   const inputRef = useRef(null);
   const audioRef = useRef(null);
+
+  const trackNow = useSelector(state => state.playlist.nowPlay)
 
   const handleStart = () => {
     if ((!ending && playing) || (ending && !playing)) {
@@ -96,7 +99,7 @@ export const PlayerPanel = ({ info }) => {
         <S.Timer>{timer(nowTime, length)}</S.Timer>
         <div>
           <div>
-            <S.Audio controls src={info.link} ref={audioRef} autoPlay></S.Audio>
+            <S.Audio controls src={trackNow.track_file} ref={audioRef} autoPlay></S.Audio>
           </div>
           <S.Content>
             <S.PlayerProgress
@@ -202,7 +205,7 @@ export const PlayerPanel = ({ info }) => {
                     </S.ShuffleButtonSvg>
                   </S.ShuffleButton>
                 </S.PlayerControls>
-                <PlayingInfoSong song={info.name} artist={info.author} />
+                <PlayingInfoSong song={trackNow.album} artist={trackNow.author} />
               </S.BarPlayer>
               <S.BarVolumeBlock>
                 <S.VolumeContent>
