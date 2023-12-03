@@ -196,6 +196,14 @@ export const ShuffleButtonSvg = styled.svg`
     stroke: #ffffff;
   }
 `;
+
+export const ShuffleButtonSvgOn = styled.svg`
+  width: 19px;
+  height: 12px;
+  fill: transparent;
+  stroke: #ffffff;
+`;
+
 export const VolumeImage = styled.div`
   width: 13px;
   height: 18px;

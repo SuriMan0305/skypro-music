@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { PlayingInfoSong } from "../info/SongInfo";
 import * as S from "../PlayeStyles.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   nextButton,
   prevButton,
+  shuffle,
+  shuffleTracksButton,
   startHandlePlay,
 } from "../../../store/slices/playerActions.js";
 
@@ -83,8 +85,14 @@ export const PlayerPanel = ({ trackNow, playing, setPlaying }) => {
   };
 
   const prevPlay = () => {
-    dispatch(prevButton(trackNow))
-  }
+    dispatch(prevButton(trackNow));
+  };
+
+  const shuffleTracks = () => {
+    dispatch(shuffleTracksButton());
+  };
+
+  const toggleShuffle = !useSelector((state) => state.playlist.shuffleTracksStatus);
 
   useEffect(() => {
     if (!playing) {
@@ -161,7 +169,7 @@ export const PlayerPanel = ({ trackNow, playing, setPlaying }) => {
                   <S.PrevButtonSvg
                     alt="prev"
                     onClick={() => {
-                      prevPlay()
+                      prevPlay();
                     }}>
                     <svg
                       width="16"
@@ -233,13 +241,23 @@ export const PlayerPanel = ({ trackNow, playing, setPlaying }) => {
                   </S.RepeatButtonSvg>
                 </S.RepeatButton>
                 <S.ShuffleButton>
-                  <S.ShuffleButtonSvg
-                    alt="shuffle"
-                    onClick={() => {
-                      alert("element of player in production");
-                    }}>
-                    <use xlinkHref="/img/icon/sprite.svg#icon-shuffle" />
-                  </S.ShuffleButtonSvg>
+                  {!toggleShuffle ? (
+                    <S.ShuffleButtonSvgOn
+                      alt="shuffle"
+                      onClick={() => {
+                        shuffleTracks();
+                      }}>
+                      <use xlinkHref="/img/icon/sprite.svg#icon-shuffle" />
+                    </S.ShuffleButtonSvgOn>
+                  ) : (
+                    <S.ShuffleButtonSvg
+                      alt="shuffle"
+                      onClick={() => {
+                        shuffleTracks();
+                      }}>
+                      <use xlinkHref="/img/icon/sprite.svg#icon-shuffle" />
+                    </S.ShuffleButtonSvg>
+                  )}
                 </S.ShuffleButton>
               </S.PlayerControls>
               <PlayingInfoSong song={trackNow.album} artist={trackNow.author} />

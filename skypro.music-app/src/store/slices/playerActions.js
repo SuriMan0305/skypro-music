@@ -9,6 +9,8 @@ const initialState = {
     track_file: "",
     statusPlay: "",
   },
+  shuffleTracksStatus: false,
+  shuffleTracksList: '',
 };
 
 export const playlist = createSlice({
@@ -17,6 +19,7 @@ export const playlist = createSlice({
   reducers: {
     setPlaylist: (state, action) => {
       state.data = action.payload; // данные из диспатча передаются в state
+      state.shuffleTracksList = action.payload;
     },
     startHandlePlay: (state, action) => {
       state.nowPlay = action.payload;
@@ -75,6 +78,35 @@ export const playlist = createSlice({
         };
       }
     },
+    shuffleTracksButton: (state) => {
+      state.shuffleTracksStatus = !state.shuffleTracksStatus;
+      if (state.shuffleTracksStatus === true) {
+        const idContainer = [];
+        state.data.map((el) => {
+          idContainer.push(el.id);
+        });
+        let shuffleIdContainer = idContainer;
+        shuffleIdContainer = idContainer.sort(() => Math.random() - 0.5);
+        let shuffleObjects = [];
+        shuffleIdContainer.map((id) => {
+          state.data.map((el) => {
+            if (el.id === id) {
+              shuffleObjects.push({
+                id: el.id,
+                album: el.album,
+                author: el.author,
+                track_file: el.track_file,
+                statusPlay: el.statusPlay,
+              });
+            }
+          });
+        });
+        state.shuffleTracksList = shuffleObjects
+        console.log(shuffleObjects);
+      } else {
+        state.shuffleTracksList = state.data
+      }
+    },
     setNext: (state) => {
       // добавляем к счетчику и делаем всё неактивным
       state.counter++;
@@ -93,7 +125,13 @@ export const playlist = createSlice({
   },
 });
 
-export const { setPlaylist, setNext, startHandlePlay, nextButton, prevButton } =
-  playlist.actions; //Экспортируем для диспатча
+export const {
+  setPlaylist,
+  setNext,
+  startHandlePlay,
+  nextButton,
+  prevButton,
+  shuffleTracksButton,
+} = playlist.actions; //Экспортируем для диспатча
 
 export default playlist.reducer; // Экспортируем для store
