@@ -7,7 +7,7 @@ const initialState = {
     album: '',
     author: '',
     track_file: '',
-    statusPlay: false,
+    statusPlay: '',
   },
 };
 

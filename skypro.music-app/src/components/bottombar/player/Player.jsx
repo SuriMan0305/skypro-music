@@ -100,6 +100,7 @@ export const PlayerPanel = ({ trackNow, playing, setPlaying }) => {
       });
       if (ending) {
         setPlaying(false)
+        dispatch(startHandlePlay({ ...trackNow, statusPlay: false }))
       }
     };
 

@@ -1,6 +1,7 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as S from "../MainBlockStyles.js";
 import { startHandlePlay } from "../../../store/slices/playerActions.js";
+import { useEffect } from "react";
 
 export const TrackInfo = ({
   trackList,
@@ -13,8 +14,8 @@ export const TrackInfo = ({
 
   const handleToggleTrack = (info) => {
     setPlayerVision(true);
-    const rememberTrack = trackNow;
-    if ((rememberTrack === trackNow) && (rememberTrack.track_file !== "")) {
+    const rememberTrack = info;
+    if (rememberTrack === trackNow) {
       setPlaying(!trackNow.statusPlay);
       dispatch(
         startHandlePlay({
@@ -25,14 +26,15 @@ export const TrackInfo = ({
           statusPlay: !trackNow.statusPlay,
         })
       );
-    } else {
+    } else if (rememberTrack.id !== trackNow.id) {
+      setPlaying(true);
       dispatch(
         startHandlePlay({
           id: info.id,
           album: info.album,
           author: info.author,
           track_file: info.track_file,
-          statusPlay: !trackNow.statusPlay,
+          statusPlay: true,
         })
       );
     }
@@ -57,9 +59,16 @@ export const TrackInfo = ({
           <S.PlaylistTrack>
             <S.TrackTitle>
               <S.TrackTitleImage>
-                <S.TrackTitleSvg alt="music">
-                  <use xlinkHref="/img/icon/sprite.svg#icon-note" />
-                </S.TrackTitleSvg>
+                {trackNow.track_file === track.track_file &&
+                trackNow.statusPlay ? (
+                  <S.CircleMove />
+                ) : trackNow.id !== track.id ? (
+                  <S.TrackTitleSvg alt="music">
+                    <use xlinkHref="/img/icon/sprite.svg#icon-note" />
+                  </S.TrackTitleSvg>
+                ) : (
+                  <S.CircleStop />
+                )}
               </S.TrackTitleImage>
               <div>
                 <S.TrackTitleLink
