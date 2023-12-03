@@ -10,7 +10,7 @@ const initialState = {
     statusPlay: "",
   },
   shuffleTracksStatus: false,
-  shuffleTracksList: '',
+  shuffleTracksList: "",
 };
 
 export const playlist = createSlice({
@@ -101,12 +101,38 @@ export const playlist = createSlice({
             }
           });
         });
-        state.shuffleTracksList = shuffleObjects
-        console.log(shuffleObjects);
+        state.shuffleTracksList = shuffleObjects;
       } else {
-        state.shuffleTracksList = state.data
+        state.shuffleTracksList = state.data;
       }
     },
+    nextButtonShuffle: (state) => {
+      let pos = 0;
+      let count = 0;
+
+      state.shuffleTracksList.map((list, index) => {
+        const nowIdTrack = state.nowPlay.id;
+        if (list.id === nowIdTrack) {
+          pos = index;
+        }
+        if (pos !== 0) {
+          if (count > 1) {
+            pos = 0;
+            count = count - 2;
+            state.nowPlay = {
+              id: list.id,
+              album: list.album,
+              author: list.author,
+              track_file: list.track_file,
+              statusPlay: true,
+            };
+            console.log(list.id);
+          }
+          count++;
+        }
+      });
+    },
+    prevButtonShuffle: (state) => {},
     setNext: (state) => {
       // добавляем к счетчику и делаем всё неактивным
       state.counter++;
@@ -132,6 +158,8 @@ export const {
   nextButton,
   prevButton,
   shuffleTracksButton,
+  nextButtonShuffle,
+  prevButtonShuffle,
 } = playlist.actions; //Экспортируем для диспатча
 
 export default playlist.reducer; // Экспортируем для store

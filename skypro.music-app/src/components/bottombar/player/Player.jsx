@@ -4,6 +4,7 @@ import * as S from "../PlayeStyles.js";
 import { useDispatch, useSelector } from "react-redux";
 import {
   nextButton,
+  nextButtonShuffle,
   prevButton,
   shuffle,
   shuffleTracksButton,
@@ -80,23 +81,37 @@ export const PlayerPanel = ({ trackNow, playing, setPlaying }) => {
     }`;
   };
 
+  const toggleShuffle = useSelector(
+    (state) => state.playlist.shuffleTracksStatus
+  );
+
   const nextPlay = () => {
-    setPlaying(true)
-    dispatch(startHandlePlay({...trackNow, statusPlay: true}))
-    dispatch(nextButton(trackNow));
+    if (!toggleShuffle) {
+      setPlaying(true);
+      dispatch(startHandlePlay({ ...trackNow, statusPlay: true }));
+      dispatch(nextButton(trackNow));
+    } else {
+      setPlaying(true);
+      dispatch(startHandlePlay({ ...trackNow, statusPlay: true }));
+      dispatch(nextButtonShuffle())
+    }
   };
 
   const prevPlay = () => {
-    setPlaying(true)
-    dispatch(startHandlePlay({...trackNow, statusPlay: true}))
-    dispatch(prevButton(trackNow));
+    if (!toggleShuffle) {
+      setPlaying(true);
+      dispatch(startHandlePlay({ ...trackNow, statusPlay: true }));
+      dispatch(prevButton(trackNow));
+    } else {
+      setPlaying(true);
+      dispatch(startHandlePlay({ ...trackNow, statusPlay: true }));
+      console.log('prevShuffle');
+    }
   };
 
   const shuffleTracks = () => {
     dispatch(shuffleTracksButton());
   };
-
-  const toggleShuffle = !useSelector((state) => state.playlist.shuffleTracksStatus);
 
   useEffect(() => {
     if (!playing) {
@@ -128,11 +143,19 @@ export const PlayerPanel = ({ trackNow, playing, setPlaying }) => {
       if (ending) {
         setPlaying(false);
         dispatch(startHandlePlay({ ...trackNow, statusPlay: false }));
-        setTimeout(() => {
-          setPlaying(true);
-          dispatch(startHandlePlay({ ...trackNow, statusPlay: true }));
-          dispatch(nextButton(trackNow));
-        }, 10);
+        if (!toggleShuffle) {
+          setTimeout(() => {
+            setPlaying(true);
+            dispatch(startHandlePlay({ ...trackNow, statusPlay: true }));
+            dispatch(nextButton(trackNow));
+          }, 2000);
+        } else {
+          setTimeout(() => {
+            setPlaying(true);
+            dispatch(startHandlePlay({ ...trackNow, statusPlay: true }));
+            dispatch(nextButtonShuffle())
+          }, 2000);
+        }
       }
     };
 
@@ -245,7 +268,7 @@ export const PlayerPanel = ({ trackNow, playing, setPlaying }) => {
                   </S.RepeatButtonSvg>
                 </S.RepeatButton>
                 <S.ShuffleButton>
-                  {!toggleShuffle ? (
+                  {toggleShuffle ? (
                     <S.ShuffleButtonSvgOn
                       alt="shuffle"
                       onClick={() => {
