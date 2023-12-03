@@ -39,7 +39,7 @@ export const playlist = createSlice({
           album: filter[0][1],
           author: filter[0][2],
           track_file: filter[0][3],
-          statusPlay: filter[0][4],
+          statusPlay: true,
         };
       } else {
         state.nowPlay = {
@@ -47,7 +47,7 @@ export const playlist = createSlice({
           album: state.data[0].album,
           author: state.data[0].author,
           track_file: state.data[0].track_file,
-          statusPlay: state.data[0].statusPlay,
+          statusPlay: true,
         };
       }
     },
@@ -66,7 +66,7 @@ export const playlist = createSlice({
           album: filter[0][1],
           author: filter[0][2],
           track_file: filter[0][3],
-          statusPlay: filter[0][4],
+          statusPlay: true,
         };
       } else {
         state.nowPlay = {
@@ -74,7 +74,7 @@ export const playlist = createSlice({
           album: state.data[state.data.length - 1].album,
           author: state.data[state.data.length - 1].author,
           track_file: state.data[state.data.length - 1].track_file,
-          statusPlay: state.data[state.data.length - 1].statusPlay,
+          statusPlay: true,
         };
       }
     },

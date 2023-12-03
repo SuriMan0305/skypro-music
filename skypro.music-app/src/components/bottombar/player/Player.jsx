@@ -81,10 +81,14 @@ export const PlayerPanel = ({ trackNow, playing, setPlaying }) => {
   };
 
   const nextPlay = () => {
+    setPlaying(true)
+    dispatch(startHandlePlay({...trackNow, statusPlay: true}))
     dispatch(nextButton(trackNow));
   };
 
   const prevPlay = () => {
+    setPlaying(true)
+    dispatch(startHandlePlay({...trackNow, statusPlay: true}))
     dispatch(prevButton(trackNow));
   };
 
