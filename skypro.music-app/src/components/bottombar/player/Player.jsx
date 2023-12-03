@@ -6,6 +6,7 @@ import {
   nextButton,
   nextButtonShuffle,
   prevButton,
+  prevButtonShuffle,
   shuffle,
   shuffleTracksButton,
   startHandlePlay,
@@ -105,7 +106,7 @@ export const PlayerPanel = ({ trackNow, playing, setPlaying }) => {
     } else {
       setPlaying(true);
       dispatch(startHandlePlay({ ...trackNow, statusPlay: true }));
-      console.log('prevShuffle');
+      dispatch(prevButtonShuffle())
     }
   };
 

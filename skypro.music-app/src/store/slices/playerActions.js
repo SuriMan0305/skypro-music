@@ -10,7 +10,7 @@ const initialState = {
     statusPlay: "",
   },
   shuffleTracksStatus: false,
-  shuffleTracksList: "",
+  shuffleTracksList: [],
 };
 
 export const playlist = createSlice({
@@ -107,32 +107,56 @@ export const playlist = createSlice({
       }
     },
     nextButtonShuffle: (state) => {
-      let pos = 0;
-      let count = 0;
-
-      state.shuffleTracksList.map((list, index) => {
-        const nowIdTrack = state.nowPlay.id;
-        if (list.id === nowIdTrack) {
-          pos = index;
-        }
-        if (pos !== 0) {
-          if (count > 1) {
-            pos = 0;
-            count = count - 2;
-            state.nowPlay = {
-              id: list.id,
-              album: list.album,
-              author: list.author,
-              track_file: list.track_file,
-              statusPlay: true,
-            };
-            console.log(list.id);
+      let check = false;
+      state.shuffleTracksList.map((el, index) => {
+        if ((state.nowPlay.id === el.id)&&(index !== state.shuffleTracksList.length -1)&&(!check)) {
+          state.nowPlay = {
+            id: state.shuffleTracksList[index+1].id,
+            album: state.shuffleTracksList[index+1].album,
+            author: state.shuffleTracksList[index+1].author,
+            track_file: state.shuffleTracksList[index+1].track_file,
+            statusPlay: true,
           }
-          count++;
+          check = true
+          console.log(el.id);
+        } else if ((index === state.shuffleTracksList.length - 1) && (!check)) {
+          state.nowPlay = {
+            id: state.shuffleTracksList[0].id,
+            album: state.shuffleTracksList[0].album,
+            author: state.shuffleTracksList[0].author,
+            track_file: state.shuffleTracksList[0].track_file,
+            statusPlay: true,
+          }
+          console.log(el.id);
         }
-      });
+      })
     },
-    prevButtonShuffle: (state) => {},
+    prevButtonShuffle: (state) => {
+      let check = false;
+
+      state.shuffleTracksList.map((el, index) => {
+        if ((state.nowPlay.id === el.id)&&(index !== state.shuffleTracksList.length -1)&&(!check)) {
+          state.nowPlay = {
+            id: state.shuffleTracksList[index-1].id,
+            album: state.shuffleTracksList[index-1].album,
+            author: state.shuffleTracksList[index-1].author,
+            track_file: state.shuffleTracksList[index-1].track_file,
+            statusPlay: true,
+          }
+          check = true
+          console.log(el.id);
+        } else if ((index === state.shuffleTracksList.length - 1) && (!check)) {
+          state.nowPlay = {
+            id: state.shuffleTracksList[state.shuffleTracksList.length -1].id,
+            album: state.shuffleTracksList[state.shuffleTracksList.length -1].album,
+            author: state.shuffleTracksList[state.shuffleTracksList.length -1].author,
+            track_file: state.shuffleTracksList[state.shuffleTracksList.length -1].track_file,
+            statusPlay: true,
+          }
+          console.log('el.id');
+        }
+      })
+    },
     setNext: (state) => {
       // добавляем к счетчику и делаем всё неактивным
       state.counter++;
