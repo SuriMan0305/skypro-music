@@ -109,53 +109,61 @@ export const playlist = createSlice({
     nextButtonShuffle: (state) => {
       let check = false;
       state.shuffleTracksList.map((el, index) => {
-        if ((state.nowPlay.id === el.id)&&(index !== state.shuffleTracksList.length -1)&&(!check)) {
+        if (
+          state.nowPlay.id === el.id &&
+          index !== state.shuffleTracksList.length - 1 &&
+          !check
+        ) {
           state.nowPlay = {
-            id: state.shuffleTracksList[index+1].id,
-            album: state.shuffleTracksList[index+1].album,
-            author: state.shuffleTracksList[index+1].author,
-            track_file: state.shuffleTracksList[index+1].track_file,
+            id: state.shuffleTracksList[index + 1].id,
+            album: state.shuffleTracksList[index + 1].album,
+            author: state.shuffleTracksList[index + 1].author,
+            track_file: state.shuffleTracksList[index + 1].track_file,
             statusPlay: true,
-          }
-          check = true
+          };
+          check = true;
           console.log(el.id);
-        } else if ((index === state.shuffleTracksList.length - 1) && (!check)) {
+        } else if (index === state.shuffleTracksList.length - 1 && !check) {
           state.nowPlay = {
             id: state.shuffleTracksList[0].id,
             album: state.shuffleTracksList[0].album,
             author: state.shuffleTracksList[0].author,
             track_file: state.shuffleTracksList[0].track_file,
             statusPlay: true,
-          }
+          };
           console.log(el.id);
         }
-      })
+      });
     },
     prevButtonShuffle: (state) => {
       let check = false;
 
       state.shuffleTracksList.map((el, index) => {
-        if ((state.nowPlay.id === el.id)&&(index !== state.shuffleTracksList.length -1)&&(!check)) {
+        if (
+          state.nowPlay.id === el.id &&
+          index !== state.shuffleTracksList.length - 1 &&
+          !check
+        ) {
           state.nowPlay = {
-            id: state.shuffleTracksList[index-1].id,
-            album: state.shuffleTracksList[index-1].album,
-            author: state.shuffleTracksList[index-1].author,
-            track_file: state.shuffleTracksList[index-1].track_file,
+            id: state.shuffleTracksList[index - 1].id,
+            album: state.shuffleTracksList[index - 1].album,
+            author: state.shuffleTracksList[index - 1].author,
+            track_file: state.shuffleTracksList[index - 1].track_file,
             statusPlay: true,
-          }
-          check = true
+          };
+          check = true;
           console.log(el.id);
-        } else if ((index === state.shuffleTracksList.length - 1) && (!check)) {
+        } else if (index === state.shuffleTracksList.length - 1 && !check) {
           state.nowPlay = {
-            id: state.shuffleTracksList[state.shuffleTracksList.length -1].id,
-            album: state.shuffleTracksList[state.shuffleTracksList.length -1].album,
-            author: state.shuffleTracksList[state.shuffleTracksList.length -1].author,
-            track_file: state.shuffleTracksList[state.shuffleTracksList.length -1].track_file,
+            id: state.shuffleTracksList[index].id,
+            album: state.shuffleTracksList[index].album,
+            author: state.shuffleTracksList[index].author,
+            track_file: state.shuffleTracksList[index].track_file,
             statusPlay: true,
-          }
-          console.log('el.id');
+          };
+          console.log(el.id);
         }
-      })
+      });
     },
     setNext: (state) => {
       // добавляем к счетчику и делаем всё неактивным
