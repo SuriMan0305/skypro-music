@@ -3,9 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   data: [undefined],
   nowPlay: {
+    id: '',
     album: '',
     author: '',
     track_file: '',
+    statusPlay: false,
   },
 };
 

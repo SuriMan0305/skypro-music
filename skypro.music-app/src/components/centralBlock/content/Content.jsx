@@ -7,19 +7,21 @@ import { useSelector } from "react-redux";
 export const MainContent = ({
   playerVision,
   setPlayerVision,
+  trackNow,
+  playing,
+  setPlaying,
 }) => {
   const [load, setLoad] = useState(true);
 
-  const trackList = useSelector(state => state.playlist.data)
-  
+  const trackList = useSelector((state) => state.playlist.data);
+
   useEffect(() => {
     if (trackList[0] !== undefined) {
-      setLoad(false)
+      setLoad(false);
     } else {
-      setLoad(true)
+      setLoad(true);
     }
-    console.log(trackList);
-  })
+  });
   return (
     <S.Content>
       <S.ContentTitle>
@@ -62,7 +64,10 @@ export const MainContent = ({
           </>
         ) : (
           <S.Container>
-              <TrackInfo
+            <TrackInfo
+              playing={playing}
+              setPlaying={setPlaying}
+              trackNow={trackNow}
               trackList={trackList}
               playerVision={playerVision}
               setPlayerVision={setPlayerVision}

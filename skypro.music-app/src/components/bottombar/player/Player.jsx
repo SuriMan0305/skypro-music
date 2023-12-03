@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { PlayingInfoSong } from "../info/SongInfo";
 import * as S from "../PlayeStyles.js";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { startHandlePlay } from "../../../store/slices/playerActions.js";
 
-export const PlayerPanel = () => {
-  const [playing, setPlaying] = useState(true);
+export const PlayerPanel = ({ trackNow, playing, setPlaying }) => {
   const [volume, setVolume] = useState(0.5);
   const [isLoop, setIsLoop] = useState(true);
   const [nowTime, setNowTime] = useState(0);
@@ -15,15 +15,17 @@ export const PlayerPanel = () => {
   const inputRef = useRef(null);
   const audioRef = useRef(null);
 
-  const trackNow = useSelector(state => state.playlist.nowPlay)
+  const dispatch = useDispatch()
 
   const handleStart = () => {
     if ((!ending && playing) || (ending && !playing)) {
       audioRef.current.pause();
       setPlaying(false);
+      dispatch(startHandlePlay({...trackNow, statusPlay: !trackNow.statusPlay}))
     } else if ((!ending && !playing) || (ending && playing)) {
       audioRef.current.play();
       setPlaying(true);
+      dispatch(startHandlePlay({...trackNow, statusPlay: !trackNow.statusPlay}))
     }
   };
 
@@ -69,6 +71,13 @@ export const PlayerPanel = () => {
   };
 
   useEffect(() => {
+
+    if (!playing) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+
     if (volume === 0.5) {
         volumeRef.current.style.setProperty("--background-size", `50%`);
     }
@@ -89,6 +98,9 @@ export const PlayerPanel = () => {
           );
         setEnding(audioRef.current.ended);
       });
+      if (ending) {
+        setPlaying(false)
+      }
     };
 
     return getInfoFunc();
