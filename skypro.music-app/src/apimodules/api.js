@@ -1,6 +1,6 @@
 const apiUrl = "https://skypro-music-api.skyeng.tech";
 
-export async function getAllTracks({ setTrackList }) {
+export async function getAllTracks() {
   try {
     const response = await fetch(`${apiUrl}/catalog/track/all/`, {
       method: "GET",
@@ -8,11 +8,11 @@ export async function getAllTracks({ setTrackList }) {
 
     const data = await response.json();
 
-    if (data) {
-      setTrackList(data);
-    } else {
-      setTrackList([]);
-    }
+    // if (data) {
+    //   setTrackList(data);
+    // } else {
+    //   setTrackList([]);
+    // }
 
     return data;
   } catch (error) {

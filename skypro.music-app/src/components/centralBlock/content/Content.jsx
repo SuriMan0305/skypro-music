@@ -1,28 +1,27 @@
 import { TrackInfo } from "../tracks/Tracks";
 import * as S from "../MainBlockStyles.js";
-import { getAllTracks } from "../../../apimodules/api.js";
 import { useEffect, useState } from "react";
 import { SceletonTracks } from "../../sceletons/sceletonTracks";
+import { useSelector } from "react-redux";
 
 export const MainContent = ({
   playerVision,
   setPlayerVision,
-  setInfo,
-  info,
-  trackList,
-  setTrackList,
+  trackNow,
+  playing,
+  setPlaying,
 }) => {
   const [load, setLoad] = useState(true);
 
+  const trackList = useSelector((state) => state.playlist.data);
+
   useEffect(() => {
-    getAllTracks({ setTrackList }).then((response) => {
+    if (trackList[0] !== undefined) {
       setLoad(false);
-      if (response.error !== undefined) {
-        setTrackList('error')
-      }
-    });
-  }, [setTrackList]);
-  
+    } else {
+      setLoad(true);
+    }
+  });
   return (
     <S.Content>
       <S.ContentTitle>
@@ -66,12 +65,12 @@ export const MainContent = ({
         ) : (
           <S.Container>
             <TrackInfo
+              playing={playing}
+              setPlaying={setPlaying}
+              trackNow={trackNow}
               trackList={trackList}
-              setTrackList={setTrackList}
               playerVision={playerVision}
               setPlayerVision={setPlayerVision}
-              info={info}
-              setInfo={setInfo}
             />
           </S.Container>
         )}

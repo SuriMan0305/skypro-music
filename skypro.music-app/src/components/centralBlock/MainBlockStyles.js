@@ -9,6 +9,37 @@ export const Container = styled.div`
   height: 680px;
 `;
 
+export const Pulse = keyframes`
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+`
+
+export const CircleMove = styled.div`
+  display: block;
+  width: 30px;
+  height: 21px;
+  border-radius: 100%;
+  background-color: #ae00ff;
+  animation: ${Pulse} 2s ease 0s infinite normal forwards;
+`;
+
+export const CircleStop = styled.div`
+  display: block;
+  width: 30px;
+  height: 21px;
+  border-radius: 100%;
+  background-color: #ae00ff;
+`;
+
 export const PlaylistItem = styled.div`
   width: 1050px;
   display: block;

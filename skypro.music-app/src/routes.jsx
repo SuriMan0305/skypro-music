@@ -13,8 +13,6 @@ export const AppRoutes = ({
   setPlayerVision,
   info,
   setInfo,
-  trackList,
-  setTrackList,
 }) => {
   const navigate = useNavigate();
 
@@ -42,8 +40,6 @@ export const AppRoutes = ({
                 setPlayerVision={setPlayerVision}
                 info={info}
                 setInfo={setInfo}
-                trackList={trackList}
-                setTrackList={setTrackList}
               />
           }></Route>
         <Route

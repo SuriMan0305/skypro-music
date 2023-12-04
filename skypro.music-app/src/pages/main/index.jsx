@@ -6,16 +6,29 @@ import { SearchBar } from "../../components/centralBlock/search/Search";
 import { NavPanel } from "../../components/navigations/panel/MainNavPanel";
 import { FilterBlock } from "../../components/centralBlock/filterBlock/FilterBlock";
 import { MainTitle } from "../../components/centralBlock/titleBlock/MainTitle";
-import { UserContext } from "../../context/userInfo";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllTracks } from "../../apimodules/api";
+import { setPlaylist } from "../../store/slices/playerActions";
+import { useEffect, useState } from "react";
 
 export const Main = ({
   playerVision,
   setPlayerVision,
   info,
   setInfo,
-  trackList,
-  setTrackList,
 }) => {
+  const [playing, setPlaying] = useState(true);
+
+  const trackNow = useSelector(state => state.playlist.nowPlay)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    getAllTracks().then((response) => {
+      return dispatch(setPlaylist(response))
+    })
+  }, [])
+
+
   return (
     <>
       <S.AppStyle></S.AppStyle>
@@ -28,9 +41,9 @@ export const Main = ({
               <MainTitle title="Треки" />
               <FilterBlock />
               <MainContent
+                playing={playing} setPlaying={setPlaying}
+                trackNow={trackNow}
                 playerVision={playerVision}
-                trackList={trackList}
-                setTrackList={setTrackList}
                 setPlayerVision={setPlayerVision}
                 setInfo={setInfo}
                 info={info}
@@ -39,7 +52,7 @@ export const Main = ({
             <SidePanel />
           </S.Main>
           {playerVision ? (
-            <PlayerPanel info={info} setInfo={setInfo}></PlayerPanel>
+            <PlayerPanel trackNow={trackNow} playing={playing} setPlaying={setPlaying}></PlayerPanel>
           ) : (
             ""
           )}
